@@ -2,6 +2,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Changed
+- Update jackson version from 2.13.1 to 2.13.2.
+- Add jackson-databind version 2.13.2.2.
+- Update org.springframework version from 5.3.15 to 5.3.18.
+
 ## [7.0.3] - 2022-03-08
 
 ### Added

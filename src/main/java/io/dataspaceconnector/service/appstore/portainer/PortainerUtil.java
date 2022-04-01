@@ -15,10 +15,12 @@
  */
 package io.dataspaceconnector.service.appstore.portainer;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import net.minidev.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.util.SocketUtils;
 
+import java.io.IOException;
+import java.net.ServerSocket;
 import java.util.List;
 import java.util.Map;
 
@@ -38,10 +40,12 @@ public final class PortainerUtil {
      * @param containerName  The container name.
      * @return payload for the creation of a container.
      */
+    @SuppressFBWarnings("UNENCRYPTED_SERVER_SOCKET")
     public static JSONObject createContainerJSONPayload(final JSONObject templateObject,
                                                         final List<String> ports,
                                                         final Map<String, String> volumes,
-                                                        final String containerName) {
+                                                        final String containerName)
+            throws IOException {
         // Build json payload and fill single fields.
         final var jsonPayload = new JSONObject() {{
             put("Env", new JSONArray());
@@ -85,8 +89,12 @@ public final class PortainerUtil {
 
         final var portBindings = new JSONObject();
         for (final var port : ports) {
+            final var serverSocket = new ServerSocket(0);
+
             portBindings.put(port, new JSONArray().appendElement(new JSONObject()
-                    .put("HostPort", String.valueOf(SocketUtils.findAvailableTcpPort()))));
+                    .put("HostPort", String.valueOf(serverSocket.getLocalPort()))));
+
+            serverSocket.close();
         }
         hostConfig.put("PortBindings", portBindings);
 

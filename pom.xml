@@ -95,11 +95,12 @@
 
 		<!-- Dependencies -->
 		<ids-messaging-services.version>6.1.0</ids-messaging-services.version>
-		<springframework.plugin>2.0.0.RELEASE</springframework.plugin>
+		<springframework.version>5.3.18</springframework.version>
 		<swagger-annotations.version>1.6.5</swagger-annotations.version>
 		<okhttp.version>4.9.3</okhttp.version>
 		<modelmapper.version>3.0.0</modelmapper.version>
-		<jackson.version>2.13.1</jackson.version>
+		<jackson.version>2.13.2</jackson.version>
+		<jackson-databind.version>2.13.2.2</jackson-databind.version>
 		<postgres.version>42.3.3</postgres.version>
 		<springdoc.version>1.6.6</springdoc.version>
 		<equalsverifier.version>3.9</equalsverifier.version>
@@ -175,6 +176,22 @@
 					<groupId>com.squareup.okhttp3</groupId>
 					<artifactId>okhttp</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-tx</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-test</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 
@@ -190,11 +207,47 @@
 			</exclusions>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework.plugin/spring-plugin-core -->
+		<!-- Spring dependencies -->
 		<dependency>
-			<groupId>org.springframework.plugin</groupId>
-			<artifactId>spring-plugin-core</artifactId>
-			<version>${springframework.plugin}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${springframework.version}</version>
 		</dependency>
 
 		<dependency>
@@ -331,7 +384,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
+			<version>${jackson-databind.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
