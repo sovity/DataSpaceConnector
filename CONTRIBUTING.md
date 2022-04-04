@@ -1,9 +1,6 @@
 # Contributing to the Dataspace Connector
 
-The following is a set of guidelines for contributing to the Dataspace Connector. This is an ongoing
-project of the [Data Economy](https://www.isst.fraunhofer.de/en/business-units/data-economy.html)
-business unit of the [Fraunhofer ISST](https://www.isst.fraunhofer.de/en.html) hosted on
-[GitHub](https://github.com/International-Data-Spaces-Association/DataspaceConnector). You are very
+The following is a set of guidelines for contributing to the Dataspace Connector. You are very
 welcome to contribute to this project when you find a bug, want to suggest an improvement, or have
 an idea for a useful feature. For this, always create an issue and a corresponding branch, and
 follow our style guides as described below.

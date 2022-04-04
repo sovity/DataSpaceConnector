@@ -5,12 +5,6 @@
     guide!
 </h1>
 
-<h3 align="center" >
-    Please note that, as of now, <a href="https://sovity.de/">sovity</a> maintains the Dataspace
-    Connector and is responsible for further developments covering bug fixes, security issues, or
-    feature implementations. Fraunhofer ISST will no longer implement any new features within this
-    repository.
-</h3>
 
 <h1 align="center">
   <br>
@@ -22,7 +16,6 @@
 
 
 <p align="center">
-  <a href="mailto:info@dataspace-connector.de">Contact</a> •
   <a href="#contributing">Contribute</a> •
   <a href="https://international-data-spaces-association.github.io/DataspaceConnector/">Docs</a> •
   <a href="https://github.com/International-Data-Spaces-Association/DataspaceConnector/issues">Issues</a> •
@@ -116,7 +109,12 @@ You are very welcome to contribute to this project when you find a bug, want to 
 improvement, or have an idea for a useful feature. Please find a set of guidelines at the
 [CONTRIBUTING.md](CONTRIBUTING.md) and the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
-The core development is driven by
+The current development is driven by
+* [Sebastian Opriel](https://github.com/SebastianOpriel), [sovity GmbH](http://sovity.de)
+* [Tim Berthold](https://github.com/tmberthold), [sovity GmbH](http://sovity.de)
+* [Omar Silva](https://github.com/omarsilva1), [sovity GmbH](http://sovity.de)
+
+The former core development was driven by
 * [Heinrich Pettenpohl](https://github.com/HeinrichPet), [Fraunhofer ISST](https://www.isst.fraunhofer.de/en.html), project manager
 * [Julia Pampus](https://github.com/juliapampus), [Fraunhofer ISST](https://www.isst.fraunhofer.de/en.html), lead developer
 * [Brian-Frederik Jahnke](https://github.com/brianjahnke), [Fraunhofer ISST](https://www.isst.fraunhofer.de/en.html)
@@ -129,10 +127,8 @@ with significant contributions, comments, and support by (in alphabetical order)
 * [Haydar Qarawlus](https://github.com/hqarawlus), [Fraunhofer ISST](https://www.isst.fraunhofer.de/en.html)
 * [Johannes Pieperbeck](https://github.com/jpieperbeck), [Fraunhofer ISST](https://www.isst.fraunhofer.de/en.html)
 * [Michael Lux](https://github.com/milux), [Fraunhofer AISEC](https://www.aisec.fraunhofer.de/en.html)
-* [Omar Luiz Barreto Silva](https://github.com/ob-silva), [Fraunhofer ISST](https://www.isst.fraunhofer.de/en.html)
 * [René Brinkhege](https://github.com/renebrinkhege), [Fraunhofer ISST](https://www.isst.fraunhofer.de/en.html)
 * [Steffen Biehs](https://github.com/steffen-biehs), [Fraunhofer ISST](https://www.isst.fraunhofer.de/en.html)
-* [Tim Berthold](https://github.com/tmberthold), [Fraunhofer ISST](https://www.isst.fraunhofer.de/en.html)
 
 ## License
 Copyright © 2020-2022 [Fraunhofer ISST](https://www.isst.fraunhofer.de/en.html).
