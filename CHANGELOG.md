@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 - Update jackson version from 2.13.1 to 2.13.2.
 - Add jackson-databind version 2.13.2.2.
 - Update org.springframework version from 5.3.15 to 5.3.18.
+- Update org.springframework.boot:spring-boot-starter-parent from 2.6.3 to 2.6.6.
 
 ## [7.0.3] - 2022-03-08
 
