@@ -98,12 +98,12 @@
 		<springframework.version>5.3.18</springframework.version>
 		<swagger-annotations.version>1.6.5</swagger-annotations.version>
 		<okhttp.version>4.9.3</okhttp.version>
-		<modelmapper.version>3.0.0</modelmapper.version>
+		<modelmapper.version>3.1.0</modelmapper.version>
 		<jackson.version>2.13.2</jackson.version>
 		<jackson-databind.version>2.13.2.2</jackson-databind.version>
 		<postgres.version>42.3.3</postgres.version>
 		<springdoc.version>1.6.6</springdoc.version>
-		<equalsverifier.version>3.9</equalsverifier.version>
+		<equalsverifier.version>3.10</equalsverifier.version>
 		<jaeger.version>3.3.1</jaeger.version>
 		<freemarker.version>2.3.31</freemarker.version>
 		<camel.version>3.15.0</camel.version>
@@ -112,26 +112,26 @@
 
 		<!-- Plugins -->
 		<maven-enforcer-plugin.version>3.0.0</maven-enforcer-plugin.version>
-		<maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version>
-		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-		<pitest.version>1.7.4</pitest.version>
+		<maven-surefire-plugin.version>3.0.0-M6</maven-surefire-plugin.version>
+		<maven-javadoc-plugin.version>3.3.2</maven-javadoc-plugin.version>
+		<pitest.version>1.7.5</pitest.version>
 		<pitest-junit5-plugin.version>0.15</pitest-junit5-plugin.version>
 		<tidy.version>1.1.0</tidy.version>
-		<maven-site-plugin.version>3.10.0</maven-site-plugin.version>
-		<maven-project-info-reports-plugin.version>3.2.1</maven-project-info-reports-plugin.version>
+		<maven-site-plugin.version>3.11.0</maven-site-plugin.version>
+		<maven-project-info-reports-plugin.version>3.2.2</maven-project-info-reports-plugin.version>
 		<spotbugs.version>4.5.3</spotbugs.version>
 		<findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
 		<checkstyle-plugin.version>3.1.2</checkstyle-plugin.version>
-		<checkstyle.version>9.3</checkstyle.version>
+		<checkstyle.version>10.1</checkstyle.version>
 		<jacoco.version>0.8.7</jacoco.version>
-		<pmd-plugin.version>3.15.0</pmd-plugin.version>
-		<pmd.version>6.42.0</pmd.version>
-		<versions-maven-plugin.version>2.9.0</versions-maven-plugin.version>
+		<pmd.version>6.44.0</pmd.version>
+		<pmd-plugin.version>3.16.0</pmd-plugin.version>
+		<versions-maven-plugin.version>2.10.0</versions-maven-plugin.version>
 		<license-plugin.version>4.1</license-plugin.version>
 		<dms.version>2.2.0</dms.version>
 		<taglist.version>3.0.0</taglist.version>
-		<jxr.version>3.1.1</jxr.version>
-		<dependency-check.version>6.5.3</dependency-check.version>
+		<dependency-check.version>7.0.4</dependency-check.version>
+		<jxr.version>3.2.0</jxr.version>
 
 		<!-- License -->
 		<license_name>Apache License, Version 2.0</license_name>
@@ -292,7 +292,7 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-			<version>8.4.4</version>
+			<version>8.5.5</version>
 		</dependency>
 
 		<dependency>

@@ -9,6 +9,20 @@ All notable changes to this project will be documented in this file.
 - Add jackson-databind version 2.13.2.2.
 - Update org.springframework version from 5.3.15 to 5.3.18.
 - Update org.springframework.boot:spring-boot-starter-parent from 2.6.3 to 2.6.6.
+- Update maven-surefire-plugin version from 3.0.0-M5 to 3.0.0-M6.
+- Update org.modelmapper:modelmapper version from 3.0.0 to 3.1.0.
+- Update nl.jqno.equalsverifier:equalsverifier version from 3.9 to 3.10.
+- Update org.apache.maven.plugins:maven-javadoc-plugin version from 3.3.1 to 3.3.2.
+- Update org.pitest:pitest-maven version from 1.7.4 to 1.7.5.
+- Update org.apache.maven.plugins:maven-site-plugin version from 3.10.0 to 3.11.0.
+- Update org.apache.maven.plugins:maven-project-info-reports-plugin version from 3.2.1 to 3.2.2.
+- Update com.puppycrawl.tools:checkstyle version from 9.3 to 10.1.
+- Update net.sourceforge.pmd version from 6.42.0 to 6.44.0.
+- Update org.apache.maven.plugins:maven-pmd-plugin version from 3.15.0 to 3.16.0.
+- Update org.codehaus.mojo:versions-maven-plugin version from 2.9.0 to 2.10.0.
+- Update org.owasp:dependency-check-maven version from 6.5.3 to 7.0.4.
+- Update org.apache.maven.plugins:maven-jxr-plugin version from 3.1.1 to 3.2.0.
+- Update org.flywaydb:flyway-core version from 8.4.4 to 8.5.5.
 
 ## [7.0.3] - 2022-03-08
 
