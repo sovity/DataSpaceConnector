@@ -868,6 +868,7 @@
 								<exclude>charts/**/*.tpl</exclude>
 								<exclude>docs/**</exclude>
 								<exclude>.editorconfig</exclude>
+								<exclude>**/.trivyignore</exclude>
 							</excludes>
 						</licenseSet>
 					</licenseSets>
