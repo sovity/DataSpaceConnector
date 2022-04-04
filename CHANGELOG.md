@@ -24,6 +24,7 @@ All notable changes to this project will be documented in this file.
 - Update org.apache.maven.plugins:maven-jxr-plugin version from 3.1.1 to 3.2.0.
 - Update org.flywaydb:flyway-core version from 8.4.4 to 8.5.5.
 - Update spotbugs version from 4.5.3 to 4.6.0.
+- Update camel version from 3.15.0 to 3.16.0.
 
 ## [7.0.3] - 2022-03-08
 
