@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+- Derive maven compiler version globally in pom instead of setting it individually.
+
 ### Changed
 - Update jackson version from 2.13.1 to 2.13.2.
 - Add jackson-databind version 2.13.2.2.
