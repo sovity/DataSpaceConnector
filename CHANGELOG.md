@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Add additional field to `GenericEndpointView`.
+
 ### Fixed
 - Derive maven compiler version globally in pom instead of setting it individually.
 

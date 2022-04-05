@@ -15,13 +15,14 @@
  */
 package io.dataspaceconnector.controller.resource.view.endpoint;
 
-
 import io.dataspaceconnector.controller.resource.type.EndpointController;
 import io.dataspaceconnector.controller.resource.view.util.SelfLinkHelper;
 import io.dataspaceconnector.model.endpoint.GenericEndpoint;
 import io.dataspaceconnector.model.endpoint.GenericEndpointDesc;
 import io.dataspaceconnector.model.endpoint.GenericEndpointFactory;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -43,6 +44,8 @@ public class GenericEndpointViewAssemblerTest {
         assertEquals(after.getLocation(), shouldLookLike.getLocation());
         assertFalse(after.getLinks().isEmpty());
         assertTrue(after.getLinks().contains(link));
+        assertFalse(after.getAdditional().isEmpty());
+        assertEquals(after.getAdditional().get("test1"), "test2");
     }
 
     private GenericEndpoint getGenericEndpoint() {
@@ -52,7 +55,11 @@ public class GenericEndpointViewAssemblerTest {
 
     private GenericEndpointDesc getGenericEndpointDesc() {
         final var desc = new GenericEndpointDesc();
+        final var additional = new HashMap<String, String>();
+        additional.put("test1", "test2");
+
         desc.setLocation("https://backend.com");
+        desc.setAdditional(additional);
         return desc;
     }
 
