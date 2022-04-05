@@ -23,7 +23,7 @@
         "ids:keyValue" : "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuw6mFrdflXZTJgFOA5smDXC09SmpJWoGpyERZNEy31pKdsRGhTipR27j9irmmqihv7gIgzCnx6kIRNGI2u0oFQ5FgvO1xxgzcihdpF0CheOf9INgisPkq5hj8Ae/DYXkvjhQ6c6ak/ZYfj0NpqyEPcJ5MLRmYGexMaMZmTbqDJvJl5JG3+bE3Ya21hTZYOxiSicpfFgJ30kn5aUIAtd05IZy7z1sDiVLtTXlLfe/ZQC4pnjFts+tc12sX9ihImnCkd0Wvz3CTZoyBSsc1TdBkb9m0C5tvg0fQP4QgF/zH2QoZnnrI52uAZ8MomWtY2lt3D0kkpR69pfVDJ7y3vN/ewIDAQAB"
       },
       "ids:description" : [ {
-        "@value" : "IDS Connector with static example resources hosted by the Fraunhofer ISST",
+        "@value" : "IDS Connector reference implementation",
         "@type" : "http://www.w3.org/2001/XMLSchema#string"
       } ],
       "ids:version" : "@project.version@",
@@ -44,10 +44,10 @@
         "@id" : "idsc:BASE_SECURITY_PROFILE"
       },
       "ids:curator" : {
-        "@id" : "https://www.isst.fraunhofer.de/"
+        "@id" : "https://example.org/"
       },
       "ids:maintainer" : {
-        "@id" : "https://www.isst.fraunhofer.de/"
+        "@id" : "https://sovity.de/"
       }
     },
     "ids:trustStore" : {

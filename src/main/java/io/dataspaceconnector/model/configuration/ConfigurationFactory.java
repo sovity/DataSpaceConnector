@@ -78,12 +78,12 @@ public class ConfigurationFactory extends AbstractNamedFactory<Configuration, Co
     /**
      * The default maintainer.
      */
-    public static final URI DEFAULT_MAINTAINER = URI.create("https://www.isst.fraunhofer.de/");
+    public static final URI DEFAULT_MAINTAINER = URI.create("https://sovity.de/");
 
     /**
      * The default curator.
      */
-    public static final URI DEFAULT_CURATOR = URI.create("https://www.isst.fraunhofer.de/");
+    public static final URI DEFAULT_CURATOR = URI.create("https://example.org/");
 
     /**
      * The default security profile.

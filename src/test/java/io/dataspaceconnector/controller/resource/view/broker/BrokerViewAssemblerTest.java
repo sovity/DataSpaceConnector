@@ -60,7 +60,7 @@ public class BrokerViewAssemblerTest {
 
     private BrokerDesc getBrokerDesc() {
         final var desc = new BrokerDesc();
-        desc.setLocation(URI.create("https://broker.ids.isst.fraunhofer.de/infrastructure/"));
+        desc.setLocation(URI.create("https://example.org/"));
         desc.setTitle("IDS Broker");
         desc.setStatus(RegistrationStatus.UNREGISTERED);
         return desc;

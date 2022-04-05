@@ -11,6 +11,12 @@ All notable changes to this project will be documented in this file.
 - Derive maven compiler version globally in pom instead of setting it individually.
 
 ### Changed
+- Updating of the connector branding.
+
+### Removed
+- Removed com.mycila:license-maven-plugin to support multiple different license headers.
+
+### Dependency Maintenance
 - Update jackson version from 2.13.1 to 2.13.2.
 - Add jackson-databind version 2.13.2.2.
 - Update org.springframework version from 5.3.15 to 5.3.18.
@@ -47,8 +53,6 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - Use connector fingerprints instead of IDs to create processes at the Clearing House.
-
-### Fixed
 - Add relation annotation to `DatabaseDataSourceView` to display all `DataSources` in the same array.
 - Add missing semicolons in baseline.sql to comply with proper SQL syntax for flyway.
 

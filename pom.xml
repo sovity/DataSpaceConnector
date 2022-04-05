@@ -32,12 +32,12 @@
 	<version>${revision}</version>
 
 	<name>Dataspace Connector</name>
-	<description>IDS Connector originally developed by the Fraunhofer ISST</description>
-	<url>https://www.dataspace-connector.io/</url>
+	<description>IDS Connector reference implementation</description>
+	<url>https://github.com/International-Data-Spaces-Association/DataspaceConnector</url>
 	<inceptionYear>2020-2022</inceptionYear>
 	<organization>
-		<name>Fraunhofer Institute for Software and Systems Engineering</name>
-		<url>https://www.isst.fraunhofer.de/</url>
+		<name>sovity GmbH</name>
+		<url>https://sovity.de</url>
 	</organization>
 	<licenses>
 		<license>
@@ -47,46 +47,15 @@
 		</license>
 	</licenses>
 
-	<developers>
-		<developer>
-			<name>Julia Pampus</name>
-			<email>julia.pampus@isst.fraunhofer.de</email>
-			<organization>Fraunhofer Institute for Software and Systems Engineering</organization>
-			<organizationUrl>https://www.isst.fraunhofer.de/</organizationUrl>
-			<roles>
-				<role>lead</role>
-				<role>developer</role>
-			</roles>
-		</developer>
-		<developer>
-			<name>Ronja Quensel</name>
-			<email>ronja.quensel@isst.fraunhofer.de</email>
-			<organization>Fraunhofer Institute for Software and Systems Engineering</organization>
-			<organizationUrl>https://www.isst.fraunhofer.de/</organizationUrl>
-			<roles>
-				<role>developer</role>
-			</roles>
-		</developer>
-		<developer>
-			<name>Brian-Frederik Jahnke</name>
-			<email>brian-frederik.jahnke@isst.fraunhofer.de</email>
-			<organization>Fraunhofer Institute for Software and Systems Engineering</organization>
-			<organizationUrl>https://www.isst.fraunhofer.de/</organizationUrl>
-			<roles>
-				<role>developer</role>
-			</roles>
-		</developer>
-	</developers>
-
 	<issueManagement>
 		<system>Github</system>
-		<url>https://github.com/FraunhoferISST/DataspaceConnector/issues</url>
+		<url>https://github.com/International-Data-Spaces-Association/DataspaceConnector/issues</url>
 	</issueManagement>
 
 	<properties>
 		<!-- General -->
 		<revision>7.0.3</revision>
-		<email>info@dataspace-connector.de</email>
+		<email>support@sovity.de</email>
 
 		<!-- Build info -->
 		<java.version>17</java.version>
@@ -819,39 +788,6 @@
                         </configuration>
                     </execution>
                 </executions>
-			</plugin>
-			<plugin>
-				<groupId>com.mycila</groupId>
-				<artifactId>license-maven-plugin</artifactId>
-				<version>${license-plugin.version}</version>
-				<configuration>
-					<licenseSets>
-						<licenseSet>
-							<header>scripts/ci/license/header.txt</header>
-							<excludes>
-								<exclude>**/README</exclude>
-								<exclude>src/test/resources/**</exclude>
-								<exclude>src/main/resources/**</exclude>
-								<exclude>scripts/ci/e2e/active-tests.txt</exclude>
-								<exclude>**/*.env</exclude>
-								<exclude>**/lombok.config</exclude>
-								<exclude>**/.dockerignore</exclude>
-								<exclude>charts/**/Chart.lock</exclude>
-								<exclude>charts/**/.helmignore</exclude>
-								<exclude>charts/**/**/*.yaml</exclude>
-								<exclude>charts/**/**/NOTES.txt</exclude>
-								<exclude>**/requirements.txt</exclude>
-								<exclude>**/*.tgz</exclude>
-								<exclude>charts/**/*.tpl</exclude>
-								<exclude>docs/**</exclude>
-								<exclude>.editorconfig</exclude>
-							</excludes>
-						</licenseSet>
-					</licenseSets>
-					<properties>
-						<year>${project.inceptionYear}</year>
-					</properties>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.pitest</groupId>
