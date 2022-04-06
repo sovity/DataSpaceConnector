@@ -2,7 +2,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [7.1.0] - 2022-04-06
 
 ### Added
 - Add additional field to `GenericEndpointView`.

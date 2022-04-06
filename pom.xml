@@ -54,7 +54,7 @@
 
 	<properties>
 		<!-- General -->
-		<revision>7.0.3</revision>
+		<revision>7.1.0</revision>
 		<email>support@sovity.de</email>
 
 		<!-- Build info -->
