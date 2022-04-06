@@ -39,6 +39,7 @@ All notable changes to this project will be documented in this file.
 - Update camel version from 3.15.0 to 3.16.0.
 - Update com.google.protobuf:protobuf-java version from 3.19.4 to 3.20.0.
 - Update io.swagger:swagger-annotations version from 1.6.5 to 1.6.6.
+- Update org.jacoco:jacoco-maven-plugin version from 0.8.7 to 0.8.8.
 
 ## [7.0.3] - 2022-03-08
 
