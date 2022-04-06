@@ -103,4 +103,10 @@ public final class BaseType {
      * The app stores' base path.
      */
     public static final String APPSTORES = "appstores";
+
+    /**
+     * The daps' base path.
+     */
+    public static final String DAPS = "daps";
+
 }

@@ -103,4 +103,10 @@ public final class BasePath {
      * The app stores' base path.
      */
     public static final String APPSTORES = "/api/" + BaseType.APPSTORES;
+
+    /**
+     * The daps' base path.
+     */
+    public static final String DAPS = "/api/" + BaseType.DAPS;
+
 }

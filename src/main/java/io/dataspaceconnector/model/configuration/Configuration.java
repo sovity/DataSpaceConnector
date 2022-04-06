@@ -150,7 +150,7 @@ public class Configuration extends NamedEntity {
     private Keystore keystore;
 
     /**
-     * Weather this config is the active one.
+     * Whether this config is the active one.
      */
     @Column(unique = true)
     private Boolean active;
