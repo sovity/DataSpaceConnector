@@ -2,6 +2,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [UNRELEASED]
+
+### Changed
+- Update com.h3xstream.findsecbugs:findsecbugs-plugin version from 1.11.0 to 1.12.0.
+
 ## [7.1.0] - 2022-04-06
 
 ### Added
