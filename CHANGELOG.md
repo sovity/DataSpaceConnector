@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Update com.h3xstream.findsecbugs:findsecbugs-plugin version from 1.11.0 to 1.12.0.
+- Update org.flywaydb:flyway-core version from 8.5.5 to 8.5.6.
 
 ## [7.1.0] - 2022-04-06
 
