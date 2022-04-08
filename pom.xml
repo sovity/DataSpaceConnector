@@ -76,8 +76,9 @@
 		<jaeger.version>3.3.1</jaeger.version>
 		<freemarker.version>2.3.31</freemarker.version>
 		<camel.version>3.16.0</camel.version>
-		<idscp2.version>0.6.0</idscp2.version>
+		<idscp2.version>0.10.2</idscp2.version>
 		<protobuf.version>3.20.0</protobuf.version>
+		<jsonwebtoken.version>0.11.2</jsonwebtoken.version>
 
 		<!-- Plugins -->
 		<maven-enforcer-plugin.version>3.0.0</maven-enforcer-plugin.version>
@@ -555,6 +556,28 @@
 				</exclusion>
             </exclusions>
         </dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>${jsonwebtoken.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>${jsonwebtoken.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.bitbucket.b_c/jose4j -->
+		<dependency>
+			<groupId>org.bitbucket.b_c</groupId>
+			<artifactId>jose4j</artifactId>
+			<version>0.7.11</version>
+		</dependency>
 
 	</dependencies>
 
