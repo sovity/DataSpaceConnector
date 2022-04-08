@@ -126,30 +126,30 @@ public final class SelfLinkHelper {
      * @return The abstract entity.
      */
     public <T extends Entity> URI getSelfLink(final T entity) {
-        if (entity instanceof Catalog) {
-            return getSelfLink((Catalog) entity);
-        } else if (entity instanceof OfferedResource) {
-            return getSelfLink((OfferedResource) entity);
-        } else if (entity instanceof RequestedResource) {
-            return getSelfLink((RequestedResource) entity);
-        } else if (entity instanceof Representation) {
-            return getSelfLink((Representation) entity);
-        } else if (entity instanceof Artifact) {
-            return getSelfLink((Artifact) entity);
-        } else if (entity instanceof Contract) {
-            return getSelfLink((Contract) entity);
-        } else if (entity instanceof ContractRule) {
-            return getSelfLink((ContractRule) entity);
-        } else if (entity instanceof Agreement) {
-            return getSelfLink((Agreement) entity);
-        } else if (entity instanceof GenericEndpoint) {
-            return getSelfLink((GenericEndpoint) entity);
-        } else if (entity instanceof AppEndpoint) {
-            return getSelfLink((AppEndpoint) entity);
-        } else if (entity instanceof Route) {
-            return getSelfLink((Route) entity);
-        } else if (entity instanceof Subscription) {
-            return getSelfLink((Subscription) entity);
+        if (entity instanceof Catalog catalog) {
+            return getSelfLink(catalog);
+        } else if (entity instanceof OfferedResource offeredResource) {
+            return getSelfLink(offeredResource);
+        } else if (entity instanceof RequestedResource requestedResource) {
+            return getSelfLink(requestedResource);
+        } else if (entity instanceof Representation representation) {
+            return getSelfLink(representation);
+        } else if (entity instanceof Artifact artifact) {
+            return getSelfLink(artifact);
+        } else if (entity instanceof Contract contract) {
+            return getSelfLink(contract);
+        } else if (entity instanceof ContractRule contractRule) {
+            return getSelfLink(contractRule);
+        } else if (entity instanceof Agreement agreement) {
+            return getSelfLink(agreement);
+        } else if (entity instanceof GenericEndpoint genericEndpoint) {
+            return getSelfLink(genericEndpoint);
+        } else if (entity instanceof AppEndpoint appEndpoint) {
+            return getSelfLink(appEndpoint);
+        } else if (entity instanceof Route route) {
+            return getSelfLink(route);
+        } else if (entity instanceof Subscription subscription) {
+            return getSelfLink(subscription);
         }
 
         throw new UnreachableLineException(ErrorMessage.UNKNOWN_TYPE);

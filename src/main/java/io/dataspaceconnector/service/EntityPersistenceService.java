@@ -316,8 +316,8 @@ public class EntityPersistenceService {
     private Optional<URI> getInstanceId(final AppResource appResource) {
         if (appResource != null && appResource.getRepresentation() != null) {
             final var representations = appResource.getRepresentation().stream()
-                    .filter(x -> x instanceof AppRepresentation)
-                    .map(x -> (AppRepresentation) x)
+                    .filter(AppRepresentation.class::isInstance)
+                    .map(AppRepresentation.class::cast)
                     .collect(Collectors.toList());
             if (!representations.isEmpty()) {
                 final var instance = representations.get(0).getInstance();

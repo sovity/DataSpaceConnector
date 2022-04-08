@@ -52,9 +52,9 @@ public class BeanReDeployer {
     public void recreateDataSourceBeans() {
         final var dataSources = repository.findAll();
         for (var dataSource : dataSources) {
-            if (dataSource instanceof DatabaseDataSource) {
+            if (dataSource instanceof DatabaseDataSource databaseDataSource) {
                 try {
-                    beanManager.createDataSourceBean((DatabaseDataSource) dataSource);
+                    beanManager.createDataSourceBean(databaseDataSource);
                     if (log.isDebugEnabled()) {
                         log.debug("Added datasource bean to the application context."
                                 + " [id=({})]", dataSource.getId());

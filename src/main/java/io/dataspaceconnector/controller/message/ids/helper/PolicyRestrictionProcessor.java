@@ -43,8 +43,8 @@ class PolicyRestrictionProcessor extends IdsHelperProcessor {
     protected void processInternal(final Exchange exchange) throws Exception {
         final var exception = exchange.getProperty(Exchange.EXCEPTION_CAUGHT, Exception.class);
 
-        if (exception instanceof InvalidResponseException) {
-            final var content = ((InvalidResponseException) exception).getResponse();
+        if (exception instanceof InvalidResponseException invalidResponseException) {
+            final var content = invalidResponseException.getResponse();
             if (log.isDebugEnabled()) {
                 log.debug("Data could not be loaded. [content=({})]", content);
             }

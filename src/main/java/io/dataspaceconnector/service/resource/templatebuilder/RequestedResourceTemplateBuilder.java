@@ -58,9 +58,8 @@ public class RequestedResourceTemplateBuilder
             final ResourceTemplate<RequestedResourceDesc> template) {
         final var resourceService = getResourceService();
 
-        if (resourceService instanceof RemoteResolver) {
-            final var resourceId = ((RemoteResolver) resourceService)
-                    .identifyByRemoteId(template.getDesc().getRemoteId());
+        if (resourceService instanceof RemoteResolver resolver) {
+            final var resourceId = resolver.identifyByRemoteId(template.getDesc().getRemoteId());
             if (resourceId.isPresent()) {
                 return resourceService.update(resourceId.get(), template.getDesc());
             }

@@ -138,7 +138,7 @@ public final class UUIDUtils {
             final var uuid = UUID.randomUUID();
 
             // Check if the created uuid already exists
-            if (!doesUuidExistFunc.apply(uuid)) {
+            if (Boolean.FALSE.equals(doesUuidExistFunc.apply(uuid))) {
                 // It does not, the generated uuid is new
                 return uuid;
             }

@@ -129,8 +129,8 @@ public class PolicyExecutionService {
      */
     public void reportDataAccess(final Rule rule, final URI element)
             throws PolicyExecutionException {
-        if (rule instanceof Permission) {
-            final var postDuty = ((Permission) rule).getPostDuty().get(0);
+        if (rule instanceof Permission permission) {
+            final var postDuty = permission.getPostDuty().get(0);
             final var recipient = RuleUtils.getEndpoint(postDuty);
 
             notificationSvc.sendMessage(URI.create(recipient), buildLog(element));

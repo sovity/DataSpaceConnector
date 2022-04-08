@@ -215,15 +215,15 @@ public class ContractManager {
 
         // Add assignee to all rules.
         for (final var rule : ruleList) {
-            if (rule instanceof Permission) {
+            if (rule instanceof Permission permission) {
                 ((PermissionImpl) rule).setAssignee(Util.asList(connectorId));
-                permissions.add((Permission) rule);
-            } else if (rule instanceof Prohibition) {
+                permissions.add(permission);
+            } else if (rule instanceof Prohibition prohibition) {
                 ((ProhibitionImpl) rule).setAssignee(Util.asList(connectorId));
-                prohibitions.add((Prohibition) rule);
-            } else if (rule instanceof Duty) {
+                prohibitions.add(prohibition);
+            } else if (rule instanceof Duty duty) {
                 ((DutyImpl) rule).setAssignee(Util.asList(connectorId));
-                obligations.add((Duty) rule);
+                obligations.add(duty);
             }
         }
 
@@ -258,15 +258,15 @@ public class ContractManager {
 
         // Add assigner to all rules.
         for (final var rule : ruleList) {
-            if (rule instanceof Permission) {
+            if (rule instanceof Permission permission) {
                 ((PermissionImpl) rule).setAssigner(Util.asList(connectorId));
-                permissions.add((Permission) rule);
-            } else if (rule instanceof Prohibition) {
+                permissions.add(permission);
+            } else if (rule instanceof Prohibition prohibition) {
                 ((ProhibitionImpl) rule).setAssigner(Util.asList(connectorId));
-                prohibitions.add((Prohibition) rule);
-            } else if (rule instanceof Duty) {
+                prohibitions.add(prohibition);
+            } else if (rule instanceof Duty duty) {
                 ((DutyImpl) rule).setAssigner(Util.asList(connectorId));
-                obligations.add((Duty) rule);
+                obligations.add(duty);
             }
         }
 

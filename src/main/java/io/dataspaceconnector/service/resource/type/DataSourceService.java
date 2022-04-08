@@ -64,13 +64,13 @@ public class DataSourceService extends BaseEntityService<DataSource, DataSourceD
     @Override
     protected DataSource persist(final DataSource dataSource) {
         final var persisted = super.persist(dataSource);
-        if (dataSource instanceof DatabaseDataSource) {
+        if (dataSource instanceof DatabaseDataSource databaseDataSource) {
             // Remove bean (if exists) and create new, in case any access information has changed.
             if (dataSource.getId() != null) {
                 beanManager.removeDataSourceBean(dataSource.getId());
             }
             try {
-                beanManager.createDataSourceBean((DatabaseDataSource) dataSource);
+                beanManager.createDataSourceBean(databaseDataSource);
             } catch (BeanCreationException exception) {
                 if (log.isDebugEnabled()) {
                     log.debug("Failed to create datasource bean. [exception=({})]",

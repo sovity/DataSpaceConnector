@@ -86,10 +86,10 @@ public class DataRetriever {
         final var data = artifact.getData();
 
         InputStream rawData;
-        if (data instanceof LocalData) {
-            rawData = getData((LocalData) data);
-        } else if (data instanceof RemoteData) {
-            rawData = getData((RemoteData) data, queryInput);
+        if (data instanceof LocalData localData) {
+            rawData = getData(localData);
+        } else if (data instanceof RemoteData remoteData) {
+            rawData = getData(remoteData, queryInput);
         } else {
             if (log.isWarnEnabled()) {
                 log.warn("Unknown data type. [artifactId=({})]", artifact.getId());
