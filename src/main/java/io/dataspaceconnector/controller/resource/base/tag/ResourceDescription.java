@@ -100,6 +100,12 @@ public final class ResourceDescription {
      */
     public static final String SUBSCRIPTIONS = "Endpoints for operations on subscriptions.";
 
+    /**
+     * Tag description for daps.
+     */
+    public static final String DAPS = "Endpoints for operations on daps.";
+
+
     private ResourceDescription() {
         // Nothing to do here.
     }

@@ -164,8 +164,8 @@ public final class FromIdsObjectMapper {
         // Extract objects.
         if (resource.getRepresentation() != null) {
             final var representations = resource.getRepresentation().stream()
-                    .filter(x -> x instanceof AppRepresentation)
-                    .map(x -> (AppRepresentation) x)
+                    .filter(AppRepresentation.class::isInstance)
+                    .map(AppRepresentation.class::cast)
                     .collect(Collectors.toList());
             if (!representations.isEmpty()) {
                 // Note: Assume that an app resource has only one representation.

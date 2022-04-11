@@ -225,8 +225,7 @@ public abstract class AbstractMessageService<D extends MessageDesc> {
         map.put("type", idsMessage.getClass());
 
         // If the message is of type exception, add the reason to the response object.
-        if (idsMessage instanceof RejectionMessage) {
-            final var rejectionMessage = (RejectionMessage) idsMessage;
+        if (idsMessage instanceof RejectionMessage rejectionMessage) {
             map.put("reason", MessageUtils.extractRejectionReason(rejectionMessage));
         }
 

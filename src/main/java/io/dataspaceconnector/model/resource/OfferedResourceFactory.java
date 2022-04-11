@@ -68,7 +68,7 @@ public final class OfferedResourceFactory extends ResourceFactory<OfferedResourc
                 throw new InvalidEntityException("Resource cannot reference itself.");
             }
 
-            if (!doesExist.apply(resourceId)) {
+            if (Boolean.FALSE.equals(doesExist.apply(resourceId))) {
                 if (log.isWarnEnabled()) {
                     log.warn("Could not find matching resource. [id=({})]", sample);
                 }

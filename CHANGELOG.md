@@ -2,10 +2,25 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [UNRELEASED]
+
+### Changed
+- Code base refactorings and removing of unused code.
+
+### Dependencies
+- Update com.h3xstream.findsecbugs:findsecbugs-plugin version from 1.11.0 to 1.12.0.
+- Update org.flywaydb:flyway-core version from 8.5.5 to 8.5.7.
+- Update springdoc version from 1.6.6 to 1.6.7.
+- Update de.fhg.aisec.ids:camel-idscp2 version from 0.6.0 to 0.10.3.
+- Add io.jsonwebtoken:jjwt-impl and :jjwt-api version 0.11.2.
+- Add org.bitbucket.b_c:jose4j version 0.7.11.
+
+## [7.1.0] - 2022-04-06
 
 ### Added
 - Add additional field to `GenericEndpointView`.
+- New APIs: Manageable DAPS entities (CRUD APIs)
+- New Feature: DAPS whitelisting for producitve deployment: It is now possible to whitelist DAPS and to restrict data exchange with IDS Connectors that receive their DATs from whitelisted DAPS. In the default case without changes, all DAPS are trusted. For this purpose the column `whitelisted=true/false` is available at the DAPS entites. To activate the whitelisting functionality, there must be at least one DAPS entity with `whitelisted=true` (this can also be the DAPS used by the connector to only trust the own used DAPS). If a message with a DAT arrives while whitelisting is active and from a non-whitelisted DAPS, the message is rejected with a RejectionMessage.
 
 ### Fixed
 - Derive maven compiler version globally in pom instead of setting it individually.

@@ -182,8 +182,8 @@ public class ArtifactRouteService {
      */
     public void removeRouteLink(final ArtifactImpl artifact) {
         try {
-            if (artifact.getData() instanceof RemoteData) {
-                final var url = ((RemoteData) artifact.getData()).getAccessUrl();
+            if (artifact.getData() instanceof RemoteData remoteData) {
+                final var url = remoteData.getAccessUrl();
                 if (apiReferenceHelper.isRouteReference(url)) {
                     final var routeId = UUIDUtils.uuidFromUri(url.toURI());
                     routeSvc.removeOutput(routeId);

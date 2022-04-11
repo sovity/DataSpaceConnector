@@ -25,7 +25,7 @@ info:
   license:
     name: "Apache License, Version 2.0"
     url: https://www.apache.org/licenses/LICENSE-2.0.txt
-  version: 7.0.3
+  version: 7.1.0
 servers:
   - url: https://localhost:8080
     description: Generated server url
@@ -40,6 +40,8 @@ tags:
     description: Endpoints for operations on representations.
   - name: Apps
     description: Endpoints for app handling.
+  - name: Daps
+    description: Endpoints for operations on daps.
   - name: Artifacts
     description: Endpoints for operations on artifacts.
   - name: _Messaging
@@ -2158,12 +2160,92 @@ paths:
           description: Unauthorized
         "204":
           description: No content
+  /api/daps/{id}:
+    get:
+      tags:
+        - Daps
+      summary: Get a base resource by id.
+      operationId: get_8
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "401":
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DapsView'
+        "200":
+          description: Ok
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DapsView'
+    put:
+      tags:
+        - Daps
+      summary: Update a base resource by id.
+      operationId: update_8
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DapsDesc'
+        required: true
+      responses:
+        "401":
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DapsView'
+        "201":
+          description: Created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DapsView'
+        "204":
+          description: No content
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DapsView'
+    delete:
+      tags:
+        - Daps
+      summary: Delete a base resource by id.
+      operationId: delete_8
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "401":
+          description: Unauthorized
+        "204":
+          description: No content
   /api/contracts/{id}:
     get:
       tags:
         - Contracts
       summary: Get a base resource by id.
-      operationId: get_8
+      operationId: get_9
       parameters:
         - name: id
           in: path
@@ -2188,7 +2270,7 @@ paths:
       tags:
         - Contracts
       summary: Update a base resource by id.
-      operationId: update_8
+      operationId: update_9
       parameters:
         - name: id
           in: path
@@ -2225,7 +2307,7 @@ paths:
       tags:
         - Contracts
       summary: Delete a base resource by id.
-      operationId: delete_8
+      operationId: delete_9
       parameters:
         - name: id
           in: path
@@ -2495,7 +2577,7 @@ paths:
       tags:
         - _Configurations
       summary: Get a base resource by id.
-      operationId: get_9
+      operationId: get_10
       parameters:
         - name: id
           in: path
@@ -2520,7 +2602,7 @@ paths:
       tags:
         - _Configurations
       summary: Update a base resource by id.
-      operationId: update_9
+      operationId: update_10
       parameters:
         - name: id
           in: path
@@ -2557,7 +2639,7 @@ paths:
       tags:
         - _Configurations
       summary: Delete a base resource by id.
-      operationId: delete_9
+      operationId: delete_10
       parameters:
         - name: id
           in: path
@@ -2709,7 +2791,7 @@ paths:
       tags:
         - Catalogs
       summary: Get a base resource by id.
-      operationId: get_10
+      operationId: get_11
       parameters:
         - name: id
           in: path
@@ -2734,7 +2816,7 @@ paths:
       tags:
         - Catalogs
       summary: Update a base resource by id.
-      operationId: update_10
+      operationId: update_11
       parameters:
         - name: id
           in: path
@@ -2771,7 +2853,7 @@ paths:
       tags:
         - Catalogs
       summary: Delete a base resource by id.
-      operationId: delete_10
+      operationId: delete_11
       parameters:
         - name: id
           in: path
@@ -2915,7 +2997,7 @@ paths:
       tags:
         - Brokers
       summary: Get a base resource by id.
-      operationId: get_11
+      operationId: get_12
       parameters:
         - name: id
           in: path
@@ -2940,7 +3022,7 @@ paths:
       tags:
         - Brokers
       summary: Update a base resource by id.
-      operationId: update_11
+      operationId: update_12
       parameters:
         - name: id
           in: path
@@ -2977,7 +3059,7 @@ paths:
       tags:
         - Brokers
       summary: Delete a base resource by id.
-      operationId: delete_11
+      operationId: delete_12
       parameters:
         - name: id
           in: path
@@ -2995,7 +3077,7 @@ paths:
       tags:
         - Artifacts
       summary: Get a base resource by id.
-      operationId: get_12
+      operationId: get_13
       parameters:
         - name: id
           in: path
@@ -3020,7 +3102,7 @@ paths:
       tags:
         - Artifacts
       summary: Update a base resource by id.
-      operationId: update_12
+      operationId: update_13
       parameters:
         - name: id
           in: path
@@ -3057,7 +3139,7 @@ paths:
       tags:
         - Artifacts
       summary: Delete a base resource by id.
-      operationId: delete_12
+      operationId: delete_13
       parameters:
         - name: id
           in: path
@@ -3263,7 +3345,7 @@ paths:
       tags:
         - App Stores
       summary: Get a base resource by id.
-      operationId: get_13
+      operationId: get_14
       parameters:
         - name: id
           in: path
@@ -3288,7 +3370,7 @@ paths:
       tags:
         - App Stores
       summary: Update a base resource by id.
-      operationId: update_13
+      operationId: update_14
       parameters:
         - name: id
           in: path
@@ -3325,7 +3407,7 @@ paths:
       tags:
         - App Stores
       summary: Delete a base resource by id.
-      operationId: delete_13
+      operationId: delete_14
       parameters:
         - name: id
           in: path
@@ -4562,12 +4644,70 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/DataSourceView'
+  /api/daps:
+    get:
+      tags:
+        - Daps
+      summary: Get a list of base resources with pagination.
+      operationId: getAll_8
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 30
+      responses:
+        "401":
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PagedModelDapsView'
+        "200":
+          description: Ok
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PagedModelDapsView'
+    post:
+      tags:
+        - Daps
+      summary: Create a base resource.
+      operationId: create_7
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DapsDesc'
+        required: true
+      responses:
+        "401":
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DapsView'
+        "201":
+          description: Created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DapsView'
   /api/contracts:
     get:
       tags:
         - Contracts
       summary: Get a list of base resources with pagination.
-      operationId: getAll_8
+      operationId: getAll_9
       parameters:
         - name: page
           in: query
@@ -4600,7 +4740,7 @@ paths:
       tags:
         - Contracts
       summary: Create a base resource.
-      operationId: create_7
+      operationId: create_8
       requestBody:
         content:
           application/json:
@@ -4625,7 +4765,7 @@ paths:
       tags:
         - _Configurations
       summary: Get a list of base resources with pagination.
-      operationId: getAll_9
+      operationId: getAll_10
       parameters:
         - name: page
           in: query
@@ -4658,7 +4798,7 @@ paths:
       tags:
         - _Configurations
       summary: Create a base resource.
-      operationId: create_8
+      operationId: create_9
       requestBody:
         content:
           application/json:
@@ -4683,7 +4823,7 @@ paths:
       tags:
         - Catalogs
       summary: Get a list of base resources with pagination.
-      operationId: getAll_10
+      operationId: getAll_11
       parameters:
         - name: page
           in: query
@@ -4716,7 +4856,7 @@ paths:
       tags:
         - Catalogs
       summary: Create a base resource.
-      operationId: create_9
+      operationId: create_10
       requestBody:
         content:
           application/json:
@@ -4783,7 +4923,7 @@ paths:
       tags:
         - Brokers
       summary: Get a list of base resources with pagination.
-      operationId: getAll_11
+      operationId: getAll_12
       parameters:
         - name: page
           in: query
@@ -4816,7 +4956,7 @@ paths:
       tags:
         - Brokers
       summary: Create a base resource.
-      operationId: create_10
+      operationId: create_11
       requestBody:
         content:
           application/json:
@@ -4877,7 +5017,7 @@ paths:
       tags:
         - Artifacts
       summary: Get a list of base resources with pagination.
-      operationId: getAll_12
+      operationId: getAll_13
       parameters:
         - name: page
           in: query
@@ -4910,7 +5050,7 @@ paths:
       tags:
         - Artifacts
       summary: Create a base resource.
-      operationId: create_11
+      operationId: create_12
       requestBody:
         content:
           application/json:
@@ -4935,7 +5075,7 @@ paths:
       tags:
         - App Stores
       summary: Get a list of base resources with pagination.
-      operationId: getAll_13
+      operationId: getAll_14
       parameters:
         - name: page
           in: query
@@ -4968,7 +5108,7 @@ paths:
       tags:
         - App Stores
       summary: Create a base resource.
-      operationId: create_12
+      operationId: create_13
       requestBody:
         content:
           application/json:
@@ -5665,7 +5805,7 @@ paths:
       tags:
         - Apps
       summary: Get a list of base resources with pagination.
-      operationId: getAll_14
+      operationId: getAll_15
       parameters:
         - name: page
           in: query
@@ -5699,7 +5839,7 @@ paths:
       tags:
         - Apps
       summary: Get a base resource by id.
-      operationId: get_14
+      operationId: get_15
       parameters:
         - name: id
           in: path
@@ -5724,7 +5864,7 @@ paths:
       tags:
         - Apps
       summary: Delete a base resource by id.
-      operationId: delete_14
+      operationId: delete_15
       parameters:
         - name: id
           in: path
@@ -5821,7 +5961,7 @@ paths:
       tags:
         - Contracts
       summary: Get a list of base resources with pagination.
-      operationId: getAll_15
+      operationId: getAll_16
       parameters:
         - name: page
           in: query
@@ -5855,7 +5995,7 @@ paths:
       tags:
         - Contracts
       summary: Get a base resource by id.
-      operationId: get_15
+      operationId: get_16
       parameters:
         - name: id
           in: path
@@ -6486,6 +6626,38 @@ components:
             - REST
         _links:
           $ref: '#/components/schemas/Links'
+    DapsDesc:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        location:
+          type: string
+          format: uri
+        whitelisted:
+          type: boolean
+    DapsView:
+      type: object
+      properties:
+        creationDate:
+          type: string
+          format: date-time
+        modificationDate:
+          type: string
+          format: date-time
+        location:
+          type: string
+          format: uri
+        title:
+          type: string
+        description:
+          type: string
+        whitelisted:
+          type: boolean
+        _links:
+          $ref: '#/components/schemas/Links'
     ContractDesc:
       type: object
       properties:
@@ -7042,34 +7214,6 @@ components:
         - $ref: '#/components/schemas/AbstractConstraint'
         - type: object
           properties:
-            ids:leftOperand:
-              type: string
-              enum:
-                - https://w3id.org/idsa/code/ABSOLUTE_SPATIAL_POSITION
-                - https://w3id.org/idsa/code/COUNT
-                - https://w3id.org/idsa/code/DELAY
-                - https://w3id.org/idsa/code/ELAPSED_TIME
-                - https://w3id.org/idsa/code/ENDPOINT
-                - https://w3id.org/idsa/code/EVENT
-                - https://w3id.org/idsa/code/PATH
-                - https://w3id.org/idsa/code/PAYMENT
-                - https://w3id.org/idsa/code/PAY_AMOUNT
-                - https://w3id.org/idsa/code/POLICY_EVALUATION_TIME
-                - https://w3id.org/idsa/code/PURPOSE
-                - https://w3id.org/idsa/code/QUANTITY
-                - https://w3id.org/idsa/code/RECURRENCE_RATE
-                - https://w3id.org/idsa/code/SECURITY_LEVEL
-                - https://w3id.org/idsa/code/STATE
-                - https://w3id.org/idsa/code/SYSTEM
-                - https://w3id.org/idsa/code/USER
-            ids:unit:
-              type: string
-              format: uri
-            ids:pipEndpoint:
-              type: string
-              format: uri
-            ids:rightOperand:
-              $ref: '#/components/schemas/RdfResource'
             ids:operator:
               type: string
               enum:
@@ -7119,7 +7263,35 @@ components:
                 - https://w3id.org/idsa/code/STRING_IS_CONTAINED
                 - https://w3id.org/idsa/code/TEMPORAL_DISJOINT
                 - https://w3id.org/idsa/code/TEMPORAL_EQUALS
+            ids:rightOperand:
+              $ref: '#/components/schemas/RdfResource'
+            ids:leftOperand:
+              type: string
+              enum:
+                - https://w3id.org/idsa/code/ABSOLUTE_SPATIAL_POSITION
+                - https://w3id.org/idsa/code/COUNT
+                - https://w3id.org/idsa/code/DELAY
+                - https://w3id.org/idsa/code/ELAPSED_TIME
+                - https://w3id.org/idsa/code/ENDPOINT
+                - https://w3id.org/idsa/code/EVENT
+                - https://w3id.org/idsa/code/PATH
+                - https://w3id.org/idsa/code/PAYMENT
+                - https://w3id.org/idsa/code/PAY_AMOUNT
+                - https://w3id.org/idsa/code/POLICY_EVALUATION_TIME
+                - https://w3id.org/idsa/code/PURPOSE
+                - https://w3id.org/idsa/code/QUANTITY
+                - https://w3id.org/idsa/code/RECURRENCE_RATE
+                - https://w3id.org/idsa/code/SECURITY_LEVEL
+                - https://w3id.org/idsa/code/STATE
+                - https://w3id.org/idsa/code/SYSTEM
+                - https://w3id.org/idsa/code/USER
+            ids:unit:
+              type: string
+              format: uri
             ids:rightOperandReference:
+              type: string
+              format: uri
+            ids:pipEndpoint:
               type: string
               format: uri
             '@type':
@@ -7149,15 +7321,15 @@ components:
         - $ref: '#/components/schemas/AbstractConstraint'
         - type: object
           properties:
+            ids:and:
+              type: array
+              items:
+                $ref: '#/components/schemas/Constraint'
             ids:or:
               type: array
               items:
                 $ref: '#/components/schemas/Constraint'
             ids:xone:
-              type: array
-              items:
-                $ref: '#/components/schemas/Constraint'
-            ids:and:
               type: array
               items:
                 $ref: '#/components/schemas/Constraint'
@@ -7238,6 +7410,9 @@ components:
           items:
             type: string
             format: uri
+        ids:assetRefinement:
+          oneOf:
+            - $ref: '#/components/schemas/LogicalConstraint'
         ids:action:
           type: array
           items:
@@ -7263,11 +7438,8 @@ components:
           type: array
           items:
             oneOf:
+              - $ref: '#/components/schemas/Constraint'
               - $ref: '#/components/schemas/LogicalConstraint'
-        ids:assetRefinement:
-          oneOf:
-            - $ref: '#/components/schemas/Constraint'
-            - $ref: '#/components/schemas/LogicalConstraint'
         ids:description:
           type: array
           items:
@@ -7484,6 +7656,20 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/DataSourceView'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+    PagedModelDapsView:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            daps:
+              type: array
+              items:
+                $ref: '#/components/schemas/DapsView'
         _links:
           $ref: '#/components/schemas/Links'
         page:

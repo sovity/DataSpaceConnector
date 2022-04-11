@@ -54,7 +54,7 @@
 
 	<properties>
 		<!-- General -->
-		<revision>7.0.3</revision>
+		<revision>7.1.0</revision>
 		<email>support@sovity.de</email>
 
 		<!-- Build info -->
@@ -71,13 +71,14 @@
 		<jackson.version>2.13.2</jackson.version>
 		<jackson-databind.version>2.13.2.2</jackson-databind.version>
 		<postgres.version>42.3.3</postgres.version>
-		<springdoc.version>1.6.6</springdoc.version>
+		<springdoc.version>1.6.7</springdoc.version>
 		<equalsverifier.version>3.10</equalsverifier.version>
 		<jaeger.version>3.3.1</jaeger.version>
 		<freemarker.version>2.3.31</freemarker.version>
 		<camel.version>3.16.0</camel.version>
-		<idscp2.version>0.6.0</idscp2.version>
+		<idscp2.version>0.10.3</idscp2.version>
 		<protobuf.version>3.20.0</protobuf.version>
+		<jsonwebtoken.version>0.11.2</jsonwebtoken.version>
 
 		<!-- Plugins -->
 		<maven-enforcer-plugin.version>3.0.0</maven-enforcer-plugin.version>
@@ -89,7 +90,7 @@
 		<maven-site-plugin.version>3.11.0</maven-site-plugin.version>
 		<maven-project-info-reports-plugin.version>3.2.2</maven-project-info-reports-plugin.version>
 		<spotbugs.version>4.6.0</spotbugs.version>
-		<findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
+		<findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
 		<checkstyle-plugin.version>3.1.2</checkstyle-plugin.version>
 		<checkstyle.version>10.1</checkstyle.version>
 		<jacoco.version>0.8.8</jacoco.version>
@@ -261,7 +262,7 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-			<version>8.5.5</version>
+			<version>8.5.7</version>
 		</dependency>
 
 		<dependency>
@@ -555,6 +556,28 @@
 				</exclusion>
             </exclusions>
         </dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>${jsonwebtoken.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>${jsonwebtoken.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.bitbucket.b_c/jose4j -->
+		<dependency>
+			<groupId>org.bitbucket.b_c</groupId>
+			<artifactId>jose4j</artifactId>
+			<version>0.7.11</version>
+		</dependency>
 
 	</dependencies>
 

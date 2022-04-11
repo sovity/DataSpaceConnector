@@ -100,6 +100,11 @@ public final class ResourceName {
      */
     public static final String SUBSCRIPTIONS = "Subscriptions";
 
+    /**
+     * Tag name for daps.
+     */
+    public static final String DAPS = "Daps";
+
     private ResourceName() {
         // Nothing to do here.
     }

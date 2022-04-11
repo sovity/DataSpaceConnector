@@ -202,27 +202,25 @@ public class EntityResolver {
             throws InvalidResourceException {
         // NOTE Maybe the builder class could be found without the ugly if array?
         try {
-            if (entity instanceof Artifact) {
-                final var artifact = artifactBuilder.create((Artifact) entity);
+            if (entity instanceof Artifact artifactEntity) {
+                final var artifact = artifactBuilder.create(artifactEntity);
                 return RdfConverter.toRdf(Objects.requireNonNull(artifact));
-            } else if (entity instanceof OfferedResource) {
-                final var resource = offerBuilder.create((OfferedResource) entity);
+            } else if (entity instanceof OfferedResource offeredResource) {
+                final var resource = offerBuilder.create(offeredResource);
                 return RdfConverter.toRdf(Objects.requireNonNull(resource));
-            } else if (entity instanceof Representation) {
-                final var representation = representationBuilder.create((Representation) entity);
+            } else if (entity instanceof Representation representationEntity) {
+                final var representation = representationBuilder.create(representationEntity);
                 return RdfConverter.toRdf(Objects.requireNonNull(representation));
-            } else if (entity instanceof Catalog) {
-                final var catalog = catalogBuilder.create((Catalog) entity);
+            } else if (entity instanceof Catalog catalogEntity) {
+                final var catalog = catalogBuilder.create(catalogEntity);
                 return RdfConverter.toRdf(Objects.requireNonNull(catalog));
-            } else if (entity instanceof Contract) {
-                final var contractOffer = contractBuilder.create((Contract) entity);
+            } else if (entity instanceof Contract contract) {
+                final var contractOffer = contractBuilder.create(contract);
                 return RdfConverter.toRdf(Objects.requireNonNull(contractOffer));
-            } else if (entity instanceof Agreement) {
-                final var agreement = (Agreement) entity;
+            } else if (entity instanceof Agreement agreement) {
                 return agreement.getValue();
-            } else if (entity instanceof ContractRule) {
-                final var rule = (ContractRule) entity;
-                return rule.getValue();
+            } else if (entity instanceof ContractRule contractRule) {
+                return contractRule.getValue();
             }
         } catch (Exception exception) {
             // If we do not allow requesting an object type, respond with exception.

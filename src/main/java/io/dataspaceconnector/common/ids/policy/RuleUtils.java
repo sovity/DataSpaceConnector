@@ -66,9 +66,9 @@ public final class RuleUtils {
 
         if (rule instanceof Prohibition) {
             detectedPattern = PolicyPattern.PROHIBIT_ACCESS;
-        } else if (rule instanceof Permission) {
+        } else if (rule instanceof Permission permission) {
             final var constraints = rule.getConstraint();
-            final var postDuties = ((Permission) rule).getPostDuty();
+            final var postDuties = permission.getPostDuty();
 
             if (!constraints.isEmpty() && constraints.get(0) != null) {
                 if (constraints.size() > 1) {

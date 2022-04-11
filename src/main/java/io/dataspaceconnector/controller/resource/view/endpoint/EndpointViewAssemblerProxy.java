@@ -50,8 +50,8 @@ public class EndpointViewAssemblerProxy
      */
     @Override
     public RepresentationModel<?> toModel(final Endpoint endpoint) {
-        if (endpoint instanceof AppEndpoint) {
-            return appEndpointViewAssembler.toModel((AppEndpoint) endpoint);
+        if (endpoint instanceof AppEndpoint appEndpoint) {
+            return appEndpointViewAssembler.toModel(appEndpoint);
         }
 
         assert endpoint instanceof GenericEndpoint;

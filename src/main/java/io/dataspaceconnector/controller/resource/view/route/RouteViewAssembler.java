@@ -72,15 +72,13 @@ public class RouteViewAssembler extends SelfLinkHelper
     private void setEndpointType(final RouteView view) {
         if (view != null) {
             if (view.getStart() != null) {
-                if (view.getStart() instanceof GenericEndpoint) {
-                    final var end = (GenericEndpoint) view.getStart();
-                    end.setType("GENERIC");
+                if (view.getStart() instanceof GenericEndpoint genericEndpoint) {
+                    genericEndpoint.setType("GENERIC");
                 }
             }
             if (view.getEnd() != null) {
-                if (view.getEnd() instanceof GenericEndpoint) {
-                    final var end = (GenericEndpoint) view.getEnd();
-                    end.setType("GENERIC");
+                if (view.getEnd() instanceof GenericEndpoint genericEndpoint) {
+                    genericEndpoint.setType("GENERIC");
                 }
             }
         }
