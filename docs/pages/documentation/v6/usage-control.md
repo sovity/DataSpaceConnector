@@ -55,23 +55,144 @@ policy classes. The Dataspace Connector currently implements nine of these.
 | 14  | Use Data and Delete it After                   | x       | allows data usage within a specified time interval with the restriction to delete it at a specified time stamp
 | 15  | Modify Data (in Transit)                       | -       |
 | 16  | Modify Data (in Rest)                          | -       |
-| 17  | Local Logging                                  | x       | allows data usage if logged to the Clearing House
-| 18  | Remote Notifications                           | x       | allows data usage with notification message
+| 17  | Local Logging                                  | x       | allows data usage and sends logs to a specified Clearing House
+| 18  | Remote Notifications                           | x       | allows data usage and sends notification message
 | 19  | Attach Policy when Distribute to a Third-party | -       |
 | 20  | Distribute only if Encrypted                   | -       |
 | 21  | State Restricted Policy                        | -       |
-
-
-Examples for each of them can be found by using the endpoint `POST /api/examples/policy`.
-
-![Swagger Policy Endpoints](../../../assets/images/v6/swagger_policies.png)
 
 The usage policy is added to the metadata of a resource. The classes at
 `io.dataspaceconnector.service.usagecontrol` read, classify, verify, and enforce the policies at
 runtime. See how this works on the [provider-side](../../communication/v6/provider.md) and
 [consumer-side](../../communication/v6/consumer.md) in the communication guide.
 
+## Policy In Depth
+The supported policies are further explained in this section, as well as the meaning of each parameter.
+Every supported policy is defined in the `PolicyPattern` ENUM.
+The `Rule` class from the Information Model is used to define usage policies. The DSC matches rule objects to a
+DSC `PolicyPattern` with the `getPatternByRule` method from the `RuleUtils` class.
+The `usagecontrol\RuleValidator` class matches the patterns found in a rule and throws a `PolicyRestrictionException` if
+a policy restriction is detected. As soon as a `PolicyRestrictionException` is thrown, the access will be restricted.
+
+### Provide Access
+**Description:** This policy simply grants access to the resource.
+
+### Usage During Interval and Usage Until Deletion
+**Parameters:** start and end time (of type `ZonedDateTime`, a representation of an instant in the universal timeline)
+
+**Description:**
+Both the policies Usage During Interval and Usage Until Deletion use the same parameters and behave in the same way.
+They check if the data access time is between the start and end time defined and if that is not the case, a
+`PolicyRestrictionException` is thrown.
+The access time used is a ZonedDateTime, which represents an instant in the universal timeline, since it also contains
+date, time and zone information.
+The only difference is that the Usage Until Deletion rule *should* contain a postDuty field with a DELETE action.
+This is checked by a scheduled class called `ScheduledDataRemoval` and deletes the data after the interval has passed.
+The Usage Until Deletion policy should be used if it is desired that the resource be deleted after the time interval.
+
+### Duration Usage
+**Parameters:** a duration, as specified by the `Duration` java class.
+(Example: "PT10H" stands for 10 hours,
+[see more](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#abs--))
+
+**Description:** This policy starts a duration for a resource: the resource can only be accessed in the
+specified period. The duration starts counting from the artifacts' creation time.
+If the consumer tries to access the resource and the current time is over the allowed period a
+`PolicyRestrictionException` is thrown and the access is therefore denied.
+
+### Usage Logging
+**Prerequisites:** clearing house url in connector configuration
+
+**Description:** This defines the policy to send usage logs to the clearing house.
+The clearing house has to be defined in the connectors' configuration.
+The logs are sent as IDS Messages to the clearing house with the path "clearingHousePath/agreementId".
+The resource that is to be logged is sent in the payload.
+It is not possible to specify in the rule to which clearing house should be logged.
+If a clearing house is not specified or the message could not be delivered, the data access will still be granted.
+
+
+### N Times Usage
+**Parameters:** a  maximum number of accesses
+
+**Description:** This policy counts the access number of the resource and denies access if the
+access number is greater than the maximum number of accesses.
+It is recommended to disable automatic contract negotiation if you plan on using this policy, so that the
+data consumer does not negotiate a new contract once the maximum number of accesses has been reached.
+To disable automatic contract negotiation change the field to ``policy.negotiation=false`` in
+application.properties.
+(how to negotiate a contract is shown [here](../../communication/v6/consumer.md ))
+
+### Usage Notification
+**Parameters:** url to which usage notifications should be sent to (not limited to clearing house)
+
+**Description:** This policy is similar to Usage Logging, but is not restricted to sending messages to a clearing house.
+In the post duty field of the rule, an url can be defined within a constraint to which the DSC will send usage
+notifications to. The payload of the logs sent contain target, issuer connector and access time.
+If the message could not be sent, the access will still be granted.
+
+### Connector Restricted Usage
+**Parameters:** allowed connector URI defined in a rule
+
+**Description:** This policy checks if the issuer connector is equal to a specified connector. The connector id that is
+used for this verification is the one provided in the `config.json` file.
+A similar check is performed when a contract is negotiated. For the negotiation the connector id is also checked to be
+the specified contract consumer.
+
+
+### Security Profile Restricted Usage
+**Parameters:** required connector security profile (BASE_SECURITY_PROFILE, TRUST_SECURITY_PROFILE and
+TRUST_PLUS_SECURITY_PROFILE)
+
+**Description:** This policy checks if the connector has a specific security profile. This is verified by analysing the
+DAT claims of the message received.
+
+### Prohibit Access
+**Parameters:** none
+
+**Description:** This policy denies the access to the resource. A resource can't be shared if it is annotated with
+this policy.
+
+
+## Policy Enforcement
+Not all policies are enforced in both data access and provision. Data access policies are checked when the consumer
+tries to use the data. Data provision policies are checked before the data is sent from the data provider to the data
+consumer. The list of patterns (policies) that are checked is
+found in the classes `DataAccessVerifier` and `DataProvisionVerifier` in the `checkPolicy` method.
+Policies enforced at data access currently are:
+- PROVIDE_ACCESS
+- USAGE_DURING_INTERVAL
+- USAGE_UNTIL_DELETION
+- DURATION_USAGE
+- USAGE_LOGGING
+- N_TIMES_USAGE
+- USAGE_NOTIFICATION
+
+Policies enforced at data provision currently are:
+- PROVIDE_ACCESS
+- PROHIBIT_ACCESS
+- USAGE_DURING_INTERVAL
+- USAGE_UNTIL_DELETION
+- CONNECTOR_RESTRICTED_USAGE
+- SECURITY_PROFILE_RESTRICTED_USAGE
+
+The `RuleValidator.validatePolicy` function has a switch statement that matches the DSC policy patterns. The order of
+the policies that will be checked is defined. The `validatePolicy` function is called before an artifact
+is retrieved (`ArtifactService` -> `DataAccessVerifier` -> `RuleValidator`)
+and before data is provisioned (`DataProvisionVerifier` -> `RuleValidator`).
+
+### Usage Tips
+
+To simplify the process of creating policies, the example endpoints described below can be used.
+A request with the desired DSC policy pattern can be sent to ``POST /api/examples/policy`` and the response will be the
+rule object that has to be added with the target uri to the data offering.
+
+
 ## Example Endpoint
+
+Examples for each of them can be found by using the endpoint `POST /api/examples/policy`,
+which can be accessed in the swagger UI under `_Utils`:
+
+![Swagger Policy Endpoints](../../../assets/images/v6/swagger_policies.png)
 
 The endpoint at `POST /api/examples/policy` is able to process inputs to fill out a policy
 automatically. Thus, it does not need to be modified afterwards. Have a look at the schema provided
