@@ -48,6 +48,9 @@ class DapsConfigTest {
     private DapsRepository dapsRepository;
 
     @MockBean
+    private ConnectorConfig connectorConfig;
+
+    @MockBean
     private DapsFactory dapsFactory;
 
     @Test
@@ -55,7 +58,7 @@ class DapsConfigTest {
         Map<String, Object> claimParams = new HashMap<>();
         final var claims = new DefaultClaims(claimParams).setIssuer("http://example.org");
 
-        final var dapsConfig = new DapsConfig(dapsRepository);
+        final var dapsConfig = new DapsConfig(dapsRepository, connectorConfig);
         final var methods = dapsConfig.getClass().getDeclaredMethods();
         final var isWhitelisted = Arrays.stream(methods).filter(it -> it.getName().equals("isWhitelisted")).findFirst();
 
@@ -80,7 +83,7 @@ class DapsConfigTest {
 
         Mockito.doReturn(List.of(daps)).when(dapsRepository).findAll();
 
-        final var dapsConfig = new DapsConfig(dapsRepository);
+        final var dapsConfig = new DapsConfig(dapsRepository, connectorConfig);
         final var methods = dapsConfig.getClass().getDeclaredMethods();
 
         final var ownDapsUrlField = dapsConfig.getClass().getDeclaredField("ownDapsUrl");
@@ -113,7 +116,7 @@ class DapsConfigTest {
 
         Mockito.doReturn(List.of(daps)).when(dapsRepository).findAll();
 
-        final var dapsConfig = new DapsConfig(dapsRepository);
+        final var dapsConfig = new DapsConfig(dapsRepository, connectorConfig);
         final var methods = dapsConfig.getClass().getDeclaredMethods();
 
         final var ownDapsUrlField = dapsConfig.getClass().getDeclaredField("ownDapsUrl");
@@ -146,7 +149,7 @@ class DapsConfigTest {
 
         Mockito.doReturn(List.of(daps)).when(dapsRepository).findAll();
 
-        final var dapsConfig = new DapsConfig(dapsRepository);
+        final var dapsConfig = new DapsConfig(dapsRepository, connectorConfig);
         final var methods = dapsConfig.getClass().getDeclaredMethods();
 
         final var ownDapsUrlField = dapsConfig.getClass().getDeclaredField("ownDapsUrl");
@@ -179,7 +182,7 @@ class DapsConfigTest {
 
         Mockito.doReturn(List.of(daps)).when(dapsRepository).findAll();
 
-        final var dapsConfig = new DapsConfig(dapsRepository);
+        final var dapsConfig = new DapsConfig(dapsRepository, connectorConfig);
         final var methods = dapsConfig.getClass().getDeclaredMethods();
 
         final var ownDapsUrlField = dapsConfig.getClass().getDeclaredField("ownDapsUrl");
@@ -224,7 +227,7 @@ class DapsConfigTest {
 
         Mockito.doReturn(dapsList).when(dapsRepository).findAll();
 
-        final var dapsConfig = new DapsConfig(dapsRepository);
+        final var dapsConfig = new DapsConfig(dapsRepository, connectorConfig);
         final var methods = dapsConfig.getClass().getDeclaredMethods();
 
         final var ownDapsUrlField = dapsConfig.getClass().getDeclaredField("ownDapsUrl");
@@ -247,5 +250,26 @@ class DapsConfigTest {
         final var claims2 = new DefaultClaims(claimParams).setIssuer("http://example-false");
         final var whitelisted2 = (Boolean) isWhitelistedMethod.invoke(dapsConfig, claims2);
         assertFalse(whitelisted2);
+    }
+
+    @Test
+    void persist_whitelist() throws NoSuchFieldException, IllegalAccessException, InvocationTargetException {
+        Mockito.doReturn(List.of("http://example.org")).when(connectorConfig).getDapsWhitelist();
+
+        final var dapsConfig = new DapsConfig(dapsRepository, connectorConfig);
+        final var methods = dapsConfig.getClass().getDeclaredMethods();
+
+        final var ownDapsUrlField = dapsConfig.getClass().getDeclaredField("ownDapsUrl");
+        ownDapsUrlField.setAccessible(true);
+        ownDapsUrlField.set(dapsConfig, "http://my-daps");
+
+        final var persistPropertiesWhitelist = Arrays.stream(methods).filter(it -> it.getName().equals("persistPropertiesWhitelist")).findFirst();
+
+        //Check if method exists.
+        assertTrue(persistPropertiesWhitelist.isPresent());
+
+        final var persistPropertiesWhitelistMethod = persistPropertiesWhitelist.get();
+        persistPropertiesWhitelistMethod.setAccessible(true);
+        persistPropertiesWhitelistMethod.invoke(dapsConfig);
     }
 }

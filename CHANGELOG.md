@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [UNRELEASED]
 
+### Added
+- Add `daps.whitelisted.url` to `application.properties.`. Allows configuring whitelisted DAPS URLs already at configuration time.
+
 ### Changed
 - Code base refactorings and removing of unused code.
 

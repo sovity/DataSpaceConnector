@@ -68,6 +68,12 @@ public class ConnectorConfig {
     private String defaultVersion;
 
     /**
+     * Whitelisted DAPS URLs via application properties.
+     */
+    @Value("#{'${daps.whitelisted.url:}'.split(',')}")
+    private List<String> dapsWhitelist;
+
+    /**
      * The outbound model version.
      */
     private static final String OUTBOUND_VERSION = "4.2.7";

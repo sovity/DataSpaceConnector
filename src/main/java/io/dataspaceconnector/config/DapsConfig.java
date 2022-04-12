@@ -18,6 +18,8 @@ package io.dataspaceconnector.config;
 import de.fraunhofer.ids.messaging.core.daps.DapsVerifier;
 import de.fraunhofer.ids.messaging.core.daps.customvalidation.ValidationRuleResult;
 import io.dataspaceconnector.model.daps.Daps;
+import io.dataspaceconnector.model.daps.DapsDesc;
+import io.dataspaceconnector.model.daps.DapsFactory;
 import io.dataspaceconnector.repository.DapsRepository;
 import io.jsonwebtoken.Claims;
 import lombok.NonNull;
@@ -26,6 +28,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * This class adds a Daps validator for whitelisting of communication partner's DAPS to
@@ -47,13 +50,63 @@ public class DapsConfig {
     private final @NonNull DapsRepository repository;
 
     /**
+     * Service for connector configuring settings.
+     */
+    private final @NonNull ConnectorConfig connectorConfig;
+
+    /**
      * Constructor.
      *
      * @param pRepository the Daps repository.
+     * @param pConnectorConfig The connector configuration.
      */
-    public DapsConfig(@NonNull final DapsRepository pRepository) {
+    public DapsConfig(@NonNull final DapsRepository pRepository,
+                      @NonNull final ConnectorConfig pConnectorConfig) {
         this.repository = pRepository;
+        this.connectorConfig = pConnectorConfig;
+        persistPropertiesWhitelist();
         initWhitelist();
+    }
+
+    /**
+     * Persists the DAPS specified in the application properties and sets them as whitelisted.
+     */
+    private void persistPropertiesWhitelist() {
+        final var whitelistedDaps = connectorConfig.getDapsWhitelist();
+        if (whitelistedDaps != null && !whitelistedDaps.isEmpty()) {
+            final var dapsFactory = new DapsFactory();
+
+            for (final var dapsUrl : whitelistedDaps) {
+                if (!dapsUrl.trim().isEmpty()) {
+                    persistDaps(dapsFactory, dapsUrl);
+                }
+            }
+        }
+    }
+
+    /**
+     * Persists a single DAPS given the factory and the DAPS URL.
+     *
+     * @param dapsFactory The DAPS factory.
+     * @param dapsUrl The URL of the DAPS to persist.
+     */
+    private void persistDaps(final DapsFactory dapsFactory, final String dapsUrl) {
+        try {
+            final var dapsDesc = new DapsDesc();
+            dapsDesc.setLocation(new URI(dapsUrl));
+            dapsDesc.setTitle(dapsUrl);
+            dapsDesc.setDescription(dapsUrl);
+            dapsDesc.setWhitelisted(true);
+
+            final var daps = dapsFactory.create(dapsDesc);
+
+            repository.save(daps);
+        } catch (URISyntaxException e) {
+            if (log.isWarnEnabled()) {
+                log.warn("Whitelisting DAPS found non-URI value, "
+                        + "ignoring value. [value=({})]", dapsUrl);
+            }
+        }
     }
 
     /**
