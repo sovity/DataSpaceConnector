@@ -55,7 +55,7 @@ policy classes. The Dataspace Connector currently implements nine of these.
 | 14  | Use Data and Delete it After                   | x       | allows data usage within a specified time interval with the restriction to delete it at a specified time stamp
 | 15  | Modify Data (in Transit)                       | -       |
 | 16  | Modify Data (in Rest)                          | -       |
-| 17  | Local Logging                                  | x       | allows data usage and sends logs to the Clearing House
+| 17  | Local Logging                                  | x       | allows data usage and sends logs to a specified Clearing House
 | 18  | Remote Notifications                           | x       | allows data usage and sends notification message
 | 19  | Attach Policy when Distribute to a Third-party | -       |
 | 20  | Distribute only if Encrypted                   | -       |
@@ -75,7 +75,7 @@ The `usagecontrol\RuleValidator` class matches the patterns found in a rule and 
 a policy restriction is detected. As soon as a `PolicyRestrictionException` is thrown, the access will be restricted.
 
 ### Provide Access
-**Description:** This policy simply grants access to the resource. (Can be ignored)
+**Description:** This policy simply grants access to the resource.
 
 ### Usage During Interval and Usage Until Deletion
 **Parameters:** start and end time (of type `ZonedDateTime`, a representation of an instant in the universal timeline)
@@ -141,10 +141,10 @@ the specified contract consumer.
 
 ### Security Profile Restricted Usage
 **Parameters:** required connector security profile (BASE_SECURITY_PROFILE, TRUST_SECURITY_PROFILE and
-TRUST_SECURITY_PLUS_PROFILE)
+TRUST_PLUS_SECURITY_PROFILE)
 
 **Description:** This policy checks if the connector has a specific security profile. This is verified by analysing the
-claims of the message received.
+DAT claims of the message received.
 
 ### Prohibit Access
 **Parameters:** none
@@ -173,7 +173,7 @@ Policies enforced at data provision currently are:
 - USAGE_DURING_INTERVAL
 - USAGE_UNTIL_DELETION
 - CONNECTOR_RESTRICTED_USAGE
-- SECURITY_PROFILE_RESTRICTED_USAGE)
+- SECURITY_PROFILE_RESTRICTED_USAGE
 
 The `RuleValidator.validatePolicy` function has a switch statement that matches the DSC policy patterns. The order of
 the policies that will be checked is defined. The `validatePolicy` function is called before an artifact
