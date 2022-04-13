@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - Add `daps.whitelisted.url` to `application.properties.`. Allows configuring whitelisted DAPS URLs already at configuration time.
+- Introduction of the setting `referred.check=true/false` in the application.properties. Enables or disables DAT claim referringConnector vs IDS message issuerConnector validation. Disabled by default.
 
 ### Changed
 - Code base refactorings and removing of unused code.
