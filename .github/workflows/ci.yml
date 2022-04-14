@@ -32,14 +32,14 @@ jobs:
       fail-fast: false
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up JDK ${{ matrix.java }}
-      uses: actions/setup-java@v2
+      uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
         java-version: '17'
     - name: Cache maven packages
-      uses: actions/cache@v2
+      uses: actions/cache@v3.0.1
       with:
         path: ~/.m2
         key: ${{ runner.os }}-${{ needs.setup.outputs.branch_name }}-style-${{ hashFiles('**/pom.xml') }}
@@ -55,14 +55,14 @@ jobs:
       fail-fast: false
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up JDK ${{ matrix.java }}
-      uses: actions/setup-java@v2
+      uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
         java-version: '17'
     - name: Cache maven packages
-      uses: actions/cache@v2
+      uses: actions/cache@v3.0.1
       with:
         path: ~/.m2
         key: ${{ runner.os }}-${{ needs.setup.outputs.branch_name }}-analysis-${{ hashFiles('**/pom.xml') }}
@@ -80,14 +80,14 @@ jobs:
         java: [17]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up JDK ${{ matrix.java }}
-      uses: actions/setup-java@v2
+      uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
         java-version: ${{ matrix.java }}
     - name: Cache maven packages
-      uses: actions/cache@v2
+      uses: actions/cache@v3.0.1
       with:
         path: ~/.m2
         key: ${{ runner.os }}-${{ needs.setup.outputs.branch_name }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -103,14 +103,14 @@ jobs:
       fail-fast: false
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up JDK ${{ matrix.java }}
-      uses: actions/setup-java@v2
+      uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
         java-version: '17'
     - name: Cache maven packages
-      uses: actions/cache@v2
+      uses: actions/cache@v3.0.1
       with:
         path: ~/.m2
         key: ${{ runner.os }}-${{ needs.setup.outputs.branch_name }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -125,9 +125,9 @@ jobs:
       fail-fast: false
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Lint Docker
-      uses: hadolint/hadolint-action@v1.6.0
+      uses: hadolint/hadolint-action@v2.1.0
       with:
         dockerfile: Dockerfile
         config: .hadolint.yaml
@@ -164,7 +164,7 @@ jobs:
           mv oras-install/oras /usr/local/bin/
           rm -rf oras.tar.gz oras-install/
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Build image artifact name
         id: get_image_artifact_name
         run: |
@@ -194,13 +194,13 @@ jobs:
           IMAGE: ${{ steps.get_image_name.outputs.image_name }}
           ARTIFACT: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}
       - name: Push image
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}-image
           path: ${{ github.workspace }}/${{ steps.get_image_artifact_name.outputs.image_artifact_name }}.tar
           retention-days: 1
       - name: Push SBoM
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}-image-sbom.json
           path: ${{ github.workspace }}/${{ steps.get_image_artifact_name.outputs.image_artifact_name }}-sbom.json
@@ -215,7 +215,7 @@ jobs:
 
     steps:
       - name: Download image
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ needs.build_test_image.outputs.image_artifact_name }}-image
       - name: Load image into docker
@@ -223,7 +223,7 @@ jobs:
         env:
           ARTIFACT: ${{ needs.build_test_image.outputs.image_artifact_name }}
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Run vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
@@ -247,7 +247,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Build image artifact name
         id: get_image_artifact_name
         run: |
@@ -271,7 +271,7 @@ jobs:
           BACKEND_IMAGE: ${{ steps.get_image_name.outputs.image_name }}
           BACKEND_ARTIFACT: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}
       - name: Push image
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}-image
           path: ${{ github.workspace }}/${{ steps.get_image_artifact_name.outputs.image_artifact_name }}.tar
@@ -289,7 +289,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Build image artifact name
         id: get_image_artifact_name
         run: |
@@ -313,7 +313,7 @@ jobs:
           BACKEND_IMAGE: ${{ steps.get_image_name.outputs.image_name }}
           BACKEND_ARTIFACT: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}
       - name: Push image
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}-image
           path: ${{ github.workspace }}/${{ steps.get_image_artifact_name.outputs.image_artifact_name }}.tar
@@ -326,7 +326,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Setup environment
@@ -337,15 +337,15 @@ jobs:
           cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
           chmod 600 ~/.kube/config
       - name: Download image
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ needs.build_test_image.outputs.image_artifact_name }}-image
       - name: Download backend image
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ needs.build_test_backend_image.outputs.image_artifact_name }}-image
       - name: Download test runner image
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ needs.build_test_runner_image.outputs.image_artifact_name }}-image
       - name: Load image into cluster
