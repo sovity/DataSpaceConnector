@@ -193,7 +193,7 @@ public class Bootstrapper {
     }
 
     /**
-     * Register resources at the broker.
+     * Register resources at the broker and link resource to broker.
      *
      * @param properties Bootstrap properties.
      * @param resources  The ids resources to register.
@@ -230,6 +230,7 @@ public class Bootstrapper {
                         }
                     }
 
+                    //send resource update message and update broker and resource link
                     var resourceResponse = brokerSvc
                             .sendResourceUpdateMessage(broker.toURI(), entry.getValue());
                     if (!brokerSvc.checkResponse(resourceResponse)) {

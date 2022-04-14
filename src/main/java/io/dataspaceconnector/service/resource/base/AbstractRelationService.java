@@ -152,8 +152,8 @@ public abstract class AbstractRelationService<K extends Entity, W extends Entity
      * @param entities The set of entities to be checked.
      * @throws ResourceNotFoundException if any of the entities is unknown.
      */
-    private void throwIfEntityDoesNotExist(final Set<UUID> entities) {
-        if (!doesExist(entities, x -> manyService.doesExist(x))) {
+    protected void throwIfEntityDoesNotExist(final Set<UUID> entities) {
+        if (!doesExist(entities, (x) -> manyService.doesExist(x))) {
             throw new ResourceNotFoundException("Could not find resource.");
         }
     }
@@ -165,7 +165,7 @@ public abstract class AbstractRelationService<K extends Entity, W extends Entity
      * @param doesElementExist The function that evaluates if an entity does exist.
      * @return true if all entities are known.
      */
-    private boolean doesExist(
+    protected boolean doesExist(
             final Set<UUID> entities, final Function<UUID, Boolean> doesElementExist) {
         for (final var entity : entities) {
             if (Boolean.FALSE.equals(doesElementExist.apply(entity))) {

@@ -15,15 +15,22 @@
  */
 package io.dataspaceconnector.service.resource.relation;
 
+import io.dataspaceconnector.common.exception.ErrorMessage;
+import io.dataspaceconnector.common.util.UUIDUtils;
+import io.dataspaceconnector.common.util.Utils;
 import io.dataspaceconnector.model.broker.Broker;
 import io.dataspaceconnector.model.resource.OfferedResource;
 import io.dataspaceconnector.service.resource.base.OwningRelationService;
 import io.dataspaceconnector.service.resource.type.BrokerService;
 import io.dataspaceconnector.service.resource.type.OfferedResourceService;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * Handles the relation between broker and offered resources.
@@ -36,5 +43,39 @@ public class BrokerOfferedResourceLinker extends OwningRelationService<Broker, O
     @Override
     protected final List<OfferedResource> getInternal(final Broker owner) {
         return owner.getOfferedResources();
+    }
+
+    /**
+     * This method also makes sure the bootstrap ids in entities are
+     * converted to the real DSC resource ids.
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(final UUID ownerId, final Set<UUID> entities) {
+        Utils.requireNonNull(ownerId, ErrorMessage.ENTITYID_NULL);
+        Utils.requireNonNull(entities, ErrorMessage.ENTITYSET_NULL);
+
+        if (entities.isEmpty()) {
+            // Prevent read call to database for the owner.
+            return;
+        }
+
+        Set<UUID> correctEntities = new HashSet<>(entities);
+
+        // Search if any id from the entities set is found in the bootstrapId field of a resource,
+        // if this is the case, replace it with the correct resource id
+        for (OfferedResource e : getManyService().getAll(Pageable.unpaged())) {
+            for (var entity : entities) {
+                if (e.getBootstrapId() != null) {
+                    UUID bootstrapId = UUIDUtils.uuidFromUri(e.getBootstrapId());
+                    if (bootstrapId.equals(entity)) {
+                        correctEntities.remove(bootstrapId);
+                        correctEntities.add(e.getId());
+                    }
+                }
+            }
+        }
+        throwIfEntityDoesNotExist(correctEntities);
+        addInternal(ownerId, correctEntities);
     }
 }
