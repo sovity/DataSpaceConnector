@@ -70,7 +70,7 @@
 		<modelmapper.version>3.1.0</modelmapper.version>
 		<jackson.version>2.13.2</jackson.version>
 		<jackson-databind.version>2.13.2.2</jackson-databind.version>
-		<postgres.version>42.3.3</postgres.version>
+		<postgres.version>42.3.4</postgres.version>
 		<springdoc.version>1.6.7</springdoc.version>
 		<equalsverifier.version>3.10</equalsverifier.version>
 		<jaeger.version>3.3.1</jaeger.version>

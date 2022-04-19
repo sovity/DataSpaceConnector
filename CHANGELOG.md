@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - Code base refactorings and removing of unused code.
 
 ### Dependencies
+- Update org.postgresql:postgresql version from 42.3.3 to 42.3.4.
 - Update springframework version from 5.3.18 to 5.3.19.
 - Update com.h3xstream.findsecbugs:findsecbugs-plugin version from 1.11.0 to 1.12.0.
 - Update org.flywaydb:flyway-core version from 8.5.5 to 8.5.8.
