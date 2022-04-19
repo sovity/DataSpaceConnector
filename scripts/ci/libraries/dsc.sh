@@ -33,14 +33,20 @@ function dsc::run_provider_consumer_test() {
     # Backend setup
     helm install flask ./charts/tests/route-backend --set image.pullPolicy=Never 2>&1 > /dev/null
 
-    echo "Waiting for readiness"
+    echo "Preparing for readiness..."
+    echo "Step 1/6: rollout provider-dataspace-connector"
     kubectl rollout status deployments/provider-dataspace-connector --timeout=360s 2>&1 > /dev/null
+    echo "Step 2/6: rollout consumer-dataspace-connector"
     kubectl rollout status deployments/consumer-dataspace-connector --timeout=60s  2>&1 > /dev/null
+    echo "Step 3/6: rollout flask-route-backend"
     kubectl rollout status deployments/flask-route-backend --timeout=60s  2>&1 > /dev/null
 
     # Make sure the deployments are really ready and the rollout did not just timeout
+    echo "Step 4/6: wait for available provider-dataspace-connector"
     kubectl wait --for=condition=available deployments/provider-dataspace-connector --timeout=1s 2>&1 > /dev/null
+    echo "Step 5/6: wait for available consumer-dataspace-connector"
     kubectl wait --for=condition=available deployments/consumer-dataspace-connector --timeout=1s 2>&1 > /dev/null
+    echo "Step 6/6: wait for available flask-route-backend"
     kubectl wait --for=condition=available deployments/flask-route-backend --timeout=1s 2>&1 > /dev/null
 
     # Give the port-forwarding some time
@@ -55,4 +61,7 @@ function dsc::run_provider_consumer_test() {
     helm uninstall provider 2>&1 > /dev/null
     helm uninstall consumer 2>&1 > /dev/null
     helm uninstall flask 2>&1 > /dev/null
+
+    kubectl delete pvc --all
+    kubectl delete pv --all
 }

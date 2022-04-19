@@ -27,6 +27,7 @@ import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
+import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Lob;
@@ -57,6 +58,7 @@ public class Route extends NamedEntity {
      * The route configuration.
      */
     @Lob
+    @Column(columnDefinition = "TEXT")
     private String configuration;
 
     /**

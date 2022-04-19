@@ -2,14 +2,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [UNRELEASED]
+## [UNRELEASED - 8.0.0]
 
 ### Added
 - Add `daps.whitelisted.url` to `application.properties.`. Allows configuring whitelisted DAPS URLs already at configuration time.
 - Introduction of the setting `referred.check=true/false` in the application.properties. Enables or disables DAT claim referringConnector vs IDS message issuerConnector validation. Disabled by default.
+- Add support for MSSQL besides H2 and PostgreSQL.
 
 ### Fixed
 - Fix bootstrapping with broker registration. The DSC now searches for the correct resource id when bootstrapping.
+- Renamed reserved keywords columns in model classes for newer H2 versions and MSSQL.
+- Removed trivyignore file.
+- e2e-tests now delete the PVC (PersistentVolumeClaim) and PV (PersistentVolume) during cleanup phase.
 
 ### Changed
 - Code base refactorings and removing of unused code.
@@ -23,6 +27,8 @@ All notable changes to this project will be documented in this file.
 - Update de.fhg.aisec.ids:camel-idscp2 version from 0.6.0 to 0.10.3.
 - Add io.jsonwebtoken:jjwt-impl and :jjwt-api version 0.11.2.
 - Add org.bitbucket.b_c:jose4j version 0.7.11.
+- Add h2 versioning and update to version 2.1.212.
+- Add com.microsoft.sqlserver:mssql-jdbc version 10.2.0.jre17.
 
 ## [7.1.0] - 2022-04-06
 

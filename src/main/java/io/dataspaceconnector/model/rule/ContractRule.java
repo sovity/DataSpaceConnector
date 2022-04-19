@@ -66,6 +66,7 @@ public class ContractRule extends NamedEntity implements RemoteObject {
      * The definition of the rule.
      **/
     @Lob
+    @Column(name = "contractrule_value", columnDefinition = "TEXT")
     private String value;
 
     /**

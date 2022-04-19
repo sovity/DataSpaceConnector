@@ -54,7 +54,7 @@
 
 	<properties>
 		<!-- General -->
-		<revision>7.1.0</revision>
+		<revision>8.0.0</revision>
 		<email>support@sovity.de</email>
 
 		<!-- Build info -->
@@ -70,7 +70,6 @@
 		<modelmapper.version>3.1.0</modelmapper.version>
 		<jackson.version>2.13.2</jackson.version>
 		<jackson-databind.version>2.13.2.2</jackson-databind.version>
-		<postgres.version>42.3.4</postgres.version>
 		<springdoc.version>1.6.7</springdoc.version>
 		<equalsverifier.version>3.10</equalsverifier.version>
 		<jaeger.version>3.3.1</jaeger.version>
@@ -102,6 +101,11 @@
 		<taglist.version>3.0.0</taglist.version>
 		<dependency-check.version>7.0.4</dependency-check.version>
 		<jxr.version>3.2.0</jxr.version>
+
+		<!-- Supported Databases -->
+		<h2.version>2.1.212</h2.version>
+		<postgres.version>42.3.4</postgres.version>
+		<mssql.version>10.2.0.jre17</mssql.version>
 
 		<!-- License -->
 		<license_name>Apache License, Version 2.0</license_name>
@@ -384,6 +388,14 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>${mssql.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>io.opentracing.contrib</groupId>
 			<artifactId>opentracing-spring-jaeger-web-starter</artifactId>
@@ -431,6 +443,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 

@@ -47,7 +47,7 @@ public interface ConfigurationRepository extends BaseEntityRepository<Configurat
     @Transactional
     @Modifying
     @Query("UPDATE Configuration a "
-            + "SET a.active = NULL "
+            + "SET a.active = false "
             + "WHERE a.active = true "
             + "AND a.deleted = false")
     void unsetActive();
