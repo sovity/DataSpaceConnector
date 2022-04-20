@@ -79,6 +79,9 @@ or `negotiationBasis`). On top of that, you can add a list of resources as a sam
 resource. For this, add the IDs to the sample list. The connector checks if the values are valid
 uri and match known resource offers. If this is not the case, you will get a code 400 as a response.
 
+To make the example listed above work, remove the list entry for the property `samples` or create a 
+different ressource and use the respective URI for that sample.
+
 ---
 
 **Note**: Be aware that the payment modality attribute has nothing to do with the contract
@@ -179,10 +182,24 @@ entity change, as well as the creation and modification date.
 
 The endpoints `PUT`, `GET`, and`DELETE` `/offers/{id}` provide standard CRUD functions to read,
 update, and delete the metadata, respectively the data resource - as described
-[here](../../documentation/v5/data-model.md).
+[here](../../documentation/v6/data-model.md).
 
 Next to the resource, we need a catalog as a parent for the offer. Use `POST /api/catalogs` to
-create one. Its location is: [https://localhost:8080/api/catalogs/5ac012e1-ffa5-43b3-af41-9707d2a9137d](https://localhost:8080/api/catalogs/5ac012e1-ffa5-43b3-af41-9707d2a9137d).
+create one as shown in the following screenshot. The self-reference in the `link` property of the 
+response will tell you the assigned identifier used in the next step.
+
+![Example Offer Catalog](../../../assets/images/swagger_example_catalogs_post.png)
+```
+curl -X 'POST' \
+  'https://localhost:8080/api/catalogs' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "title": "Example Catalog",
+  "description": "This catalog is used in the connector tutorial."
+}'
+```
+
 Then, we need to link both objects to each other via another endpoint. Therefore, we execute a `POST`
 catalog's id extended by `/offers` and the resource's id as part of the list in the request body.
 
@@ -190,15 +207,15 @@ catalog's id extended by `/offers` and the resource's id as part of the list in 
 
 ```
 curl -X 'POST' \
-  'https://localhost:8080/api/catalogs/5ac012e1-ffa5-43b3-af41-9707d2a9137d/offers' \
+  'https://localhost:8080/api/catalogs/<ID of the created catalog>/offers' \
   -H 'accept: */*' \
   -H 'Content-Type: application/json' \
   -d '[
-  "https://localhost:8080/api/offers/ca502fbc-fbeb-4125-bd65-97536647d623"
+  "https://localhost:8080/api/offers/<ID of the created ressource>/offer>"
 ]'
 ```
 
-As stated [here](../../documentation/v5/data-model.md), **an offered resource is only complete if it
+As stated [here](../../documentation/v6/data-model.md), **an offered resource is only complete if it
 contains at least one contract offer and at least one representation with at least one artifact.
 Otherwise, it will not be listed in the IDS self-description because there is no complete data offer.**
 
