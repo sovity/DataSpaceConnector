@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 - Code base refactorings and removing of unused code.
 
 ### Dependencies
+- Update org.apache.maven.plugins:maven-site-plugin version from 3.11.0 to 3.12.0.
 - Update org.apache.maven.plugins:maven-javadoc-plugin version from 3.3.2 to 3.4.0.
 - Update org.postgresql:postgresql version from 42.3.3 to 42.3.4.
 - Update springframework version from 5.3.18 to 5.3.19.
