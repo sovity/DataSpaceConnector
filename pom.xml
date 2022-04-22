@@ -70,7 +70,7 @@
 		<modelmapper.version>3.1.0</modelmapper.version>
 		<jackson.version>2.13.2</jackson.version>
 		<jackson-databind.version>2.13.2.2</jackson-databind.version>
-		<springdoc.version>1.6.7</springdoc.version>
+		<springdoc.version>1.6.8</springdoc.version>
 		<equalsverifier.version>3.10</equalsverifier.version>
 		<jaeger.version>3.3.1</jaeger.version>
 		<freemarker.version>2.3.31</freemarker.version>

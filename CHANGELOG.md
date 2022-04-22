@@ -26,7 +26,7 @@ All notable changes to this project will be documented in this file.
 - Update springframework version from 5.3.18 to 5.3.19.
 - Update com.h3xstream.findsecbugs:findsecbugs-plugin version from 1.11.0 to 1.12.0.
 - Update org.flywaydb:flyway-core version from 8.5.5 to 8.5.9.
-- Update springdoc version from 1.6.6 to 1.6.7.
+- Update springdoc version from 1.6.6 to 1.6.8.
 - Update de.fhg.aisec.ids:camel-idscp2 version from 0.6.0 to 0.10.3.
 - Add io.jsonwebtoken:jjwt-impl and :jjwt-api version 0.11.2.
 - Add org.bitbucket.b_c:jose4j version 0.7.11.
