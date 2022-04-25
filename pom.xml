@@ -77,7 +77,7 @@
 		<camel.version>3.16.0</camel.version>
 		<idscp2.version>0.10.3</idscp2.version>
 		<protobuf.version>3.20.1</protobuf.version>
-		<jsonwebtoken.version>0.11.2</jsonwebtoken.version>
+		<jsonwebtoken.version>0.11.3</jsonwebtoken.version>
 
 		<!-- Plugins -->
 		<maven-enforcer-plugin.version>3.0.0</maven-enforcer-plugin.version>
@@ -91,7 +91,7 @@
 		<spotbugs.version>4.6.0</spotbugs.version>
 		<findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
 		<checkstyle-plugin.version>3.1.2</checkstyle-plugin.version>
-		<checkstyle.version>10.1</checkstyle.version>
+		<checkstyle.version>10.2</checkstyle.version>
 		<jacoco.version>0.8.8</jacoco.version>
 		<pmd.version>6.44.0</pmd.version>
 		<pmd-plugin.version>3.16.0</pmd-plugin.version>
@@ -99,7 +99,7 @@
 		<license-plugin.version>4.1</license-plugin.version>
 		<dms.version>2.2.0</dms.version>
 		<taglist.version>3.0.0</taglist.version>
-		<dependency-check.version>7.0.4</dependency-check.version>
+		<dependency-check.version>7.1.0</dependency-check.version>
 		<jxr.version>3.2.0</jxr.version>
 
 		<!-- Supported Databases -->
