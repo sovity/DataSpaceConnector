@@ -53,7 +53,7 @@ public final class ResourceName {
     /**
      * Tag name for agreements.
      */
-    public static final String AGREEMENTS = "Contracts";
+    public static final String AGREEMENTS = "Agreements";
 
     /**
      * Tag name for artifacts.

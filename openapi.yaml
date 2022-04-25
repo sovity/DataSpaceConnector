@@ -25,7 +25,7 @@ info:
   license:
     name: "Apache License, Version 2.0"
     url: https://www.apache.org/licenses/LICENSE-2.0.txt
-  version: 7.1.0
+  version: 8.0.0
 servers:
   - url: https://localhost:8080
     description: Generated server url
@@ -69,10 +69,10 @@ tags:
     description: Endpoints for operations on data sources/sinks.
   - name: Routes
     description: Endpoints for operations on routes.
+  - name: Agreements
+    description: Endpoints for contract agreement handling.
   - name: Routes (Apache Camel)
     description: Endpoints for dynamically managing Camel routes.
-  - name: Contracts
-    description: Endpoints for contract agreement handling.
 paths:
   /api/subscriptions/{id}:
     get:
@@ -88,14 +88,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SubscriptionView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -119,8 +119,8 @@ paths:
               $ref: '#/components/schemas/SubscriptionDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -131,8 +131,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SubscriptionView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -150,10 +150,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/rules/{id}:
     get:
       tags:
@@ -168,14 +168,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ContractRuleView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -199,8 +199,8 @@ paths:
               $ref: '#/components/schemas/ContractRuleDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -211,8 +211,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ContractRuleView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -230,10 +230,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/rules/{id}/contracts:
     get:
       tags:
@@ -262,14 +262,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelContractView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -296,10 +296,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Rules
@@ -322,14 +322,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelContractView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -356,10 +356,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/routes/{id}:
     get:
       tags:
@@ -374,14 +374,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RouteView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -405,8 +405,8 @@ paths:
               $ref: '#/components/schemas/RouteDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -417,8 +417,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RouteView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -436,10 +436,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/routes/{id}/steps:
     get:
       tags:
@@ -468,14 +468,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRouteView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -502,10 +502,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Routes
@@ -528,14 +528,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRouteView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -562,10 +562,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/routes/{id}/endpoint/start:
     put:
       tags:
@@ -587,14 +587,14 @@ paths:
               format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
                 type: object
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -612,14 +612,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
                 type: object
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -645,14 +645,14 @@ paths:
               format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
                 type: object
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -670,14 +670,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
                 type: object
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -696,14 +696,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RequestedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -727,8 +727,8 @@ paths:
               $ref: '#/components/schemas/RequestedResourceDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -739,8 +739,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RequestedResourceView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -758,10 +758,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/requests/{id}/representations:
     get:
       tags:
@@ -790,14 +790,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRepresentationView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -824,10 +824,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Requested Resources
@@ -850,14 +850,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRepresentationView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -884,10 +884,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/requests/{id}/catalogs:
     get:
       tags:
@@ -916,14 +916,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelCatalogView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -950,10 +950,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Requested Resources
@@ -976,14 +976,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelCatalogView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1010,10 +1010,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/representations/{id}:
     get:
       tags:
@@ -1028,14 +1028,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RepresentationView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1059,8 +1059,8 @@ paths:
               $ref: '#/components/schemas/RepresentationDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -1071,8 +1071,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RepresentationView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1090,10 +1090,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/representations/{id}/requests:
     get:
       tags:
@@ -1122,14 +1122,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRequestedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1156,10 +1156,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Representations
@@ -1182,14 +1182,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRequestedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1216,10 +1216,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/representations/{id}/offers:
     get:
       tags:
@@ -1248,14 +1248,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelOfferedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1282,10 +1282,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Representations
@@ -1308,14 +1308,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelOfferedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1342,10 +1342,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/representations/{id}/artifacts:
     get:
       tags:
@@ -1374,14 +1374,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelArtifactView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1408,10 +1408,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Representations
@@ -1434,14 +1434,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelArtifactView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1468,10 +1468,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/offers/{id}:
     get:
       tags:
@@ -1486,14 +1486,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/OfferedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1517,8 +1517,8 @@ paths:
               $ref: '#/components/schemas/OfferedResourceDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -1529,8 +1529,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/OfferedResourceView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1548,10 +1548,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/offers/{id}/representations:
     get:
       tags:
@@ -1580,14 +1580,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRepresentationView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1614,10 +1614,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Offered Resources
@@ -1640,14 +1640,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRepresentationView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1674,10 +1674,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/offers/{id}/contracts:
     get:
       tags:
@@ -1706,14 +1706,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelContractView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1740,10 +1740,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Offered Resources
@@ -1766,14 +1766,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelContractView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1800,10 +1800,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/offers/{id}/catalogs:
     get:
       tags:
@@ -1832,14 +1832,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelCatalogView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1866,10 +1866,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Offered Resources
@@ -1892,14 +1892,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelCatalogView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -1926,10 +1926,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/notify:
     put:
       tags:
@@ -1947,14 +1947,14 @@ paths:
             type: string
             format: uri
       responses:
-        "401":
-          description: Unauthorized
+        "404":
+          description: Not found
           content:
             application/json:
               schema:
                 type: object
-        "404":
-          description: Not found
+        "204":
+          description: No Content
           content:
             application/json:
               schema:
@@ -1965,8 +1965,8 @@ paths:
             application/json:
               schema:
                 type: object
-        "204":
-          description: No Content
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -1985,14 +1985,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2019,8 +2019,8 @@ paths:
                 - $ref: '#/components/schemas/GenericEndpointDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -2031,8 +2031,8 @@ paths:
             '*/*':
               schema:
                 type: object
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2050,10 +2050,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/endpoints/{id}/datasource/{dataSourceId}:
     put:
       tags:
@@ -2074,10 +2074,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/datasources/{id}:
     get:
       tags:
@@ -2092,14 +2092,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/DataSourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2125,8 +2125,8 @@ paths:
                 - $ref: '#/components/schemas/RestDataSourceDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -2137,8 +2137,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/DataSourceView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2156,10 +2156,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/daps/{id}:
     get:
       tags:
@@ -2174,14 +2174,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/DapsView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2205,8 +2205,8 @@ paths:
               $ref: '#/components/schemas/DapsDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -2217,8 +2217,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/DapsView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2236,10 +2236,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/contracts/{id}:
     get:
       tags:
@@ -2254,14 +2254,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ContractView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2285,8 +2285,8 @@ paths:
               $ref: '#/components/schemas/ContractDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -2297,8 +2297,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ContractView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2316,10 +2316,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/contracts/{id}/rules:
     get:
       tags:
@@ -2348,14 +2348,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelContractRuleView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2382,10 +2382,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Contracts
@@ -2408,14 +2408,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelContractRuleView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2442,10 +2442,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/contracts/{id}/offers:
     get:
       tags:
@@ -2474,14 +2474,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelOfferedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2508,10 +2508,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Contracts
@@ -2534,14 +2534,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelOfferedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2568,10 +2568,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/configurations/{id}:
     get:
       tags:
@@ -2586,14 +2586,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ConfigurationView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2617,8 +2617,8 @@ paths:
               $ref: '#/components/schemas/ConfigurationDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -2629,8 +2629,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ConfigurationView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2648,10 +2648,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/configurations/{id}/active:
     put:
       tags:
@@ -2666,14 +2666,8 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-        "500":
-          description: Internal server error
+        "204":
+          description: No content
           content:
             application/json:
               schema:
@@ -2690,8 +2684,14 @@ paths:
             application/json:
               schema:
                 type: object
-        "204":
-          description: No content
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -2705,14 +2705,14 @@ paths:
         data.
       operationId: getPatternStatus
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/JSONObject'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -2731,14 +2731,14 @@ paths:
           schema:
             type: boolean
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/JSONObject'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -2750,14 +2750,14 @@ paths:
       summary: Get contract negotiation status.
       operationId: getNegotiationStatus
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/JSONObject'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -2774,14 +2774,14 @@ paths:
           schema:
             type: boolean
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/JSONObject'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -2800,14 +2800,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CatalogView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2831,8 +2831,8 @@ paths:
               $ref: '#/components/schemas/CatalogDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -2843,8 +2843,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CatalogView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2862,10 +2862,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/catalogs/{id}/offers:
     get:
       tags:
@@ -2894,14 +2894,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelOfferedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2928,10 +2928,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Catalogs
@@ -2954,14 +2954,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelOfferedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -2988,10 +2988,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/brokers/{id}:
     get:
       tags:
@@ -3006,14 +3006,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/BrokerView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3037,8 +3037,8 @@ paths:
               $ref: '#/components/schemas/BrokerDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -3049,8 +3049,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/BrokerView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3068,10 +3068,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/artifacts/{id}:
     get:
       tags:
@@ -3086,14 +3086,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ArtifactView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3117,8 +3117,8 @@ paths:
               $ref: '#/components/schemas/ArtifactDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -3129,8 +3129,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ArtifactView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3148,10 +3148,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/artifacts/{id}/representations:
     get:
       tags:
@@ -3180,14 +3180,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRepresentationView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3214,10 +3214,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Artifacts
@@ -3240,14 +3240,14 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRepresentationView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3274,10 +3274,10 @@ paths:
                 format: uri
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/artifacts/{id}/data:
     put:
       tags:
@@ -3294,16 +3294,35 @@ paths:
         content:
           application/octet-stream:
             schema:
-              type: array
-              items:
-                type: string
-                format: byte
+              type: object
+              properties:
+                short:
+                  type: integer
+                  format: int32
+                char:
+                  type: string
+                int:
+                  type: integer
+                  format: int32
+                long:
+                  type: integer
+                  format: int64
+                float:
+                  type: number
+                  format: float
+                double:
+                  type: number
+                  format: double
+                direct:
+                  type: boolean
+                readOnly:
+                  type: boolean
         required: true
       responses:
-        "401":
-          description: Unauthorized
         "200":
           description: Ok
+        "401":
+          description: Unauthorized
     post:
       tags:
         - Artifacts
@@ -3328,14 +3347,14 @@ paths:
         content:
           application/json: {}
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/StreamingResponseBody'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3354,14 +3373,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AppStoreView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3385,8 +3404,8 @@ paths:
               $ref: '#/components/schemas/AppStoreDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -3397,8 +3416,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AppStoreView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3416,10 +3435,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/apps/{id}/actions:
     put:
       tags:
@@ -3445,14 +3464,14 @@ paths:
               - DELETE
               - DESCRIBE
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
                 type: object
-        "500":
-          description: Internal server error
+        "400":
+          description: Bad request
           content:
             application/json:
               schema:
@@ -3469,14 +3488,14 @@ paths:
             application/json:
               schema:
                 type: object
-        "400":
-          description: Bad request
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
                 type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -3503,14 +3522,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelSubscriptionView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3527,14 +3546,14 @@ paths:
               $ref: '#/components/schemas/SubscriptionDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SubscriptionView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3561,14 +3580,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelContractRuleView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3585,14 +3604,14 @@ paths:
               $ref: '#/components/schemas/ContractRuleDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ContractRuleView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3619,14 +3638,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRouteView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3643,14 +3662,14 @@ paths:
               $ref: '#/components/schemas/RouteDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RouteView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3677,14 +3696,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRepresentationView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3701,14 +3720,14 @@ paths:
               $ref: '#/components/schemas/RepresentationDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RepresentationView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3735,14 +3754,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelOfferedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3759,14 +3778,14 @@ paths:
               $ref: '#/components/schemas/OfferedResourceDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/OfferedResourceView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3793,8 +3812,14 @@ paths:
             type: string
             format: uri
       responses:
-        "401":
-          description: Unauthorized
+        "417":
+          description: Expectation failed
+          content:
+            '*/*':
+              schema:
+                type: object
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
@@ -3805,14 +3830,8 @@ paths:
             '*/*':
               schema:
                 type: object
-        "417":
-          description: Expectation failed
-          content:
-            '*/*':
-              schema:
-                type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3838,8 +3857,14 @@ paths:
               $ref: '#/components/schemas/SubscriptionDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "417":
+          description: Expectation failed
+          content:
+            '*/*':
+              schema:
+                type: object
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
@@ -3856,14 +3881,8 @@ paths:
             '*/*':
               schema:
                 type: object
-        "417":
-          description: Expectation failed
-          content:
-            '*/*':
-              schema:
-                type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3908,14 +3927,14 @@ paths:
               description: The search term.
         required: true
       responses:
-        "504":
-          description: Gateway timeout
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 type: object
-        "401":
-          description: Unauthorized
+        "504":
+          description: Gateway timeout
           content:
             '*/*':
               schema:
@@ -3932,8 +3951,8 @@ paths:
             '*/*':
               schema:
                 type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -3962,20 +3981,26 @@ paths:
             type: string
             format: uri
       responses:
-        "401":
-          description: Unauthorized
+        "417":
+          description: Expectation failed
           content:
             '*/*':
               schema:
                 type: object
-        "504":
-          description: Gateway timeout
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 type: object
         "404":
           description: Not found
+          content:
+            '*/*':
+              schema:
+                type: object
+        "504":
+          description: Gateway timeout
           content:
             '*/*':
               schema:
@@ -3992,14 +4017,8 @@ paths:
             '*/*':
               schema:
                 type: object
-        "417":
-          description: Expectation failed
-          content:
-            '*/*':
-              schema:
-                type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4027,20 +4046,26 @@ paths:
             type: string
             format: uri
       responses:
-        "401":
-          description: Unauthorized
+        "417":
+          description: Expectation failed
           content:
             '*/*':
               schema:
                 type: object
-        "504":
-          description: Gateway timeout
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 type: object
         "404":
           description: Not found
+          content:
+            '*/*':
+              schema:
+                type: object
+        "504":
+          description: Gateway timeout
           content:
             '*/*':
               schema:
@@ -4057,14 +4082,8 @@ paths:
             '*/*':
               schema:
                 type: object
-        "417":
-          description: Expectation failed
-          content:
-            '*/*':
-              schema:
-                type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4098,14 +4117,20 @@ paths:
                 };
         required: true
       responses:
-        "504":
-          description: Gateway timeout
+        "417":
+          description: Expectation failed
           content:
             '*/*':
               schema:
                 type: object
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
+          content:
+            '*/*':
+              schema:
+                type: object
+        "504":
+          description: Gateway timeout
           content:
             '*/*':
               schema:
@@ -4122,14 +4147,8 @@ paths:
             '*/*':
               schema:
                 type: object
-        "417":
-          description: Expectation failed
-          content:
-            '*/*':
-              schema:
-                type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4156,8 +4175,14 @@ paths:
             type: string
             format: uri
       responses:
-        "401":
-          description: Unauthorized
+        "417":
+          description: Expectation failed
+          content:
+            '*/*':
+              schema:
+                type: object
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
@@ -4174,14 +4199,8 @@ paths:
             '*/*':
               schema:
                 type: object
-        "417":
-          description: Expectation failed
-          content:
-            '*/*':
-              schema:
-                type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4238,26 +4257,14 @@ paths:
                   - $ref: '#/components/schemas/Prohibition'
         required: true
       responses:
-        "401":
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                type: object
-        "500":
-          description: Internal server error
-          content:
-            '*/*':
-              schema:
-                type: object
-        "502":
-          description: Bad gateway
-          content:
-            '*/*':
-              schema:
-                type: object
         "417":
           description: Expectation failed
+          content:
+            '*/*':
+              schema:
+                type: object
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
@@ -4268,14 +4275,26 @@ paths:
             '*/*':
               schema:
                 type: object
+        "500":
+          description: Internal server error
+          content:
+            '*/*':
+              schema:
+                type: object
         "201":
           description: Created
           content:
             '*/*':
               schema:
                 type: object
-        "200":
-          description: Ok
+        "502":
+          description: Bad gateway
+          content:
+            '*/*':
+              schema:
+                type: object
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4297,8 +4316,14 @@ paths:
             type: string
             format: uri
       responses:
-        "401":
-          description: Unauthorized
+        "417":
+          description: Expectation failed
+          content:
+            '*/*':
+              schema:
+                type: object
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
@@ -4321,14 +4346,8 @@ paths:
             '*/*':
               schema:
                 type: object
-        "417":
-          description: Expectation failed
-          content:
-            '*/*':
-              schema:
-                type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4349,8 +4368,14 @@ paths:
             type: string
             format: uri
       responses:
-        "401":
-          description: Unauthorized
+        "417":
+          description: Expectation failed
+          content:
+            '*/*':
+              schema:
+                type: object
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
@@ -4373,14 +4398,8 @@ paths:
             '*/*':
               schema:
                 type: object
-        "417":
-          description: Expectation failed
-          content:
-            '*/*':
-              schema:
-                type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4407,26 +4426,14 @@ paths:
             type: string
             format: uri
       responses:
-        "401":
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-        "500":
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                type: object
-        "502":
-          description: Bad gateway
-          content:
-            application/json:
-              schema:
-                type: object
         "417":
           description: Expectation failed
+          content:
+            application/json:
+              schema:
+                type: object
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
@@ -4437,14 +4444,26 @@ paths:
             application/json:
               schema:
                 type: object
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
         "201":
           description: Created
           content:
             application/json:
               schema:
                 type: object
-        "200":
-          description: Ok
+        "502":
+          description: Bad gateway
+          content:
+            application/json:
+              schema:
+                type: object
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -4463,8 +4482,8 @@ paths:
               description: The JSON string representing a policy.
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
@@ -4475,8 +4494,8 @@ paths:
             application/json:
               schema:
                 type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -4505,8 +4524,8 @@ paths:
                 - $ref: '#/components/schemas/UsageNumberDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/ld+json:
               schema:
@@ -4517,8 +4536,8 @@ paths:
             application/ld+json:
               schema:
                 type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/ld+json:
               schema:
@@ -4545,14 +4564,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelObject'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4572,14 +4591,14 @@ paths:
                 - $ref: '#/components/schemas/GenericEndpointDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 type: object
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4606,14 +4625,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelDataSourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4632,14 +4651,14 @@ paths:
                 - $ref: '#/components/schemas/RestDataSourceDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/DataSourceView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4666,14 +4685,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelDapsView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4690,14 +4709,14 @@ paths:
               $ref: '#/components/schemas/DapsDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/DapsView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4724,14 +4743,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelContractView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4748,14 +4767,14 @@ paths:
               $ref: '#/components/schemas/ContractDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ContractView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4782,14 +4801,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelConfigurationView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4806,14 +4825,14 @@ paths:
               $ref: '#/components/schemas/ConfigurationDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ConfigurationView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4840,14 +4859,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelCatalogView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4864,14 +4883,14 @@ paths:
               $ref: '#/components/schemas/CatalogDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/CatalogView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4894,14 +4913,8 @@ paths:
                   type: string
                   format: binary
       responses:
-        "401":
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                type: object
-        "500":
-          description: Internal server error
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
@@ -4912,8 +4925,14 @@ paths:
             application/json:
               schema:
                 type: object
-        "200":
-          description: Ok
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -4940,14 +4959,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelBrokerView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4964,14 +4983,14 @@ paths:
               $ref: '#/components/schemas/BrokerDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/BrokerView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -4994,8 +5013,8 @@ paths:
                   type: string
                   format: binary
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
@@ -5006,8 +5025,8 @@ paths:
             application/json:
               schema:
                 type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -5034,14 +5053,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelArtifactView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5058,14 +5077,14 @@ paths:
               $ref: '#/components/schemas/ArtifactDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ArtifactView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5092,14 +5111,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelAppStoreView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5116,14 +5135,14 @@ paths:
               $ref: '#/components/schemas/AppStoreDesc'
         required: true
       responses:
-        "401":
-          description: Unauthorized
+        "201":
+          description: Created
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AppStoreView'
-        "201":
-          description: Created
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5135,14 +5154,14 @@ paths:
       summary: Entrypoint for REST resources
       operationId: root
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/RepresentationModelObject'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/hal+json:
               schema:
@@ -5154,14 +5173,14 @@ paths:
       summary: Get a list of enums by value name.
       operationId: getEnums
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/JSONObject'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -5188,14 +5207,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "405":
+          description: Not allowed
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelSubscriptionView'
-        "405":
-          description: Not allowed
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5214,8 +5233,8 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "204":
+          description: No content
           content:
             '*/*':
               schema:
@@ -5226,8 +5245,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ArtifactView'
-        "204":
-          description: No content
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5254,14 +5273,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRequestedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5294,14 +5313,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelSubscriptionView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5334,14 +5353,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelContractView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5374,14 +5393,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelSubscriptionView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5414,14 +5433,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelSubscriptionView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5454,14 +5473,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelBrokerView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5494,14 +5513,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelRequestedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5513,8 +5532,8 @@ paths:
       summary: Get the private IDS self-description.
       operationId: getPrivateSelfDescription
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/ld+json:
               schema:
@@ -5525,8 +5544,8 @@ paths:
             application/ld+json:
               schema:
                 type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/ld+json:
               schema:
@@ -5538,14 +5557,14 @@ paths:
       summary: Get current configuration.
       operationId: getConfiguration
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/ConfigurationView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/hal+json:
               schema:
@@ -5557,14 +5576,14 @@ paths:
       summary: Get new route related errors.
       operationId: getRouteErrors
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
                 type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -5597,14 +5616,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelOfferedResourceView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5637,14 +5656,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelSubscriptionView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5663,14 +5682,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RouteView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5708,14 +5727,14 @@ paths:
               type: string
               format: uri
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/StreamingResponseBody'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5748,14 +5767,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelAgreementView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5788,14 +5807,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelAppView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5822,14 +5841,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelAppView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5848,14 +5867,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AppView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5873,10 +5892,10 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
         "204":
           description: No content
+        "401":
+          description: Unauthorized
   /api/apps/{id}/endpoints:
     get:
       tags:
@@ -5905,14 +5924,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelAppEndpointView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5932,14 +5951,8 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
-          content:
-            application/hal+json:
-              schema:
-                type: object
-        "500":
-          description: Internal server error
+        "200":
+          description: Ok
           content:
             application/hal+json:
               schema:
@@ -5950,8 +5963,14 @@ paths:
             application/hal+json:
               schema:
                 type: object
-        "200":
-          description: Ok
+        "500":
+          description: Internal server error
+          content:
+            application/hal+json:
+              schema:
+                type: object
+        "401":
+          description: Unauthorized
           content:
             application/hal+json:
               schema:
@@ -5959,7 +5978,7 @@ paths:
   /api/agreements:
     get:
       tags:
-        - Contracts
+        - Agreements
       summary: Get a list of base resources with pagination.
       operationId: getAll_16
       parameters:
@@ -5978,14 +5997,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelAgreementView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -5993,7 +6012,7 @@ paths:
   /api/agreements/{id}:
     get:
       tags:
-        - Contracts
+        - Agreements
       summary: Get a base resource by id.
       operationId: get_16
       parameters:
@@ -6004,14 +6023,14 @@ paths:
             type: string
             format: uuid
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AgreementView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -6019,7 +6038,7 @@ paths:
   /api/agreements/{id}/artifacts:
     get:
       tags:
-        - Contracts
+        - Agreements
       summary: Get all children of a base resource with pagination.
       operationId: getResource_25
       parameters:
@@ -6044,14 +6063,14 @@ paths:
             format: int32
             default: 30
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagedModelArtifactView'
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             '*/*':
               schema:
@@ -6063,14 +6082,14 @@ paths:
       summary: Get the public IDS self-description.
       operationId: getPublicSelfDescription_1
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/ld+json:
               schema:
                 type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/ld+json:
               schema:
@@ -6089,8 +6108,8 @@ paths:
           schema:
             type: string
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
@@ -6101,8 +6120,8 @@ paths:
             application/json:
               schema:
                 type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -6120,8 +6139,8 @@ paths:
           schema:
             type: string
       responses:
-        "401":
-          description: Unauthorized
+        "200":
+          description: Ok
           content:
             application/json:
               schema:
@@ -6132,8 +6151,8 @@ paths:
             application/json:
               schema:
                 type: object
-        "200":
-          description: Ok
+        "401":
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -7214,6 +7233,12 @@ components:
         - $ref: '#/components/schemas/AbstractConstraint'
         - type: object
           properties:
+            ids:rightOperandReference:
+              type: string
+              format: uri
+            ids:unit:
+              type: string
+              format: uri
             ids:operator:
               type: string
               enum:
@@ -7263,8 +7288,6 @@ components:
                 - https://w3id.org/idsa/code/STRING_IS_CONTAINED
                 - https://w3id.org/idsa/code/TEMPORAL_DISJOINT
                 - https://w3id.org/idsa/code/TEMPORAL_EQUALS
-            ids:rightOperand:
-              $ref: '#/components/schemas/RdfResource'
             ids:leftOperand:
               type: string
               enum:
@@ -7285,12 +7308,8 @@ components:
                 - https://w3id.org/idsa/code/STATE
                 - https://w3id.org/idsa/code/SYSTEM
                 - https://w3id.org/idsa/code/USER
-            ids:unit:
-              type: string
-              format: uri
-            ids:rightOperandReference:
-              type: string
-              format: uri
+            ids:rightOperand:
+              $ref: '#/components/schemas/RdfResource'
             ids:pipEndpoint:
               type: string
               format: uri
@@ -7325,11 +7344,11 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/Constraint'
-            ids:or:
+            ids:xone:
               type: array
               items:
                 $ref: '#/components/schemas/Constraint'
-            ids:xone:
+            ids:or:
               type: array
               items:
                 $ref: '#/components/schemas/Constraint'
@@ -7400,18 +7419,24 @@ components:
         ids:target:
           type: string
           format: uri
-        ids:assignee:
-          type: array
-          items:
-            type: string
-            format: uri
         ids:assigner:
           type: array
           items:
             type: string
             format: uri
+        ids:assignee:
+          type: array
+          items:
+            type: string
+            format: uri
+        ids:constraint:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/LogicalConstraint'
         ids:assetRefinement:
           oneOf:
+            - $ref: '#/components/schemas/Constraint'
             - $ref: '#/components/schemas/LogicalConstraint'
         ids:action:
           type: array
@@ -7434,12 +7459,6 @@ components:
               - https://w3id.org/idsa/code/TRACK_PROVENANCE
               - https://w3id.org/idsa/code/USE
               - https://w3id.org/idsa/code/WRITE
-        ids:constraint:
-          type: array
-          items:
-            oneOf:
-              - $ref: '#/components/schemas/Constraint'
-              - $ref: '#/components/schemas/LogicalConstraint'
         ids:description:
           type: array
           items:
