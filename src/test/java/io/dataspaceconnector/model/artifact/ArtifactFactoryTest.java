@@ -15,10 +15,12 @@
  */
 package io.dataspaceconnector.model.artifact;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.zip.CRC32C;
@@ -764,5 +766,39 @@ public class ArtifactFactoryTest {
 
         /* ASSERT */
         assertTrue(result);
+    }
+
+    @Test
+    public void updateLocalData_valueNotChanged_willNotUpdate() throws InvocationTargetException, IllegalAccessException {
+        final var artifactFactory = new ArtifactFactory();
+        final var artifactFactoryClass = ArtifactFactory.class;
+        final var updateLocalData = Arrays.stream(artifactFactoryClass.getDeclaredMethods()).filter(method -> method.getName().equals("updateLocalData")).findFirst();
+
+        assertTrue(updateLocalData.isPresent());
+        updateLocalData.get().setAccessible(true);
+
+        final var artifactDesc = new ArtifactDesc();
+        artifactDesc.setValue("someValue");
+        final var artifactImpl = (ArtifactImpl) factory.create(artifactDesc);
+
+        final boolean updated = (boolean) updateLocalData.get().invoke(artifactFactory, artifactImpl, "someValue");
+        assertFalse(updated);
+    }
+
+    @Test
+    public void updateLocalData_valueChanged_willUpdate() throws InvocationTargetException, IllegalAccessException {
+        final var artifactFactory = new ArtifactFactory();
+        final var artifactFactoryClass = ArtifactFactory.class;
+        final var updateLocalData = Arrays.stream(artifactFactoryClass.getDeclaredMethods()).filter(method -> method.getName().equals("updateLocalData")).findFirst();
+
+        assertTrue(updateLocalData.isPresent());
+        updateLocalData.get().setAccessible(true);
+
+        final var artifactDesc = new ArtifactDesc();
+        artifactDesc.setValue("someValue");
+        final var artifactImpl = (ArtifactImpl) factory.create(artifactDesc);
+
+        final boolean updated = (boolean) updateLocalData.get().invoke(artifactFactory, artifactImpl, "someOtherValue");
+        assertTrue(updated);
     }
 }
