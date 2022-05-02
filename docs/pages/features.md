@@ -26,6 +26,8 @@ All functionalities and architectural decisions aim at providing a maintainable 
 extensible software that encapsulates the IDS information model from connected systems.
 
 * Identity management: Central Identity Provider/[DAPS](https://github.com/International-Data-Spaces-Association/IDS-G/tree/master/core/DAPS), IDS certificates (X.509v3)
+  * Control which DAT issuing DAPS to trust
+  * IDS DAT validation
 * API for (meta) data management and IDS communication
   * Partially support of HATEOAS
   * Management of metadata (optionally also data) in local database (e.g. PostgreSQL)

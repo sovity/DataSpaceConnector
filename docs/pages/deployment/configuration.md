@@ -458,6 +458,12 @@ clearing.house.url=https://ch-ids.aisec.fraunhofer.de/logs/messages/
 
 If you leave the Clearing House address blank, the connector will ignore sending IDS messages to it.
 
+In addition, it is possible to configure which DAPS should be trusted. Multiple DAPS-URLs can be specified in the form of a comma-separated list. The entry can also be left blank. If messages with DAT issued by DAPS arrive that are not on the list of trusted DAPS, they are automatically rejected by the Connector. The list can also be managed at Connector runtime using the DAPS entity APIs. In case of an empty list, all DAPS are trusted.
+
+```properties
+daps.whitelisted.url=https://daps.aisec.fraunhofer.de
+```
+
 Also, for usage control, some settings are provided:
 
 ```properties

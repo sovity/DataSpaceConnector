@@ -46,7 +46,7 @@ can be run in Docker as well as in Kubernetes.
 
 ## IDS-ready
 
-<img width="240" height="271" align="right" src="https://www.isst.fraunhofer.de/de/news/pressemitteilungen/2020/Dataspace-Connector/jcr:content/fixedContent/pressArticleParsys/textwithasset/imageComponent/image.img.4col.png/1608540266652/ids-ready.png">
+<img width="240" height="271" align="right" src="https://www.isst.fraunhofer.de/de/news/pressemitteilungen/2020/Dataspace-Connector/jcr:content/fixedContent/pressArticleParsys/textwithasset/imageComponent/image.img.4col.png/1630102168902/ids-ready.png">
 
 "The aim of the Dataspace Connector is to provide companies with an easy and trustworthy entry into
 the International Data Spaces. There are three levels of certification for the International Data
