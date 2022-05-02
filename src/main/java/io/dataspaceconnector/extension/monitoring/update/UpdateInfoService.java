@@ -134,7 +134,7 @@ public class UpdateInfoService {
 
         final var release = new HashMap<String, Object>();
         release.put("location", responseObj.get("html_url").toString());
-        release.put("version", latestTag.trim());
+        release.put("version", latestTag.strip());
 
         return release;
     }

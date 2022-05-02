@@ -77,7 +77,7 @@ public class DapsConfig {
             final var dapsFactory = new DapsFactory();
 
             for (final var dapsUrl : whitelistedDaps) {
-                if (!dapsUrl.trim().isEmpty()) {
+                if (!dapsUrl.isBlank()) {
                     persistDaps(dapsFactory, dapsUrl);
                 }
             }
