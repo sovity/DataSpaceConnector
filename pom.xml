@@ -93,7 +93,7 @@
 		<checkstyle-plugin.version>3.1.2</checkstyle-plugin.version>
 		<checkstyle.version>10.2</checkstyle.version>
 		<jacoco.version>0.8.8</jacoco.version>
-		<pmd.version>6.44.0</pmd.version>
+		<pmd.version>6.45.0</pmd.version>
 		<pmd-plugin.version>3.16.0</pmd-plugin.version>
 		<versions-maven-plugin.version>2.10.0</versions-maven-plugin.version>
 		<license-plugin.version>4.1</license-plugin.version>
