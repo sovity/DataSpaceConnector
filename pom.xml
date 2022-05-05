@@ -104,7 +104,7 @@
 
 		<!-- Supported Databases -->
 		<h2.version>2.1.212</h2.version>
-		<postgres.version>42.3.4</postgres.version>
+		<postgres.version>42.3.5</postgres.version>
 		<mssql.version>10.2.0.jre17</mssql.version>
 
 		<!-- License -->
