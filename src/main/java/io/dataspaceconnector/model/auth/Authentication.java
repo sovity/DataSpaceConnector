@@ -28,6 +28,7 @@ import org.hibernate.annotations.Where;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.Table;
@@ -55,7 +56,7 @@ public abstract class Authentication implements HttpAuthentication, Serializable
      * The primary key.
      */
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

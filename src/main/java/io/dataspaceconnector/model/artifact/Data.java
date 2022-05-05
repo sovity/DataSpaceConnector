@@ -28,6 +28,7 @@ import org.hibernate.annotations.Where;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.Table;
@@ -57,7 +58,7 @@ public class Data implements Serializable {
      * The primary key of the data.
      */
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     @ToString.Exclude
     @SuppressWarnings("PMD.ShortVariable")

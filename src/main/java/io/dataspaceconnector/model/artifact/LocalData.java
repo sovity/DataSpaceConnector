@@ -46,7 +46,7 @@ public class LocalData extends Data {
      * The data.
      */
     @Lob
-    @Column(name = "localdata_value")
+    @Column(name = "localdata_value", columnDefinition = "TEXT")
     private byte[] value;
 
     /**
