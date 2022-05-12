@@ -215,7 +215,7 @@ jobs:
 
     steps:
       - name: Download image
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ needs.build_test_image.outputs.image_artifact_name }}-image
       - name: Load image into docker
@@ -337,15 +337,15 @@ jobs:
           cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
           chmod 600 ~/.kube/config
       - name: Download image
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ needs.build_test_image.outputs.image_artifact_name }}-image
       - name: Download backend image
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ needs.build_test_backend_image.outputs.image_artifact_name }}-image
       - name: Download test runner image
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ needs.build_test_runner_image.outputs.image_artifact_name }}-image
       - name: Load image into cluster
