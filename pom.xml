@@ -92,7 +92,7 @@
 		<spotbugs.version>4.6.0</spotbugs.version>
 		<findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
 		<checkstyle-plugin.version>3.1.2</checkstyle-plugin.version>
-		<checkstyle.version>10.1</checkstyle.version>
+		<checkstyle.version>10.2</checkstyle.version>
 		<jacoco.version>0.8.8</jacoco.version>
 		<pmd.version>6.44.0</pmd.version>
 		<pmd-plugin.version>3.16.0</pmd-plugin.version>
