@@ -194,13 +194,13 @@ jobs:
           IMAGE: ${{ steps.get_image_name.outputs.image_name }}
           ARTIFACT: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}
       - name: Push image
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}-image
           path: ${{ github.workspace }}/${{ steps.get_image_artifact_name.outputs.image_artifact_name }}.tar
           retention-days: 1
       - name: Push SBoM
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}-image-sbom.json
           path: ${{ github.workspace }}/${{ steps.get_image_artifact_name.outputs.image_artifact_name }}-sbom.json
@@ -271,7 +271,7 @@ jobs:
           BACKEND_IMAGE: ${{ steps.get_image_name.outputs.image_name }}
           BACKEND_ARTIFACT: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}
       - name: Push image
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}-image
           path: ${{ github.workspace }}/${{ steps.get_image_artifact_name.outputs.image_artifact_name }}.tar
@@ -313,7 +313,7 @@ jobs:
           BACKEND_IMAGE: ${{ steps.get_image_name.outputs.image_name }}
           BACKEND_ARTIFACT: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}
       - name: Push image
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.get_image_artifact_name.outputs.image_artifact_name }}-image
           path: ${{ github.workspace }}/${{ steps.get_image_artifact_name.outputs.image_artifact_name }}.tar
