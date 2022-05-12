@@ -32,7 +32,7 @@ All notable changes to this project will be documented in this file.
 - Update org.apache.maven.plugins:maven-javadoc-plugin version from 3.3.2 to 3.4.0.
 - Update org.apache.maven.plugins:maven-project-info-reports-plugin version from 3.2.2 to 3.3.0.
 - Update org.postgresql:postgresql version from 42.3.3 to 42.3.5.
-- Update springframework version from 5.3.18 to 5.3.19.
+- Update springframework version from 5.3.18 to 5.3.20.
 - Update com.h3xstream.findsecbugs:findsecbugs-plugin version from 1.11.0 to 1.12.0.
 - Update org.flywaydb:flyway-core version from 8.5.5 to 8.5.10.
 - Update springdoc version from 1.6.6 to 1.6.8.
