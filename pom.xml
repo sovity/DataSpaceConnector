@@ -69,7 +69,7 @@
 		<okhttp.version>4.9.3</okhttp.version>
 		<modelmapper.version>3.1.0</modelmapper.version>
 		<jackson.version>2.13.2</jackson.version>
-		<jackson-databind.version>2.13.2.2</jackson-databind.version>
+		<jackson-databind.version>2.13.3</jackson-databind.version>
 		<springdoc.version>1.6.8</springdoc.version>
 		<equalsverifier.version>3.10</equalsverifier.version>
 		<jaeger.version>3.3.1</jaeger.version>
