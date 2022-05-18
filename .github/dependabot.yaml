@@ -11,3 +11,9 @@ updates:
     schedule:
       interval: "daily"
     target-branch: "main"
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    target-branch: "main"
+    open-pull-requests-limit: 30
