@@ -20,16 +20,15 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.AuthenticationEntryPoint;
-import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
+import org.springframework.security.web.SecurityFilterChain;
 
 /**
  * This class configures admin rights for all backend endpoints behind "/api" using the role
@@ -39,9 +38,12 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationEn
 @Log4j2
 @Configuration
 @Getter(AccessLevel.PUBLIC)
-@ConditionalOnProperty(value = "spring.security.enabled", havingValue = "true")
 @Order(1)
-public class ConfigurationAdapter extends WebSecurityConfigurerAdapter {
+public class ConfigurationAdapter {
+    /**
+     * Used name of admin role.
+     */
+    private static final String ADMIN = "ADMIN";
 
     /**
      * Whether the h2 console is enabled.
@@ -50,45 +52,79 @@ public class ConfigurationAdapter extends WebSecurityConfigurerAdapter {
     private boolean h2Enabled;
 
     /**
-     * {@inheritDoc}
+     * Whether spring security DSC settings is enabled.
      */
-    @Override
+    @Value("${spring.security.enabled}")
+    private boolean securityEnabled;
+
+    /**
+     * Gets the authenticationEntryPoint settings.
+     */
+    @Autowired
+    private AuthenticationEntryPoint authenticationEntryPoint;
+
+    /**
+     * Sets settings for spring security.
+     *
+     * @param http The HttpSecurity object.
+     * @return The extended SecurityFilterChain.
+     * @throws Exception If a setting or combination to be set is invalid.
+     */
+    @Bean
+    public SecurityFilterChain filterChain(final HttpSecurity http) throws Exception {
+        if (securityEnabled) {
+            enableSecuritySettings(http);
+
+            if (h2Enabled) {
+                disableFrameProtection(http);
+            } else {
+                enableFrameProtection(http);
+            }
+        } else {
+            if (h2Enabled) {
+                disableFrameProtection(http);
+            }
+
+            disableSecuritySettings(http);
+        }
+
+        return http.build();
+    }
+
     @SuppressFBWarnings("SPRING_CSRF_PROTECTION_DISABLED")
-    protected final void configure(final HttpSecurity http) throws Exception {
+    private void disableSecuritySettings(final HttpSecurity http) throws Exception {
+        http.authorizeRequests().anyRequest().permitAll().and().csrf().disable();
+        http.headers().xssProtection().disable();
+        http.headers().frameOptions().disable();
+    }
+
+    private void enableFrameProtection(final HttpSecurity http) throws Exception {
+        http.headers().frameOptions().deny();
+    }
+
+    @SuppressFBWarnings("SPRING_CSRF_PROTECTION_DISABLED")
+    private void enableSecuritySettings(final HttpSecurity http) throws Exception {
         http.sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
                 .antMatchers("/", "/api/ids/data").anonymous()
                 .antMatchers("/api/subscriptions/**").authenticated()
-                .antMatchers("/api/**").hasRole("ADMIN")
-                .antMatchers("/actuator/**").hasRole("ADMIN")
-                .antMatchers("/database/**").hasRole("ADMIN")
+                .antMatchers("/api/**").hasRole(ADMIN)
+                .antMatchers("/actuator/**").hasRole(ADMIN)
+                .antMatchers("/database/**").hasRole(ADMIN)
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable()
                 .httpBasic()
-                .authenticationEntryPoint(authenticationEntryPoint());
+                .authenticationEntryPoint(authenticationEntryPoint);
         http.headers().xssProtection();
-
-        if (h2Enabled) {
-            http.headers().frameOptions().disable();
-            if (log.isWarnEnabled()) {
-                log.warn("H2 Console enabled. Disabling frame protection.");
-            }
-        } else {
-            http.headers().frameOptions().deny();
-        }
     }
 
-    /**
-     * Bean with an entry point for the admin realm.
-     * @return The authentication entry point for the admin realm.
-     */
-    @Bean
-    public AuthenticationEntryPoint authenticationEntryPoint() {
-        final var entryPoint = new BasicAuthenticationEntryPoint();
-        entryPoint.setRealmName("admin realm");
-        return entryPoint;
+    private void disableFrameProtection(final HttpSecurity http) throws Exception {
+        http.headers().frameOptions().disable();
+        if (log.isWarnEnabled()) {
+            log.warn("H2 Console enabled. Disabling frame protection.");
+        }
     }
 }

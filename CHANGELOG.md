@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [UNRELEASED - 8.0.0]
 
+### Major Changes
+- Renamed reserved keywords columns in model classes for newer H2 versions and MSSQL. Please enable database migration.
+
 ### Added
 - Add `daps.whitelisted.url` to `application.properties.`. Allows configuring whitelisted DAPS URLs already at configuration time.
 - Introduction of the setting `referred.check=true/false` in the application.properties. Enables or disables DAT claim referringConnector vs IDS message issuerConnector validation. Disabled by default.
@@ -11,7 +14,6 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - Fix bootstrapping with broker registration. The DSC now searches for the correct resource id when bootstrapping.
-- Renamed reserved keywords columns in model classes for newer H2 versions and MSSQL.
 - Removed trivyignore file.
 - e2e-tests now delete the PVC (PersistentVolumeClaim) and PV (PersistentVolume) during cleanup phase.
 - Requesting the same local-data artifact multiple times now updates the data-record in the database for the artifact instead of creating a new data-record.
@@ -20,6 +22,8 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Code base refactorings and removing of unused code.
+- Replace deprecated JPA calls `getById` with `findById`.
+- Replace deprecated spring security `WebSecurityConfigurerAdapter` with use of `SecurityFilterChain`.
 
 ### Dependencies
 - Update pmd version from 6.44.0 to 6.45.0.
