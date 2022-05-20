@@ -38,6 +38,7 @@ All notable changes to this project will be documented in this file.
 - Update springdoc version from 1.6.6 to 1.6.8.
 - Update de.fhg.aisec.ids:camel-idscp2 version from 0.6.0 to 0.10.3.
 - Update jackson version from 2.13.2 to 2.13.3.
+- Update spotbugs version from 4.6.0 to 4.7.0.
 - Update com.fasterxml.jackson.core:jackson-databind version from 2.13.2.2 to 2.13.3.
 - Add io.jsonwebtoken:jjwt-impl and :jjwt-api version 0.11.5.
 - Add org.bitbucket.b_c:jose4j version 0.7.12.
