@@ -44,6 +44,7 @@ All notable changes to this project will be documented in this file.
 - Update camel version from 3.16.0 to 3.17.0.
 - Update jackson version from 2.13.2 to 2.13.3.
 - Update spotbugs version from 4.6.0 to 4.7.0.
+- Update com.github.spotbugs:spotbugs-maven-plugin version from 4.6.0.0 to 4.7.0.0.
 - Update com.fasterxml.jackson.core:jackson-databind version from 2.13.2.2 to 2.13.3.
 - Update org.codehaus.mojo:versions-maven-plugin version from 2.10.0 to 2.11.0.
 - Add io.jsonwebtoken:jjwt-impl and :jjwt-api version 0.11.5.

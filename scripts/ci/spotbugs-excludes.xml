@@ -34,6 +34,10 @@
     </Match>
     <Match>
         <!-- Too many warnings, needs too be evaluated some time. -->
+        <Bug pattern="THROWS_METHOD_THROWS_CLAUSE_BASIC_EXCEPTION"/>
+    </Match>
+    <Match>
+        <!-- Too many warnings, needs too be evaluated some time. -->
         <Bug pattern="EI_EXPOSE_REP2"/>
     </Match>
     <Match>
