@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+#  Contributors:
+#       sovity GmbH
+#
 
 function dsc::run_provider_consumer_test() {
     test::reset_test_suit
