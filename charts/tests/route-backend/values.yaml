@@ -11,11 +11,12 @@ image:
   tag: "latest"
 
 # -- Annotation for the deployed pods
-podAnnotations:
-  seccomp.security.alpha.kubernetes.io/pod: "runtime/default"
+podAnnotations: {}
 
 # -- Security context for the pods
-podSecurityContext: {}
+podSecurityContext:
+  seccompProfile:
+    type: RuntimeDefault
 
 # -- Kubernetes service settings for backend
 service:

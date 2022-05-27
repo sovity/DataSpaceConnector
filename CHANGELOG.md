@@ -24,6 +24,7 @@ All notable changes to this project will be documented in this file.
 - Code base refactorings and removing of unused code.
 - Replace deprecated JPA calls `getById` with `findById`.
 - Replace deprecated spring security `WebSecurityConfigurerAdapter` with use of `SecurityFilterChain`.
+- Replace deprecated `podAnnotation` `seccomp` with use of `podSecurityContext` `seccompProfile`.
 - Removed debug-logging built request messages, all messages can now be logged via the IDS-Messaging-Services instead.
 
 ### Dependencies

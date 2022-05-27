@@ -13,8 +13,8 @@ A Helm chart for Kubernetes
 | image.repository | string | `"ghcr.io/international-data-spaces-association/dataspace-connector/tests/route-backend"` | Backend image name |
 | image.tag | string | `"latest"` | Backend image tag |
 | nodeSelector | object | `{}` |  |
-| podAnnotations | object | `{"seccomp.security.alpha.kubernetes.io/pod":"runtime/default"}` | Annotation for the deployed pods |
-| podSecurityContext | object | `{}` | Security context for the pods |
+| podAnnotations | object | `{}` | Annotation for the deployed pods |
+| podSecurityContext | object | `{"seccompProfile":{"type":RuntimeDefault}}` | Security context for the pods |
 | replicaCount | int | `1` | Number of backend instances |
 | resources | object | `{"limits":{"cpu":"8","memory":"4Gi"},"requests":{"cpu":"250m","memory":"1Gi"}}` | Backend kubernetes resource settings |
 | service | object | `{"port":5000,"type":"ClusterIP"}` | Kubernetes service settings for backend |

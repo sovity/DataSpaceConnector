@@ -68,11 +68,12 @@ serviceAccount:
   name: null
 
 # -- Annotation for the deployed pods
-podAnnotations:
-  seccomp.security.alpha.kubernetes.io/pod: "runtime/default"
+podAnnotations: {}
 
 # -- Security context for the pods
-podSecurityContext: {}
+podSecurityContext:
+  seccompProfile:
+    type: RuntimeDefault
 
 # -- Security context applied to the pods
 securityContext:
