@@ -65,8 +65,10 @@
 		<maven.compiler.release>${java.version}</maven.compiler.release>
 		<maven.minimum.version>3.3.9</maven.minimum.version>
 
+		<!-- IDS -->
+		<ids-messaging-services.version>7.0.0</ids-messaging-services.version>
+
 		<!-- Dependencies -->
-		<ids-messaging-services.version>6.1.0</ids-messaging-services.version>
 		<springframework.version>5.3.20</springframework.version>
 		<swagger-annotations.version>1.6.6</swagger-annotations.version>
 		<okhttp.version>4.9.3</okhttp.version>
@@ -121,7 +123,7 @@
 
 		<!-- https://github.com/International-Data-Spaces-Association/IDS-Messaging-Services -->
 		<dependency>
-			<groupId>de.fraunhofer.ids.messaging</groupId>
+			<groupId>ids.messaging</groupId>
 			<artifactId>broker</artifactId>
 			<version>${ids-messaging-services.version}</version>
 			<exclusions>
@@ -600,19 +602,12 @@
 
 	<repositories>
 		<repository>
-			<id>Maven repository</id>
-			<url>https://repo1.maven.org/maven2/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
+			<id>sovity-public</id>
+			<url>https://pkgs.dev.azure.com/sovity/5bec6cbd-c80a-47ac-86ce-1deb26cee853/_packaging/artifact/maven/v1</url>
 		</repository>
 		<repository>
-			<id>ids-public</id>
-			<name>isst-public</name>
-			<url>https://mvn.ids.isst.fraunhofer.de/nexus/repository/ids-public/</url>
+			<id>Maven repository</id>
+			<url>https://repo1.maven.org/maven2/</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>

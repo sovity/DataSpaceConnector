@@ -31,7 +31,7 @@ import de.fraunhofer.iais.eis.ResourceUnavailableMessage;
 import de.fraunhofer.iais.eis.ResourceUpdateMessage;
 import de.fraunhofer.iais.eis.SecurityProfile;
 import de.fraunhofer.iais.eis.TokenFormat;
-import de.fraunhofer.ids.messaging.util.IdsMessageUtils;
+import ids.messaging.util.IdsMessageUtils;
 import io.dataspaceconnector.common.ids.ConnectorService;
 import io.dataspaceconnector.common.routing.ParameterUtils;
 import io.dataspaceconnector.model.subscription.SubscriptionDesc;

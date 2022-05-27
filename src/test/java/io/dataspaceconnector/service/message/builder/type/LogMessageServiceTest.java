@@ -21,7 +21,7 @@ import de.fraunhofer.iais.eis.TokenFormat;
 import io.dataspaceconnector.model.message.LogMessageDesc;
 import io.dataspaceconnector.common.ids.ConnectorService;
 import io.dataspaceconnector.common.ids.DeserializationService;
-import de.fraunhofer.ids.messaging.protocol.http.IdsHttpService;
+import ids.messaging.protocol.http.IdsHttpService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;

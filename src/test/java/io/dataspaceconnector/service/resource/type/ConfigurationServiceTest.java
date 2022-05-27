@@ -15,8 +15,8 @@
  */
 package io.dataspaceconnector.service.resource.type;
 
-import de.fraunhofer.ids.messaging.core.config.ConfigProducer;
-import de.fraunhofer.ids.messaging.core.config.ConfigUpdateException;
+import ids.messaging.core.config.ConfigProducer;
+import ids.messaging.core.config.ConfigUpdateException;
 import io.dataspaceconnector.model.configuration.ConfigurationDesc;
 import io.dataspaceconnector.repository.ConfigurationRepository;
 import org.junit.jupiter.api.Test;

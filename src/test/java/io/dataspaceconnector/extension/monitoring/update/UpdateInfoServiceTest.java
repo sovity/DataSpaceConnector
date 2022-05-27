@@ -15,7 +15,7 @@
  */
 package io.dataspaceconnector.extension.monitoring.update;
 
-import de.fraunhofer.ids.messaging.protocol.http.HttpService;
+import ids.messaging.protocol.http.HttpService;
 import io.dataspaceconnector.config.ConnectorConfig;
 import lombok.SneakyThrows;
 import okhttp3.HttpUrl;

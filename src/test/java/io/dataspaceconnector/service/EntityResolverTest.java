@@ -25,7 +25,7 @@ import de.fraunhofer.iais.eis.ResourceBuilder;
 import de.fraunhofer.iais.eis.ResourceCatalog;
 import de.fraunhofer.iais.eis.ResourceCatalogBuilder;
 import de.fraunhofer.iais.eis.util.ConstraintViolationException;
-import de.fraunhofer.ids.messaging.util.IdsMessageUtils;
+import ids.messaging.util.IdsMessageUtils;
 import io.dataspaceconnector.common.net.QueryInput;
 import io.dataspaceconnector.common.exception.InvalidResourceException;
 import io.dataspaceconnector.common.ids.mapping.ToIdsObjectMapper;

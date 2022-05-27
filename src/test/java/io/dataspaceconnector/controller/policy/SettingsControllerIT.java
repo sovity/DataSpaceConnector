@@ -15,7 +15,7 @@
  */
 package io.dataspaceconnector.controller.policy;
 
-import de.fraunhofer.ids.messaging.core.config.ConfigContainer;
+import ids.messaging.core.config.ConfigContainer;
 import io.dataspaceconnector.config.ConnectorConfig;
 import io.dataspaceconnector.extension.idscp.config.Idscp2Config;
 import io.dataspaceconnector.common.ids.DeserializationService;

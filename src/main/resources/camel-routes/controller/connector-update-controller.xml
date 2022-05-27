@@ -2,7 +2,7 @@
     <route id="connectorUpdateSender">
 
         <onException>
-            <exception>de.fraunhofer.ids.messaging.core.config.ConfigUpdateException</exception>
+            <exception>ids.messaging.core.config.ConfigUpdateException</exception>
             <to uri="direct:handleConfigUpdateException"/>
         </onException>
 

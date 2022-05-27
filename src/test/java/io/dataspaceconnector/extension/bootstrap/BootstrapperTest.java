@@ -28,7 +28,7 @@ import java.util.UUID;
 import de.fraunhofer.iais.eis.DynamicAttributeTokenBuilder;
 import de.fraunhofer.iais.eis.MessageProcessedNotificationMessageBuilder;
 import de.fraunhofer.iais.eis.TokenFormat;
-import de.fraunhofer.ids.messaging.requests.MessageContainer;
+import ids.messaging.requests.MessageContainer;
 import io.dataspaceconnector.common.util.Utils;
 import io.dataspaceconnector.model.catalog.Catalog;
 import io.dataspaceconnector.model.resource.OfferedResource;

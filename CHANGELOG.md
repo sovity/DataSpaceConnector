@@ -27,6 +27,7 @@ All notable changes to this project will be documented in this file.
 - Removed debug-logging built request messages, all messages can now be logged via the IDS-Messaging-Services instead.
 
 ### Dependencies
+- Update ids-messaging-services from 6.1.0 to 7.0.0.
 - Update pmd version from 6.44.0 to 6.45.0.
 - Update org.pitest:pitest-maven version from 1.7.5 to 1.8.0.
 - Update com.puppycrawl.tools:checkstyle version from 10.1 to 10.2.

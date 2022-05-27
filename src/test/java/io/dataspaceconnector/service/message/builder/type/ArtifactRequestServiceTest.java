@@ -27,7 +27,7 @@ import de.fraunhofer.iais.eis.ArtifactResponseMessageBuilder;
 import de.fraunhofer.iais.eis.DynamicAttributeTokenBuilder;
 import de.fraunhofer.iais.eis.TokenFormat;
 import de.fraunhofer.iais.eis.util.Util;
-import de.fraunhofer.ids.messaging.protocol.http.IdsHttpService;
+import ids.messaging.protocol.http.IdsHttpService;
 import io.dataspaceconnector.common.exception.MessageResponseException;
 import io.dataspaceconnector.common.ids.ConnectorService;
 import io.dataspaceconnector.common.ids.DeserializationService;

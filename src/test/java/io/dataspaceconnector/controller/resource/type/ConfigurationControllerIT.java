@@ -17,7 +17,7 @@ package io.dataspaceconnector.controller.resource.type;
 
 import java.net.URI;
 
-import de.fraunhofer.ids.messaging.core.config.ConfigContainer;
+import ids.messaging.core.config.ConfigContainer;
 import io.dataspaceconnector.common.runtime.ServiceResolver;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;

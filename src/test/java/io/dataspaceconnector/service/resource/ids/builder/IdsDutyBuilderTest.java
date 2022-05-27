@@ -20,7 +20,7 @@ import de.fraunhofer.iais.eis.BinaryOperator;
 import de.fraunhofer.iais.eis.Constraint;
 import de.fraunhofer.iais.eis.DutyImpl;
 import de.fraunhofer.iais.eis.LeftOperand;
-import de.fraunhofer.ids.messaging.util.SerializerProvider;
+import ids.messaging.util.SerializerProvider;
 import io.dataspaceconnector.common.ids.DeserializationService;
 import io.dataspaceconnector.common.net.SelfLinkHelper;
 import io.dataspaceconnector.model.base.Entity;

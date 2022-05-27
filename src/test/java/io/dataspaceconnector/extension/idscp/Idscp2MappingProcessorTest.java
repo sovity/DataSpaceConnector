@@ -33,7 +33,7 @@ import de.fraunhofer.iais.eis.ResourceBuilder;
 import de.fraunhofer.iais.eis.SecurityProfile;
 import de.fraunhofer.iais.eis.TokenFormat;
 import de.fraunhofer.iais.eis.util.Util;
-import de.fraunhofer.ids.messaging.util.IdsMessageUtils;
+import ids.messaging.util.IdsMessageUtils;
 import io.dataspaceconnector.common.routing.ParameterUtils;
 import io.dataspaceconnector.extension.idscp.processor.ContractAgreementPreparer;
 import io.dataspaceconnector.extension.idscp.processor.ContractRequestPreparer;

@@ -17,7 +17,7 @@ package io.dataspaceconnector.service.message.handler.processor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.fraunhofer.iais.eis.ArtifactRequestMessageImpl;
-import de.fraunhofer.ids.messaging.handler.message.MessagePayload;
+import ids.messaging.handler.message.MessagePayload;
 import io.dataspaceconnector.common.exception.InvalidInputException;
 import io.dataspaceconnector.common.ids.message.MessageUtils;
 import io.dataspaceconnector.common.net.QueryInput;

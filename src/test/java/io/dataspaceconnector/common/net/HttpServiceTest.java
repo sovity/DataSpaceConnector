@@ -47,8 +47,8 @@ import static org.mockito.Mockito.when;
 
 class HttpServiceTest {
 
-    private de.fraunhofer.ids.messaging.protocol.http.HttpService httpSvc = Mockito
-            .mock(de.fraunhofer.ids.messaging.protocol.http.HttpService.class);
+    private ids.messaging.protocol.http.HttpService httpSvc = Mockito
+            .mock(ids.messaging.protocol.http.HttpService.class);
 
     private HttpService service = new HttpService(httpSvc);
 

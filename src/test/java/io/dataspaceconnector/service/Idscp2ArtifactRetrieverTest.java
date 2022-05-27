@@ -23,7 +23,7 @@ import de.fraunhofer.iais.eis.ArtifactResponseMessageBuilder;
 import de.fraunhofer.iais.eis.DynamicAttributeTokenBuilder;
 import de.fraunhofer.iais.eis.TokenFormat;
 import de.fraunhofer.iais.eis.util.Util;
-import de.fraunhofer.ids.messaging.util.IdsMessageUtils;
+import ids.messaging.util.IdsMessageUtils;
 import io.dataspaceconnector.model.artifact.ArtifactImpl;
 import io.dataspaceconnector.service.message.handler.dto.Response;
 import io.dataspaceconnector.service.resource.type.ArtifactService;

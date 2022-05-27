@@ -16,7 +16,7 @@
 package io.dataspaceconnector.service.message.handler.event;
 
 import de.fraunhofer.iais.eis.ContractAgreementBuilder;
-import de.fraunhofer.ids.messaging.util.IdsMessageUtils;
+import ids.messaging.util.IdsMessageUtils;
 import io.dataspaceconnector.service.message.handler.dto.payload.AgreementClaimsContainer;
 import io.dataspaceconnector.service.usagecontrol.PolicyExecutionService;
 import io.jsonwebtoken.Claims;

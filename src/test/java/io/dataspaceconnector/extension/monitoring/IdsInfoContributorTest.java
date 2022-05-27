@@ -15,8 +15,8 @@
  */
 package io.dataspaceconnector.extension.monitoring;
 
-import de.fraunhofer.ids.messaging.core.daps.DapsValidator;
-import de.fraunhofer.ids.messaging.core.daps.TokenProviderService;
+import ids.messaging.core.daps.DapsValidator;
+import ids.messaging.core.daps.TokenProviderService;
 import io.dataspaceconnector.common.ids.ConnectorService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

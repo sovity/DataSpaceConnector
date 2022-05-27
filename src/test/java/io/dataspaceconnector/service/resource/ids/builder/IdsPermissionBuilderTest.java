@@ -17,7 +17,7 @@ package io.dataspaceconnector.service.resource.ids.builder;
 
 import de.fraunhofer.iais.eis.Action;
 import de.fraunhofer.iais.eis.PermissionImpl;
-import de.fraunhofer.ids.messaging.util.SerializerProvider;
+import ids.messaging.util.SerializerProvider;
 import io.dataspaceconnector.common.ids.DeserializationService;
 import io.dataspaceconnector.common.net.SelfLinkHelper;
 import io.dataspaceconnector.model.base.Entity;

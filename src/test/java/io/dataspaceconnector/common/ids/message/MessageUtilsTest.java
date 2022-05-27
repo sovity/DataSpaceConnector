@@ -35,7 +35,7 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 
-import static de.fraunhofer.ids.messaging.util.IdsMessageUtils.getGregorianNow;
+import static ids.messaging.util.IdsMessageUtils.getGregorianNow;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;

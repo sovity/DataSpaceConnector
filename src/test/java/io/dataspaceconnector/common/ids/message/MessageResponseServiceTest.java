@@ -18,7 +18,7 @@ package io.dataspaceconnector.common.ids.message;
 import java.net.URI;
 
 import de.fraunhofer.iais.eis.RejectionReason;
-import de.fraunhofer.ids.messaging.response.ErrorResponse;
+import ids.messaging.response.ErrorResponse;
 import io.dataspaceconnector.common.exception.MessageEmptyException;
 import io.dataspaceconnector.common.exception.VersionNotSupportedException;
 import io.dataspaceconnector.common.ids.ConnectorService;
