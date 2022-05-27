@@ -15,7 +15,7 @@
 #
 
 # Build application
-FROM maven:3-eclipse-temurin-17 AS builder
+FROM maven:3-eclipse-temurin-18 AS builder
 WORKDIR /app
 COPY pom.xml .
 ## Dependencies
