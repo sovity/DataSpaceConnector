@@ -24,6 +24,7 @@ All notable changes to this project will be documented in this file.
 - Code base refactorings and removing of unused code.
 - Replace deprecated JPA calls `getById` with `findById`.
 - Replace deprecated spring security `WebSecurityConfigurerAdapter` with use of `SecurityFilterChain`.
+- Removed debug-logging built request messages, all messages can now be logged via the IDS-Messaging-Services instead.
 
 ### Dependencies
 - Update pmd version from 6.44.0 to 6.45.0.

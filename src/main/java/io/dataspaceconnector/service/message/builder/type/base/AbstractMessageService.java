@@ -121,11 +121,7 @@ public abstract class AbstractMessageService<D extends MessageDesc> {
         try {
             final var recipient = desc.getRecipient();
             final var header = buildMessage(desc);
-
             final var body = buildMultipartBody(header, payload);
-            if (log.isDebugEnabled()) {
-                log.debug("Built request message. [header=({}), payload=({})]", header, payload);
-            }
 
             return idsHttpService.sendAndCheckDat(body, recipient);
         } catch (SerializeException | ConstraintViolationException | IllegalArgumentException e) {
