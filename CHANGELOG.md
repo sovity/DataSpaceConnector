@@ -30,12 +30,12 @@ All notable changes to this project will be documented in this file.
 - Update org.pitest:pitest-maven version from 1.7.5 to 1.8.0.
 - Update com.puppycrawl.tools:checkstyle version from 10.1 to 10.2.
 - Update org.owasp:dependency-check-maven from version 7.0.4 to 7.1.0.
-- Update com.google.protobuf:protobuf-java version from 3.20.0 to 3.20.1.
+- Update com.google.protobuf:protobuf-java version from 3.20.0 to 3.21.0.
 - Update org.springframework.boot:spring-boot-starter-parent from 2.6.6 to 2.6.7.
 - Update org.apache.maven.plugins:maven-site-plugin version from 3.11.0 to 3.12.0.
 - Update org.apache.maven.plugins:maven-javadoc-plugin version from 3.3.2 to 3.4.0.
 - Update org.apache.maven.plugins:maven-project-info-reports-plugin version from 3.2.2 to 3.3.0.
-- Update org.postgresql:postgresql version from 42.3.3 to 42.3.5.
+- Update org.postgresql:postgresql version from 42.3.3 to 42.3.6.
 - Update springframework version from 5.3.18 to 5.3.20.
 - Update com.h3xstream.findsecbugs:findsecbugs-plugin version from 1.11.0 to 1.12.0.
 - Update org.flywaydb:flyway-core version from 8.5.5 to 8.5.11.
