@@ -92,7 +92,13 @@ Subscriptions can be managed with the provided CRUD endpoints.
 Subscriptions will be automatically added to the respective target entity via a POST request. As
 described above, subscriptions can point at requests, representations, and artifacts. All
 subscriptions for an entity can be accessed via a separate endpoint.
+The location field found in the subscription object is where the connector will send a message to.
 
+Once a subscription on an artifact exists the consumer will be notified when the artifact has been updated (for
+instance if the title is updated). A request is then set to the url specified in the subscription location field.
+When creating this subscription, a subscription is also created in the providers side,
+with its target being the same URI as the specified by the consumer but with the location being the
+consumers ids endpoint (https://consumer.com/api/ids/data).
 Create subscription:
 
 ```
@@ -174,8 +180,10 @@ provided:
 
 ![Swagger IDS Subscription Endpoints](../../../assets/images/v6/swagger_ids_subscriptions.png)
 
-As a body, the same subscription object is expected. As described above, IDS subscribers can
-subscribe to offers, representations, and artifacts.
+As a body, the same subscription object is expected, with only a small difference.
+When creating an IDS subscription, the target URI has to be the URI of the provider's artifact
+(not the URI persisted in the consumer side when requesting the resource).
+As described above, IDS subscribers can subscribe to offers, representations, and artifacts.
 
 ```
 curl -X 'POST' \
@@ -258,8 +266,8 @@ returned.
 
 ---
 
-For unsubscribing from an object, the endpoint `/api/ids/unsubscribe` can be used. It only expects
-a target URI and automatically send respective IDS messages, as shown below:
+For unsubscribing from an object, the endpoint `/api/ids/unsubscribe` can be used. It expects
+the target and recipient URI and automatically sends the respective IDS messages, as shown below:
 
 ```json
 {
