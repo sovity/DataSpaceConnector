@@ -75,13 +75,13 @@
 		<modelmapper.version>3.1.0</modelmapper.version>
 		<jackson.version>2.13.3</jackson.version>
 		<jackson-databind.version>2.13.3</jackson-databind.version>
-		<springdoc.version>1.6.8</springdoc.version>
+		<springdoc.version>1.6.9</springdoc.version>
 		<equalsverifier.version>3.10</equalsverifier.version>
 		<jaeger.version>3.3.1</jaeger.version>
 		<freemarker.version>2.3.31</freemarker.version>
 		<camel.version>3.17.0</camel.version>
 		<idscp2.version>0.10.3</idscp2.version>
-		<protobuf.version>3.21.0</protobuf.version>
+		<protobuf.version>3.21.1</protobuf.version>
 		<jsonwebtoken.version>0.11.5</jsonwebtoken.version>
 
 		<!-- Plugins -->
@@ -97,9 +97,9 @@
 		<spotbugs.plugin.version>4.7.0.0</spotbugs.plugin.version>
 		<findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
 		<checkstyle-plugin.version>3.1.2</checkstyle-plugin.version>
-		<checkstyle.version>10.2</checkstyle.version>
+		<checkstyle.version>10.3</checkstyle.version>
 		<jacoco.version>0.8.8</jacoco.version>
-		<pmd.version>6.45.0</pmd.version>
+		<pmd.version>6.46.0</pmd.version>
 		<pmd-plugin.version>3.16.0</pmd-plugin.version>
 		<versions-maven-plugin.version>2.11.0</versions-maven-plugin.version>
 		<license-plugin.version>4.1</license-plugin.version>
