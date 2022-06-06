@@ -100,7 +100,7 @@
 		<checkstyle.version>10.3</checkstyle.version>
 		<jacoco.version>0.8.8</jacoco.version>
 		<pmd.version>6.46.0</pmd.version>
-		<pmd-plugin.version>3.16.0</pmd-plugin.version>
+		<pmd-plugin.version>3.17.0</pmd-plugin.version>
 		<versions-maven-plugin.version>2.11.0</versions-maven-plugin.version>
 		<license-plugin.version>4.1</license-plugin.version>
 		<dms.version>2.2.0</dms.version>
