@@ -29,19 +29,23 @@ All notable changes to this project will be documented in this file.
 
 ### Dependencies
 - Update ids-messaging-services from 6.1.0 to 7.0.0.
+- Update okhttp version from 4.9.3 to 4.10.0.
 - Update pmd version from 6.44.0 to 6.46.0.
+- Update pmd-plugin version from 3.16.0 to 3.17.0.
+- Update maven-enforcer-plugin version from 3.0.0 to 3.1.0.
+- Update maven-surefire-plugin version from 3.0.0-M6 to 3.0.0-M7.
 - Update org.pitest:pitest-maven version from 1.7.5 to 1.8.0.
 - Update com.puppycrawl.tools:checkstyle version from 10.1 to 10.3.
-- Update org.owasp:dependency-check-maven from version 7.0.4 to 7.1.0.
+- Update org.owasp:dependency-check-maven from version 7.0.4 to 7.1.1.
 - Update com.google.protobuf:protobuf-java version from 3.20.0 to 3.21.1.
 - Update org.springframework.boot:spring-boot-starter-parent from 2.6.6 to 2.6.7.
 - Update org.apache.maven.plugins:maven-site-plugin version from 3.11.0 to 3.12.0.
 - Update org.apache.maven.plugins:maven-javadoc-plugin version from 3.3.2 to 3.4.0.
 - Update org.apache.maven.plugins:maven-project-info-reports-plugin version from 3.2.2 to 3.3.0.
-- Update org.postgresql:postgresql version from 42.3.3 to 42.3.6.
-- Update springframework version from 5.3.18 to 5.3.20.
+- Update org.postgresql:postgresql version from 42.3.3 to 42.4.0.
+- Update springframework version from 5.3.18 to 5.3.21.
 - Update com.h3xstream.findsecbugs:findsecbugs-plugin version from 1.11.0 to 1.12.0.
-- Update org.flywaydb:flyway-core version from 8.5.5 to 8.5.12.
+- Update org.flywaydb:flyway-core version from 8.5.5 to 8.5.13.
 - Update springdoc version from 1.6.6 to 1.6.9.
 - Update de.fhg.aisec.ids:camel-idscp2 version from 0.6.0 to 0.10.3.
 - Update camel version from 3.16.0 to 3.17.0.
