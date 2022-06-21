@@ -120,7 +120,7 @@ It is recommended to disable automatic contract negotiation if you plan on using
 data consumer does not negotiate a new contract once the maximum number of accesses has been reached.
 To disable automatic contract negotiation change the field to ``policy.negotiation=false`` in
 application.properties.
-(how to negotiate a contract is shown [here](../../communication/v6/consumer.md ))
+(how to negotiate a contract is shown [here](../../CommunicationGuide/v6/Consumer.md ))
 
 ### Usage Notification
 **Parameters:** url to which usage notifications should be sent to (not limited to clearing house)

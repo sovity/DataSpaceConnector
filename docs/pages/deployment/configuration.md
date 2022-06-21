@@ -28,9 +28,9 @@ git clone https://github.com/International-Data-Spaces-Association/DataspaceConn
 The resource folder `resources/conf` provides three important files that are loaded at application start:
 
 * `keystore-localhost.p12`: The provided keystore, on the one hand, is used as IDS certificate that
-  is loaded by the IDS Messaging Services for requesting a valid [Dynamic Attribute Token](https://github.com/International-Data-Spaces-Association/IDS-G/blob/master/core/DAPS/README.md#dynamic-attribute-token-content) (DAT) from
+  is loaded by the IDS Messaging Services for requesting a valid [Dynamic Attribute Token](https://github.com/International-Data-Spaces-Association/IDS-G/tree/main/Components/IdentityProvider/DAPS#dynamic-attribute-token-content) (DAT) from
   the [Dynamic Attribute Provisioning Service](https://github.com/International-Data-Spaces-Association/IDS-G/blob/master/core/DAPS/README.md) (DAPS). Each message to an IDS participant needs to be
-  signed with a valid [DAT](https://github.com/International-Data-Spaces-Association/IDS-G/blob/master/core/DAPS/README.md#dynamic-attribute-token-content). On the other hand, it can be used as SSL certificate for TLS encryption.
+  signed with a valid [DAT](https://github.com/International-Data-Spaces-Association/IDS-G/tree/main/Components/IdentityProvider/DAPS#dynamic-attribute-token-content). On the other hand, it can be used as SSL certificate for TLS encryption.
 * `truststore.p12`: The truststore is used by the IDS Messaging Services for any HTTP/S
   communication. It ensures the connection to trusted addresses.
 * `config.json`: The configuration is used to set important properties for IDS message handling.
@@ -267,12 +267,12 @@ and sets this as the active configuration.
 In the provided `config.json`, the `ids:connectorDeployMode` is set to `idsc:TEST_DEPLOYMENT`. This
 allows to use the `keystore-localhost.p12` as an IDS certificate. For testing purpose, the existing
 cert can be used, as on application start, the IDS Messaging Services will not request a valid
-[DAT](https://github.com/International-Data-Spaces-Association/IDS-G/blob/master/core/DAPS/README.md#dynamic-attribute-token-content)
+[DAT](https://github.com/International-Data-Spaces-Association/IDS-G/tree/main/Components/IdentityProvider/DAPS#dynamic-attribute-token-content)
 from the [DAPS](https://github.com/International-Data-Spaces-Association/IDS-G/blob/master/core/DAPS/README.md)
-and for received messages, the sent [DAT](https://github.com/International-Data-Spaces-Association/IDS-G/blob/master/core/DAPS/README.md#dynamic-attribute-token-content)
+and for received messages, the sent [DAT](https://github.com/International-Data-Spaces-Association/IDS-G/tree/main/Components/IdentityProvider/DAPS#dynamic-attribute-token-content)
 will not be checked.
 
-To turn on the [DAT](https://github.com/International-Data-Spaces-Association/IDS-G/blob/master/core/DAPS/README.md#dynamic-attribute-token-content)
+To turn on the [DAT](https://github.com/International-Data-Spaces-Association/IDS-G/tree/main/Components/IdentityProvider/DAPS#dynamic-attribute-token-content)
 checking, you need to set the `ids:connectorDeployMode` to`idsc:PRODUCTIVE_DEPLOYMENT`. **For issuing
 a trusted IDS certificate, see [here](../communication/v6/ecosystem/identityProvider.md#aisec-daps-issuing-an-ids-certificate)**.
 Add the keystore with the IDS certificate inside to the `resources/conf` and change the filename at
