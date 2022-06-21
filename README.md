@@ -1,14 +1,6 @@
-<h1 align="center" >
-    <span style="color:red">UPDATE TO V7.X.X</span><br>
-    Before updating, please read
-    <a href="https://international-data-spaces-association.github.io/DataspaceConnector/Deployment/DatabaseMigration">this</a>
-    guide!
-</h1>
-
-
 <h1 align="center">
   <br>
-    <img alt="Logo" width="200" src="docs/assets/images/dsc_logo.png"/>
+    <img alt="Logo" height="200" src="docs/assets/images/dsc_logo.png"/>
   <br>
       Dataspace Connector
   <br>
@@ -21,7 +13,6 @@
   <a href="https://github.com/International-Data-Spaces-Association/DataspaceConnector/issues">Issues</a> •
   <a href="#license">License</a>
 </p>
-
 
 The Dataspace Connector is an implementation of an IDS connector component following the
 [IDS Reference Architecture Model](https://www.internationaldataspaces.org/wp-content/uploads/2019/03/IDS-Reference-Architecture-Model-3.0.pdf).
@@ -102,6 +93,19 @@ oras pull ghcr.io/international-data-spaces-association/dataspace-connector:late
 
 **Note**: Also the SBoM images can be validated using [cosign](https://github.com/sigstore/cosign)
 as shown [above](#security-and-verification).
+
+### Database Migration
+
+Before updating to a new major release, please read
+<a href="https://international-data-spaces-association.github.io/DataspaceConnector/Deployment/DatabaseMigration">this</a>
+guide!
+
+## IDS Ready & IDS Sandbox
+
+The Dataspace Connector is IDS ready and approved for IDS graduation scheme.
+
+<a href="https://internationaldataspaces.org/ids-ready-open-source-software-dataspace-connector-enables-sovereign-data-exchange/" target="_blank"><img alt="IDS Ready" height="200" src="docs/assets/images/ids_ready_logo.jpg"/></a>
+<a href="https://github.com/International-Data-Spaces-Association/idsa/blob/main/graduation_scheme/Projects.md" target="_blank"><img alt="IDS Sandbox" src="docs/assets/images/ids_sandbox.png"/></a>
 
 ## Contributing
 
