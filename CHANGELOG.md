@@ -34,7 +34,8 @@ All notable changes to this project will be documented in this file.
 - Update pmd-plugin version from 3.16.0 to 3.17.0.
 - Update maven-enforcer-plugin version from 3.0.0 to 3.1.0.
 - Update maven-surefire-plugin version from 3.0.0-M6 to 3.0.0-M7.
-- Update org.pitest:pitest-maven version from 1.7.5 to 1.8.0.
+- Update pitest-maven version from 1.7.5 to 1.9.0.
+- Update pitest-junit5-plugin version from 0.16 to 1.0.0.
 - Update com.puppycrawl.tools:checkstyle version from 10.1 to 10.3.
 - Update org.owasp:dependency-check-maven from version 7.0.4 to 7.1.1.
 - Update com.google.protobuf:protobuf-java version from 3.20.0 to 3.21.1.
