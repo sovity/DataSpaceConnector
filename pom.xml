@@ -111,7 +111,7 @@
 		<!-- Supported Databases -->
 		<h2.version>2.1.212</h2.version>
 		<postgres.version>42.4.0</postgres.version>
-		<mssql.version>10.2.0.jre17</mssql.version>
+		<mssql.version>11.1.2.jre17-preview</mssql.version>
 
 		<!-- License -->
 		<license_name>Apache License, Version 2.0</license_name>
