@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller;
 
@@ -35,6 +39,7 @@ import io.dataspaceconnector.controller.resource.type.RuleController;
 import io.dataspaceconnector.controller.resource.type.SubscriptionController;
 import io.dataspaceconnector.controller.util.ResponseCode;
 import io.dataspaceconnector.controller.util.ResponseDescription;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -76,6 +81,7 @@ public class MainController {
     @Operation(summary = "Get the public IDS self-description.")
     @ApiResponse(responseCode = ResponseCode.OK, description = ResponseDescription.OK)
     @ResponseBody
+    @TelemetrySpan(name = "GET /")
     public ResponseEntity<Object> getPublicSelfDescription() {
         return ResponseEntity.ok(connectorService.getConnectorWithoutResources().toRdf());
     }
@@ -92,6 +98,7 @@ public class MainController {
             @ApiResponse(responseCode = ResponseCode.INTERNAL_SERVER_ERROR,
                     description = ResponseDescription.INTERNAL_SERVER_ERROR)})
     @ResponseBody
+    @TelemetrySpan(name = "GET /api/connector")
     public ResponseEntity<Object> getPrivateSelfDescription() {
         return ResponseEntity.ok(connectorService.getConnectorWithOfferedResources().toRdf());
     }
@@ -104,6 +111,7 @@ public class MainController {
     @GetMapping(value = "/api", produces = ContentType.HAL)
     @Operation(summary = "Entrypoint for REST resources")
     @ApiResponse(responseCode = ResponseCode.OK, description = ResponseDescription.OK)
+    @TelemetrySpan(name = "GET /api")
     public ResponseEntity<RepresentationModel<?>> root() {
         final var model = new RepresentationModel<>();
 

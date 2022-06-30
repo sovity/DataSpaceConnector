@@ -24,6 +24,7 @@ import io.dataspaceconnector.common.util.UUIDUtils;
 import io.dataspaceconnector.common.util.Utils;
 import io.dataspaceconnector.controller.util.ResponseCode;
 import io.dataspaceconnector.controller.util.ResponseDescription;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.dataspaceconnector.model.base.Entity;
 import io.dataspaceconnector.service.resource.base.RelationService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -119,6 +120,7 @@ public class BaseResourceChildController<S extends RelationService<?, ?, ?, ?>,
     @GetMapping
     @Operation(summary = "Get all children of a base resource with pagination.")
     @ApiResponse(responseCode = ResponseCode.OK, description = ResponseDescription.OK)
+    @TelemetrySpan
     public PagedModel<V> getResource(
             @Valid @PathVariable(name = "id") final UUID ownerId,
             @RequestParam(required = false, defaultValue = "0") final Integer page,

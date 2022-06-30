@@ -19,6 +19,7 @@ import io.dataspaceconnector.common.util.Utils;
 import io.dataspaceconnector.model.endpoint.Endpoint;
 import io.dataspaceconnector.model.endpoint.EndpointDesc;
 import io.dataspaceconnector.model.endpoint.GenericEndpoint;
+import io.dataspaceconnector.service.appstore.portainer.PortainerService;
 import io.dataspaceconnector.service.resource.type.EndpointServiceProxy;
 import io.dataspaceconnector.service.resource.type.GenericEndpointService;
 import org.junit.jupiter.api.Test;
@@ -44,6 +45,9 @@ class EndpointControllerTest {
 
     @MockBean
     private EndpointServiceProxy service;
+
+    @MockBean
+    private PortainerService portainerService;
 
     @Autowired
     private EndpointController controller;

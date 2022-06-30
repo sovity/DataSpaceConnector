@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller.resource.type;
 
@@ -30,6 +34,7 @@ import io.dataspaceconnector.controller.resource.view.route.RouteView;
 import io.dataspaceconnector.controller.resource.view.route.RouteViewAssembler;
 import io.dataspaceconnector.controller.util.ResponseCode;
 import io.dataspaceconnector.controller.util.ResponseDescription;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.dataspaceconnector.model.artifact.Artifact;
 import io.dataspaceconnector.model.artifact.ArtifactDesc;
 import io.dataspaceconnector.model.route.Route;
@@ -123,6 +128,7 @@ public class ArtifactController extends BaseResourceNotificationController<Artif
     @GetMapping("{id}/data/**")
     @Operation(summary = "Get data by artifact id with query input.")
     @ApiResponse(responseCode = ResponseCode.OK, description = ResponseDescription.OK)
+    @TelemetrySpan(name = "GET /api/artifacts/{id}/data/**")
     public ResponseEntity<StreamingResponseBody> getData(
             @Valid @PathVariable(name = "id") final UUID artifactId,
             @RequestParam(required = false) final Boolean download,
@@ -177,6 +183,7 @@ public class ArtifactController extends BaseResourceNotificationController<Artif
     @PostMapping("{id}/data")
     @Operation(summary = "Get data by artifact id with query input.")
     @ApiResponse(responseCode = ResponseCode.OK, description = ResponseDescription.OK)
+    @TelemetrySpan(name = "POST /api/artifacts/{id}/data")
     public ResponseEntity<StreamingResponseBody> getData(
             @Valid @PathVariable(name = "id") final UUID artifactId,
             @RequestParam(required = false) final List<URI> routeIds,
@@ -247,6 +254,7 @@ public class ArtifactController extends BaseResourceNotificationController<Artif
      */
     @PutMapping(value = "{id}/data", consumes = ContentType.OCTET_STREAM)
     @ApiResponse(responseCode = ResponseCode.OK, description = ResponseDescription.OK)
+    @TelemetrySpan(name = "PUT /api/artifacts/{id}/data")
     public ResponseEntity<Void> putData(
             @Valid @PathVariable(name = "id") final UUID artifactId,
             @RequestBody final byte[] inputStream) throws IOException {
@@ -268,6 +276,7 @@ public class ArtifactController extends BaseResourceNotificationController<Artif
     @GetMapping("{id}/route")
     @Operation(summary = "Get route associated with artifact by id.")
     @ApiResponse(responseCode = ResponseCode.OK, description = ResponseDescription.OK)
+    @TelemetrySpan(name = "GET /api/artifacts/{id}/route")
     public ResponseEntity<RouteView> getRoute(
             @Valid @PathVariable(name = "id") final UUID artifactId) {
         return returnRoute(artifactSvc.getAssociatedRoute(artifactId));

@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller.routing;
 
@@ -21,6 +25,7 @@ import io.dataspaceconnector.controller.routing.tag.CamelDescription;
 import io.dataspaceconnector.controller.routing.tag.CamelName;
 import io.dataspaceconnector.controller.util.ResponseCode;
 import io.dataspaceconnector.controller.util.ResponseDescription;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -81,6 +86,7 @@ public class BeansController {
      */
     @PostMapping(produces = ContentType.JSON)
     @Operation(summary = "Add a bean to the application context.")
+    @TelemetrySpan(name = "POST /api/beans")
     public ResponseEntity<Object> addBeans(@RequestParam("file") final MultipartFile file) {
         try {
             if (file == null) {
@@ -121,6 +127,7 @@ public class BeansController {
      */
     @DeleteMapping(value = "/{beanId}", produces = ContentType.JSON)
     @Operation(summary = "Remove a bean from the application context.")
+    @TelemetrySpan(name = "DELETE /api/beans/{beanId}")
     public ResponseEntity<Object> removeBean(@PathVariable("beanId") final String beanId) {
         try {
             beanRegistry.removeBeanDefinition(beanId);

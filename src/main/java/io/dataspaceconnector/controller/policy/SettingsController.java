@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller.policy;
 
@@ -21,6 +25,7 @@ import io.dataspaceconnector.controller.resource.base.tag.ResourceDescription;
 import io.dataspaceconnector.controller.resource.base.tag.ResourceName;
 import io.dataspaceconnector.controller.util.ResponseCode;
 import io.dataspaceconnector.controller.util.ResponseDescription;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -67,6 +72,7 @@ public class SettingsController {
     @PutMapping(value = "/negotiation", produces = ContentType.JSON)
     @Operation(summary = "Set contract negotiation status.")
     @ResponseBody
+    @TelemetrySpan(name = "PUT /api/configuration/negotiation")
     public ResponseEntity<JSONObject> setNegotiationStatus(
             @RequestParam("status") final boolean status) {
         connectorConfig.setPolicyNegotiation(status);
@@ -81,6 +87,7 @@ public class SettingsController {
     @GetMapping(value = "/negotiation", produces = ContentType.JSON)
     @Operation(summary = "Get contract negotiation status.")
     @ResponseBody
+    @TelemetrySpan(name = "GET /api/configuration/negotiation")
     public ResponseEntity<JSONObject> getNegotiationStatus() {
         final var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -101,6 +108,7 @@ public class SettingsController {
     @Operation(summary = "Allow unsupported patterns.", description = "Allow requesting data "
             + "without policy enforcement if an unsupported pattern is recognized.")
     @ResponseBody
+    @TelemetrySpan(name = "PUT /api/configuration/pattern")
     public ResponseEntity<JSONObject> setPatternStatus(
             @RequestParam("status") final boolean status) {
         connectorConfig.setAllowUnsupported(status);
@@ -116,6 +124,7 @@ public class SettingsController {
     @Operation(summary = "Get pattern validation status.",
             description = "Return whether unsupported patterns are ignored when requesting data.")
     @ResponseBody
+    @TelemetrySpan(name = "GET /api/configuration/pattern")
     public ResponseEntity<JSONObject> getPatternStatus() {
         final var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller.message;
 
@@ -27,6 +31,7 @@ import io.dataspaceconnector.controller.message.tag.MessageDescription;
 import io.dataspaceconnector.controller.message.tag.MessageName;
 import io.dataspaceconnector.controller.resource.view.app.AppViewAssembler;
 import io.dataspaceconnector.controller.util.ResponseUtils;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.dataspaceconnector.service.ArtifactDataDownloader;
 import io.dataspaceconnector.service.MetadataDownloader;
 import io.dataspaceconnector.service.message.AppStoreCommunication;
@@ -107,6 +112,7 @@ public class AppRequestController {
             @ApiResponse(responseCode = "502", description = "Bad gateway")})
     @ResponseBody
     @Transactional
+    @TelemetrySpan(name = "POST /api/ids/app")
     public ResponseEntity<Object> sendMessage(
             @Parameter(description = "The recipient url.", required = true)
             @RequestParam("recipient") final URI recipient,

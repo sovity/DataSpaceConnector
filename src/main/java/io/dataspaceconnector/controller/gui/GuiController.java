@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller.gui;
 
@@ -19,6 +23,7 @@ import io.dataspaceconnector.common.net.ContentType;
 import io.dataspaceconnector.controller.gui.util.GuiUtils;
 import io.dataspaceconnector.controller.util.ResponseCode;
 import io.dataspaceconnector.controller.util.ResponseDescription;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -51,6 +56,7 @@ public class GuiController {
             @ApiResponse(responseCode = ResponseCode.OK, description = ResponseDescription.OK),
             @ApiResponse(responseCode = ResponseCode.UNAUTHORIZED,
                     description = ResponseDescription.UNAUTHORIZED)})
+    @TelemetrySpan(name = "GET /api/utils/enums")
     public ResponseEntity<JSONObject> getEnums() {
         return ResponseEntity.ok(GuiUtils.getListOfEnums());
     }

@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller.message;
 
@@ -19,6 +23,7 @@ import io.dataspaceconnector.common.net.ContentType;
 import io.dataspaceconnector.controller.message.tag.MessageDescription;
 import io.dataspaceconnector.controller.message.tag.MessageName;
 import io.dataspaceconnector.controller.util.ResponseUtils;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.dataspaceconnector.service.EntityResolver;
 import io.dataspaceconnector.service.message.SubscriberNotificationService;
 import io.dataspaceconnector.service.resource.type.SubscriptionService;
@@ -78,6 +83,7 @@ public class NotificationController {
             @ApiResponse(responseCode = "404", description = "Not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")})
     @ResponseBody
+    @TelemetrySpan(name = "PUT /api/notify")
     public ResponseEntity<Object> sendMessage(
             @Parameter(description = "The element id.", required = true)
             @RequestParam("elementId") final URI elementId) {

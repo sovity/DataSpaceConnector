@@ -20,7 +20,7 @@ Software quality is ensured by adhering to and implementing code style guides an
 providing high test coverage. Quality checks and project reports can be generated via maven plugin.
 
 `Java` `Maven` `Spring Boot` `Spring Data JPA` `Spring Security` `OpenAPI` `HATEOAS` `Swagger`
-`LOG4J2` `Docker` `Kubernetes` `JSON(-LD)` `Jaeger` `TLS`
+`LOG4J2` `Docker` `Kubernetes` `JSON(-LD)` `OpenTelemetry` `Jaeger` `TLS`
 
 All functionalities and architectural decisions aim at providing a maintainable and easily
 extensible software that encapsulates the IDS information model from connected systems.
@@ -50,7 +50,7 @@ extensible software that encapsulates the IDS information model from connected s
   * Un-/Subscribe to offers, representations, and artifacts as an IDS connector via IDS messages
   * Manually and automatically sending Resource Update Messages for receiving latest metadata and
     data changes
-* Integration and configuration of Jaeger for using open telemetry
+* Integration of OpenTelemetry and export to Jaeger
 * Optional http tracing for transparent information and data flow
 * Optional bootstrapping for registering resource offers on start-up
 * Apps and Routes

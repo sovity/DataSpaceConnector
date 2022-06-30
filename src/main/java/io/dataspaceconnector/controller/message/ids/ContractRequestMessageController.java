@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller.message.ids;
 
@@ -32,6 +36,7 @@ import io.dataspaceconnector.controller.message.tag.MessageDescription;
 import io.dataspaceconnector.controller.message.tag.MessageName;
 import io.dataspaceconnector.controller.resource.view.agreement.AgreementViewAssembler;
 import io.dataspaceconnector.controller.util.ResponseUtils;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.dataspaceconnector.service.ArtifactDataDownloader;
 import io.dataspaceconnector.service.ContractNegotiator;
 import io.dataspaceconnector.service.EntityUpdateService;
@@ -142,6 +147,7 @@ public class ContractRequestMessageController {
             @ApiResponse(responseCode = "502", description = "Bad gateway")})
     @PreAuthorize("hasPermission(#recipient, 'rw')")
     @ResponseBody
+    @TelemetrySpan(name = "POST /api/ids/contract")
     public ResponseEntity<Object> sendMessage(
             @Parameter(description = "The recipient url.", required = true)
             @RequestParam("recipient") final URI recipient,

@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller.resource.type;
 
@@ -24,6 +28,7 @@ import io.dataspaceconnector.controller.resource.base.tag.ResourceName;
 import io.dataspaceconnector.controller.resource.view.subscription.SubscriptionView;
 import io.dataspaceconnector.controller.util.ResponseCode;
 import io.dataspaceconnector.controller.util.ResponseDescription;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.dataspaceconnector.model.subscription.Subscription;
 import io.dataspaceconnector.model.subscription.SubscriptionDesc;
 import io.dataspaceconnector.service.resource.type.SubscriptionService;
@@ -67,6 +72,7 @@ public class SubscriptionController extends BaseResourceController<Subscription,
     @PostMapping
     @Operation(summary = "Create a base resource.")
     @ApiResponse(responseCode = ResponseCode.CREATED, description = ResponseDescription.CREATED)
+    @TelemetrySpan(name = "POST /api/subscriptions")
     public ResponseEntity<SubscriptionView> create(@RequestBody final SubscriptionDesc desc) {
         // Set boolean to false as this subscription has been created via a REST API call.
         desc.setIdsProtocol(false);
@@ -84,6 +90,7 @@ public class SubscriptionController extends BaseResourceController<Subscription,
     @Operation(summary = "Get all subscriptions owned by this connector.")
     @ApiResponse(responseCode = ResponseCode.METHOD_NOT_ALLOWED,
             description = ResponseDescription.METHOD_NOT_ALLOWED)
+    @TelemetrySpan(name = "GET /api/subscriptions/owning")
     public final PagedModel<SubscriptionView> getAllFiltered(
             @RequestParam(required = false, defaultValue = "0") final Integer page,
             @RequestParam(required = false, defaultValue = "30") final Integer size) {

@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller.message.ids;
 
@@ -34,6 +38,7 @@ import io.dataspaceconnector.controller.message.tag.MessageName;
 import io.dataspaceconnector.controller.util.ResponseCode;
 import io.dataspaceconnector.controller.util.ResponseDescription;
 import io.dataspaceconnector.controller.util.ResponseUtils;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.dataspaceconnector.service.message.GlobalMessageService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -109,6 +114,7 @@ public class QueryMessageController {
             @ApiResponse(responseCode = "504", description = "Gateway timeout")})
     @ResponseBody
     @PreAuthorize("hasPermission(#recipient, 'rw')")
+    @TelemetrySpan(name = "POST /api/ids/query")
     public ResponseEntity<Object> sendQueryMessage(
             @Parameter(description = "The recipient url.", required = true)
             @RequestParam("recipient") final URI recipient,
@@ -170,6 +176,7 @@ public class QueryMessageController {
             @ApiResponse(responseCode = "504", description = "Gateway timeout")})
     @ResponseBody
     @PreAuthorize("hasPermission(#recipient, 'rw')")
+    @TelemetrySpan(name = "POST /api/ids/search")
     public ResponseEntity<Object> sendSearchMessage(
             @Parameter(description = "The recipient url.", required = true)
             @RequestParam("recipient") final URI recipient,

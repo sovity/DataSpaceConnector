@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 - Requesting the same local-data artifact multiple times now updates the data-record in the database for the artifact instead of creating a new data-record.
 - OpenApi specification: made tag names unique, removed not allowed additional properties.
 - Excluded old IAIS http repository from build at top level since no longer accessible but used from transitive dependencies, which could lead to a build timeout. Repository and its artifacts now reachable via https.
+- Replaced telemetry collection via OpenTracing with OpenTelemetry with Jaeger export.
 
 ### Changed
 - Code base refactorings and removing of unused code.
@@ -55,6 +56,8 @@ All notable changes to this project will be documented in this file.
 - Update com.github.spotbugs:spotbugs-maven-plugin version from 4.6.0.0 to 4.7.0.0.
 - Update com.fasterxml.jackson.core:jackson-databind version from 2.13.2.2 to 2.13.3.
 - Update org.codehaus.mojo:versions-maven-plugin version from 2.10.0 to 2.11.0.
+- Removed io.opentracing.contrib:opentracing-spring-jaeger-web-starter
+- Add io.opentelemetry:opentelemetry-api and -sdk and -semconv and -exporter-jaeger version 1.15.0
 - Add io.jsonwebtoken:jjwt-impl and :jjwt-api version 0.11.5.
 - Add org.bitbucket.b_c:jose4j version 0.7.12.
 - Add h2 versioning and update to version 2.1.212.

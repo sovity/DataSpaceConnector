@@ -28,6 +28,7 @@ import io.dataspaceconnector.controller.policy.util.PatternUtils;
 import io.dataspaceconnector.controller.util.ResponseCode;
 import io.dataspaceconnector.controller.util.ResponseDescription;
 import io.dataspaceconnector.controller.util.ResponseUtils;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.dataspaceconnector.model.pattern.ConnectorRestrictionDesc;
 import io.dataspaceconnector.model.pattern.DeletionDesc;
 import io.dataspaceconnector.model.pattern.DurationDesc;
@@ -84,6 +85,7 @@ public class ExampleController {
             description = ResponseDescription.INTERNAL_SERVER_ERROR)
     @PostMapping(value = "/validation", produces = ContentType.JSON)
     @ResponseBody
+    @TelemetrySpan(name = "POST /api/examples/validation")
     public ResponseEntity<Object> getPolicyPattern(
             @Parameter(description = "The JSON string representing a policy.", required = true)
             @RequestBody final String ruleAsString) {
@@ -108,6 +110,7 @@ public class ExampleController {
             description = ResponseDescription.BAD_REQUEST)
     @PostMapping(value = "/policy", produces = ContentType.JSON_LD)
     @ResponseBody
+    @TelemetrySpan(name = "POST /api/examples/policy")
     public ResponseEntity<Object> getExampleUsagePolicy(@RequestBody final PatternDesc input) {
         try {
             if (input instanceof PermissionDesc permissionDesc) {

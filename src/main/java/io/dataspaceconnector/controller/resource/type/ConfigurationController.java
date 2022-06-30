@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller.resource.type;
 
@@ -25,6 +29,7 @@ import io.dataspaceconnector.controller.resource.view.configuration.Configuratio
 import io.dataspaceconnector.controller.util.ResponseCode;
 import io.dataspaceconnector.controller.util.ResponseDescription;
 import io.dataspaceconnector.controller.util.ResponseUtils;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.dataspaceconnector.model.configuration.Configuration;
 import io.dataspaceconnector.model.configuration.ConfigurationDesc;
 import io.dataspaceconnector.service.resource.type.ConfigurationService;
@@ -78,6 +83,7 @@ public class ConfigurationController extends BaseResourceController<Configuratio
             @ApiResponse(responseCode = ResponseCode.INTERNAL_SERVER_ERROR,
                     description = ResponseDescription.INTERNAL_SERVER_ERROR)})
     @ResponseBody
+    @TelemetrySpan(name = "PUT /api/configurations/{id}/active")
     public ResponseEntity<Object> setConfiguration(
             @Valid @PathVariable(name = "id") final UUID toSelect) {
         try {
@@ -98,6 +104,7 @@ public class ConfigurationController extends BaseResourceController<Configuratio
     @Operation(summary = "Get current configuration.")
     @ApiResponse(responseCode = ResponseCode.OK, description = ResponseDescription.OK)
     @ResponseBody
+    @TelemetrySpan(name = "GET /api/configurations/active")
     public ConfigurationView getConfiguration() {
         return get(configurationSvc.getActiveConfig().getId());
     }

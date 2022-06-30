@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller.resource.type;
 
@@ -25,6 +29,7 @@ import io.dataspaceconnector.controller.resource.view.artifact.ArtifactViewAssem
 import io.dataspaceconnector.controller.resource.view.route.RouteView;
 import io.dataspaceconnector.controller.util.ResponseCode;
 import io.dataspaceconnector.controller.util.ResponseDescription;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.dataspaceconnector.model.route.Route;
 import io.dataspaceconnector.model.route.RouteDesc;
 import io.dataspaceconnector.service.resource.type.RouteService;
@@ -76,6 +81,7 @@ public class RouteController extends BaseResourceController<Route, RouteDesc, Ro
             @ApiResponse(responseCode = ResponseCode.OK, description = ResponseDescription.OK),
             @ApiResponse(responseCode = ResponseCode.NO_CONTENT,
                     description = ResponseDescription.NO_CONTENT)})
+    @TelemetrySpan(name = "GET /api/routes/{id}/output")
     public ResponseEntity<ArtifactView> getOutput(
             @Valid @PathVariable(name = "id") final UUID routeId) {
         final var route = getService().get(routeId);
@@ -94,6 +100,7 @@ public class RouteController extends BaseResourceController<Route, RouteDesc, Ro
      */
     @PutMapping("{id}/endpoint/start")
     @Operation(summary = "Creates the start endpoint for a route.")
+    @TelemetrySpan(name = "PUT /api/routes/{id}/endpoint/start")
     public ResponseEntity<Object> createStartEndpoint(
             @Valid @PathVariable(name = "id") final UUID routeId,
             @RequestBody final URI endpointId) {
@@ -107,6 +114,7 @@ public class RouteController extends BaseResourceController<Route, RouteDesc, Ro
      */
     @DeleteMapping("{id}/endpoint/start")
     @Operation(summary = "Deletes the start endpoint of a route.")
+    @TelemetrySpan(name = "DELETE /api/routes/{id}/endpoint/start")
     public ResponseEntity<Object> deleteStartEndpoint(
             @Valid @PathVariable(name = "id") final UUID routeId) {
         getService().removeStartEndpoint(routeId);
@@ -120,6 +128,7 @@ public class RouteController extends BaseResourceController<Route, RouteDesc, Ro
      */
     @PutMapping("{id}/endpoint/end")
     @Operation(summary = "Creates the last endpoint for the route.")
+    @TelemetrySpan(name = "PUT /api/routes/{id}/endpoint/end")
     public ResponseEntity<Object> createLastEndpoint(
             @Valid @PathVariable(name = "id") final UUID routeId,
             @RequestBody final URI endpointId) {
@@ -133,6 +142,7 @@ public class RouteController extends BaseResourceController<Route, RouteDesc, Ro
      */
     @DeleteMapping("{id}/endpoint/end")
     @Operation(summary = "Deletes the start endpoint of the route.")
+    @TelemetrySpan(name = "DELETE /api/routes/{id}/endpoint/end")
     public ResponseEntity<Object> deleteLastEndpoint(
             @Valid @PathVariable(name = "id") final UUID routeId) {
         getService().removeLastEndpoint(routeId);

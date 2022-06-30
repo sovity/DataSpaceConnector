@@ -417,18 +417,16 @@ management.endpoint.logfile.external-file=./log/dataspaceconnector.log
 
 Http tracing is disabled by default: `httptrace.enabled=false`.
 
-### Jaeger
+### OpenTelemetry with Jaeger
 
-If your want to access open telemetry, have a look at [this guide](telemetry.md). You can
-customize the deployment with these lines:
+If you want to access telemetry collected via OpenTelemetry, have a look at [this guide](telemetry.md). You can
+enable the telemetry export to Jaeger by adding your Jaeger endpoint for telemetry collection:
 
 ```properties
-opentracing.jaeger.udp-sender.host=localhost
-opentracing.jaeger.udp-sender.port=6831
-opentracing.jaeger.log-spans=true
+opentelemetry.jaeger.endpoint=
 ```
 
-Open tracing is disabled by default: `opentracing.jaeger.enabled=false`.
+This feature is disabled by default without a Jaeger endpoint in the settings.
 
 ### Bootstrapping
 

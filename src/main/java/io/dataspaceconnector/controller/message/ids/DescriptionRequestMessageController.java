@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.controller.message.ids;
 
@@ -28,6 +32,7 @@ import io.dataspaceconnector.config.ConnectorConfig;
 import io.dataspaceconnector.controller.message.tag.MessageDescription;
 import io.dataspaceconnector.controller.message.tag.MessageName;
 import io.dataspaceconnector.controller.util.ResponseUtils;
+import io.dataspaceconnector.extension.telemetry.TelemetrySpan;
 import io.dataspaceconnector.service.message.builder.type.DescriptionRequestService;
 import io.dataspaceconnector.service.message.handler.dto.Response;
 import io.swagger.v3.oas.annotations.Operation;
@@ -105,6 +110,7 @@ public class DescriptionRequestMessageController {
             @ApiResponse(responseCode = "502", description = "Bad gateway")})
     @PreAuthorize("hasPermission(#recipient, 'rw')")
     @ResponseBody
+    @TelemetrySpan(name = "POST /api/ids/description")
     public ResponseEntity<Object> sendMessage(
             @Parameter(description = "The recipient url.", required = true)
             @RequestParam("recipient") final URI recipient,

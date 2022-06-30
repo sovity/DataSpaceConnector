@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.service.message.handler.type.base;
 
@@ -23,16 +27,19 @@ import ids.messaging.response.BodyResponse;
 import ids.messaging.response.ErrorResponse;
 import ids.messaging.response.MessageResponse;
 import io.dataspaceconnector.common.ids.ConnectorService;
+import io.dataspaceconnector.extension.telemetry.CustomOpenTelemetry;
 import io.dataspaceconnector.service.message.handler.dto.Request;
 import io.dataspaceconnector.service.message.handler.dto.Response;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
+import io.opentelemetry.api.trace.Span;
 import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.apache.camel.CamelContext;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.ExchangeBuilder;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -76,22 +83,45 @@ public abstract class AbstractMessageHandler<T extends Message>
                                          final MessagePayload payload,
                                          final Optional<Jws<Claims>> claims)
             throws RuntimeException {
-        final var result = template.send(getHandlerRouteDirect(),
-                ExchangeBuilder.anExchange(context)
-                        .withBody(new Request<>(message, payload, claims))
-                        .build());
+        Optional<Span> span = startSpan(message);
+        try {
+            final var result = template.send(getHandlerRouteDirect(),
+                    ExchangeBuilder.anExchange(context)
+                            .withBody(new Request<>(message, payload, claims))
+                            .build());
 
-        final var response = result.getIn().getBody(Response.class);
-        if (response != null) {
-            return BodyResponse.create(response.getHeader(), response.getBody());
-        } else {
-            final var errorResponse = result.getIn().getBody(ErrorResponse.class);
-            return Objects.requireNonNullElseGet(errorResponse,
-                    () -> ErrorResponse.withDefaultHeader(RejectionReason.INTERNAL_RECIPIENT_ERROR,
-                            "Could not process request.",
-                            connectorService.getConnectorId(),
-                            connectorService.getOutboundModelVersion()));
+            final var response = result.getIn().getBody(Response.class);
+            if (response != null) {
+                return BodyResponse.create(response.getHeader(), response.getBody());
+            } else {
+                final var errorResponse = result.getIn().getBody(ErrorResponse.class);
+                return Objects.requireNonNullElseGet(errorResponse,
+                        () -> ErrorResponse.withDefaultHeader(
+                                RejectionReason.INTERNAL_RECIPIENT_ERROR,
+                                "Could not process request.",
+                                connectorService.getConnectorId(),
+                                connectorService.getOutboundModelVersion()));
+            }
+        } finally {
+            span.ifPresent(Span::end);
         }
+    }
+
+    /**
+     * Starts the OTEL span if message is present.
+     *
+     * @param message The incoming message to handle.
+     * @return Optional span, not empty if message is present.
+     */
+    @NotNull
+    private Optional<Span> startSpan(final T message) {
+        Optional<Span> span = Optional.empty();
+        if (message != null) {
+            span = Optional.of(CustomOpenTelemetry.getTracer()
+                    .spanBuilder("Handle " + message.getClass()
+                            .getSimpleName().replace("Impl", "")).startSpan());
+        }
+        return span;
     }
 
     /**

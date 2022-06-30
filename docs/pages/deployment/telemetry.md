@@ -16,20 +16,15 @@ You want to have insights into a running Dataspace Connector? See what you have 
 
 ---
 
-To enable the telemetry collection via Jaeger, modify the corresponding value in the
-`application.properties`:
+To enable the OpenTelemetry collection via Jaeger export, modify the value in the
+`application.properties` and add your Jeager telemetry collection endpoint:
 ```properties
-opentracing.jaeger.enabled=true
+opentelemetry.jaeger.endpoint=
 ```
 
-The Dataspace Connector will now send telemetry data via UDP to `localhost:6831`. The name of the
-Dataspace Connector displayed in the logs is defined in `spring.application.name`.
+The Dataspace Connector will now send OpenTelemetry data to the defined endpoint.
 
-To change the target of the UDP packages, modify `opentracing.jaeger.udp-sender.host` and
-`opentracing.jaeger.udp-sender.port` respectively. For further modification options and settings
-have a look [here](https://github.com/opentracing-contrib/java-spring-jaeger).
-
-To view tracing information, a Docker container has to be started:
+You can also run Jaeger besides the Dataspace Connector as Docker Container to view the collected OpenTelemetry traces and spans.
 ```
 docker run -d --name jaeger \
   -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
