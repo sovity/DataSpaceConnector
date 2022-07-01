@@ -31,6 +31,7 @@ import io.dataspaceconnector.model.util.FactoryUtils;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import java.net.URI;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -133,6 +134,7 @@ public class ConfigurationFactory extends AbstractNamedFactory<Configuration, Co
         final var hasUpdatedKeyStore = updateKeyStore(config, desc.getKeystore());
         final var hasUpdatedProxy = updateProxy(config, desc.getProxy());
         final var hasUpdatedStatus = updateStatus(config, desc.getStatus());
+        final var hasUpdatedPublicKey = updatePublicKey(config, desc.getPublicKey());
 
         return hasUpdatedDefaultEndpoint
                 || hasUpdatedConnectorId
@@ -147,7 +149,23 @@ public class ConfigurationFactory extends AbstractNamedFactory<Configuration, Co
                 || hasUpdatedTrustStore
                 || hasUpdatedKeyStore
                 || hasUpdatedProxy
-                || hasUpdatedStatus;
+                || hasUpdatedStatus
+                || hasUpdatedPublicKey;
+    }
+
+    /**
+     * @param config          The configuration.
+     * @param publicKey       The new public key.
+     * @return True, if public key is updated.
+     */
+    private boolean updatePublicKey(final Configuration config,
+                                    final byte[] publicKey) {
+        if (Arrays.equals(publicKey, config.getPublicKey())) {
+            return false;
+        }
+
+        config.setPublicKey(publicKey);
+        return true;
     }
 
     /**

@@ -51,6 +51,11 @@ public class ConfigurationDesc extends NamedDescription {
     private String version;
 
     /**
+     * The public key.
+     */
+    private byte[] publicKey;
+
+    /**
      * The curator.
      */
     private URI curator;

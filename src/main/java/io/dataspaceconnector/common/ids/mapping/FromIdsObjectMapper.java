@@ -589,6 +589,7 @@ public final class FromIdsObjectMapper {
                 configModel.getTrustStoreAlias()));
         desc.setStatus(fromIdsConnectorStatus(configModel.getConnectorStatus()));
         desc.setConnectorId(connector.getId());
+        desc.setPublicKey(connector.getPublicKey().getKeyValue());
 
         return desc;
     }

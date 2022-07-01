@@ -15,6 +15,7 @@
  */
 package io.dataspaceconnector.controller.resource.view.configuration;
 
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 import io.dataspaceconnector.controller.resource.type.ConfigurationController;
@@ -58,6 +59,10 @@ public class ConfigurationViewAssembler extends SelfLinkHelper implements
 
         if (configuration.getKeystore() != null) {
             view.setKeyStore(new KeystoreViewAssembler().toModel(configuration.getKeystore()));
+        }
+
+        if (configuration.getPublicKey() != null) {
+            view.setPublicKey(new String(configuration.getPublicKey(), StandardCharsets.UTF_8));
         }
 
         return view;

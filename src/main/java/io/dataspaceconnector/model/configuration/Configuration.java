@@ -41,6 +41,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.net.URI;
@@ -84,6 +85,13 @@ public class Configuration extends NamedEntity {
      * The project version.
      */
     private String version;
+
+    /**
+     * The public key.
+     */
+    @Lob
+    @Column(columnDefinition = "TEXT")
+    private byte[] publicKey;
 
     /**
      * The curator.

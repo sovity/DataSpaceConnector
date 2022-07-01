@@ -26,6 +26,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -83,6 +84,7 @@ public class ConfigurationFactoryTest {
         desc.setVersion("fred");
         desc.setLogLevel(LogLevel.ERROR);
         desc.setDeployMode(DeployMode.PRODUCTIVE);
+        desc.setPublicKey("pubkey".getBytes(StandardCharsets.UTF_8));
 
         /* ACT */
         final var result = factory.create(desc);
@@ -96,6 +98,7 @@ public class ConfigurationFactoryTest {
         assertEquals(desc.getOutboundModelVersion(), result.getOutboundModelVersion());
         assertEquals(desc.getSecurityProfile(), result.getSecurityProfile());
         assertEquals(desc.getInboundModelVersion(), result.getInboundModelVersion());
+        assertEquals(desc.getPublicKey(), result.getPublicKey());
     }
 
     @Test

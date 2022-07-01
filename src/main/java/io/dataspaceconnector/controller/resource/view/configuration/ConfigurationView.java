@@ -82,6 +82,11 @@ public class ConfigurationView extends RepresentationModel<ConfigurationView> {
     private String version;
 
     /**
+     * The public key.
+     */
+    private String publicKey;
+
+    /**
      * The curator.
      */
     private URI curator;

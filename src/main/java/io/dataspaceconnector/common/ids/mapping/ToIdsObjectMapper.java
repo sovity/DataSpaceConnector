@@ -22,11 +22,14 @@ import de.fraunhofer.iais.eis.Connector;
 import de.fraunhofer.iais.eis.ConnectorDeployMode;
 import de.fraunhofer.iais.eis.ConnectorEndpointBuilder;
 import de.fraunhofer.iais.eis.ConnectorStatus;
+import de.fraunhofer.iais.eis.KeyType;
 import de.fraunhofer.iais.eis.Language;
 import de.fraunhofer.iais.eis.LogLevel;
 import de.fraunhofer.iais.eis.PaymentModality;
 import de.fraunhofer.iais.eis.Proxy;
 import de.fraunhofer.iais.eis.ProxyBuilder;
+import de.fraunhofer.iais.eis.PublicKey;
+import de.fraunhofer.iais.eis.PublicKeyBuilder;
 import de.fraunhofer.iais.eis.SecurityProfile;
 import de.fraunhofer.iais.eis.util.TypedLiteral;
 import de.fraunhofer.iais.eis.util.Util;
@@ -222,6 +225,8 @@ public final class ToIdsObjectMapper {
      * @return The filled ids connector.
      */
     public static Connector getConnectorFromConfiguration(final Configuration config) {
+        final PublicKey publicKey = getPublicKey(config);
+
         return new BaseConnectorBuilder(config.getConnectorId())
                 ._title_(Util.asList(new TypedLiteral(config.getTitle())))
                 ._description_(Util.asList(new TypedLiteral(config.getDescription())))
@@ -236,6 +241,20 @@ public final class ToIdsObjectMapper {
                 ._outboundModelVersion_(config.getOutboundModelVersion())
                 ._inboundModelVersion_(config.getInboundModelVersion())
                 ._version_(config.getVersion())
+                ._publicKey_(publicKey)
+                .build();
+    }
+
+    /**
+     * Gets the public key from the config.
+     *
+     * @param config The internal configuration model.
+     * @return PublicKey of the internal configuration model.
+     */
+    private static PublicKey getPublicKey(final Configuration config) {
+        return new PublicKeyBuilder()
+                ._keyType_(KeyType.RSA)
+                ._keyValue_(config.getPublicKey())
                 .build();
     }
 
