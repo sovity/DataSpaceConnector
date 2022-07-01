@@ -112,7 +112,7 @@ public class ConfigurationAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/api/ids/data").anonymous()
+                .antMatchers("/", "/api/ids/data").permitAll()
                 .antMatchers("/api/subscriptions/**").authenticated()
                 .antMatchers("/api/**").hasRole(ADMIN)
                 .antMatchers("/actuator/**").hasRole(ADMIN)

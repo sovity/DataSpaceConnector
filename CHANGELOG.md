@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file.
 - OpenApi specification: made tag names unique, removed not allowed additional properties.
 - Excluded old IAIS http repository from build at top level since no longer accessible but used from transitive dependencies, which could lead to a build timeout. Repository and its artifacts now reachable via https.
 - Replaced telemetry collection via OpenTracing with OpenTelemetry with Jaeger export.
+- Accessing the public self-description endpoint is now also possible for logged in admins.
 
 ### Changed
 - Code base refactorings and removing of unused code.
