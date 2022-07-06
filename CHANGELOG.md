@@ -52,7 +52,7 @@ All notable changes to this project will be documented in this file.
 - Update org.flywaydb:flyway-core version from 8.5.5 to 8.5.13.
 - Update springdoc version from 1.6.6 to 1.6.9.
 - Update de.fhg.aisec.ids:camel-idscp2 version from 0.6.0 to 0.10.3.
-- Update camel version from 3.16.0 to 3.17.0.
+- Update camel version from 3.16.0 to 3.18.0.
 - Update jackson version from 2.13.2 to 2.13.3.
 - Update spotbugs version from 4.6.0 to 4.7.1.
 - Update com.github.spotbugs:spotbugs-maven-plugin version from 4.6.0.0 to 4.7.0.0.
