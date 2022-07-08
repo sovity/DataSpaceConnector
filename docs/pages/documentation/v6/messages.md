@@ -53,7 +53,7 @@ processing incoming messages.
 ## Examples
 ## Notification Messages
 ### ConnectorUnavailableMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:affectedConnector` `ids:issuerConnector` `ids:securityToken` `ids:modelVersion` `ids:senderAgent` `ids:issued`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Length: 1140
@@ -94,7 +94,7 @@ Content-Length: 0
 ```
 
 ### ConnectorUpdateMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:affectedConnector` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Length: 1130
@@ -179,7 +179,7 @@ Content-Length: 1994
 ```
 
 ### LogMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Length: 1081
@@ -223,7 +223,7 @@ Content-Length: 1234
 ```
 
 ### MessageProcessedNotificationMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:correlationMessage` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Type: text/plain;charset=UTF-8
@@ -271,7 +271,7 @@ Received contract agreement message.
 ```
 
 ### ResourceUnavailableMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:affectedResource` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Length: 1092
@@ -311,7 +311,7 @@ Content-Length: 0
 ```
 
 ### ResourceUpdateMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:affectedResource` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Length: 1082
@@ -479,7 +479,7 @@ Content-Length: 3782
 
 ## Request Message
 ### ArtifactRequestMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:requestedArtifact` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Length: 1299
@@ -528,7 +528,7 @@ Content-Length: 557
 ```
 
 ### ContractRequestMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Length: 1186
@@ -606,7 +606,7 @@ Content-Length: 1093
 ```
 
 ### DescriptionRequestMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Length: 1119
@@ -648,7 +648,7 @@ Content-Length: 0
 ```
 
 ### QueryMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Length: 1218
@@ -699,7 +699,7 @@ Content-Length: 109
 
 ## Response Message
 ### ArtifactResponseMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:correlationMessage` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Type: text/plain;charset=UTF-8
@@ -750,7 +750,7 @@ Content-Length: 1234
 ```
 
 ### ContractAgreementMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:correlationMessage` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Length: 1183
@@ -845,7 +845,7 @@ Content-Length: 1715
 ```
 
 ### DescriptionResponseMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Type: text/plain;charset=UTF-8
@@ -938,7 +938,7 @@ Content-Length: 2112
 ```
 
 ### RejectionMessage
-
+- mandatory fields: `@context` `@type` `@id` `ids:correlationMessage` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 ontent-Disposition: form-data; name="header"
 Content-Type: text/plain;charset=UTF-8
@@ -987,7 +987,7 @@ No handler for provided message type was found!
 
 ## Custom Messages
 ### SubscriptionMessage (custom RequestMessage)
-
+- mandatory fields: `@context` `@type` `@id` `ids:issued` `ids:issuerConnector` `ids:modelVersion` `ids:securityToken` `ids:senderAgent`
 ```json
 Content-Disposition: form-data; name="header"
 Content-Length: 1147
