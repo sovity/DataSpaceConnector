@@ -50,6 +50,11 @@ processing incoming messages.
 
 ![Automated IDS Messaging Sequence](../../../assets/images/diagram/messaging_sequence.png)
 
+## IDS-Multipart Messages
+The most common way to exchange IDS-Messages in an IDS data ecosystem between the participants are multipart messages. IDS multipart messages consist of two parts, a `header` and a `payload`. The `header` part contains the actual IDS-Message, such as a `ConnectorUpdateMessage`, `LogMessage` or a `DescriptionRequestMessage`. A `payload` may be required for some IDS multipart message types, but it does not always have to be. IDS-Messages exist which do not require a `payload` for additional information, such as a `ConnectorUnavailableMessage` to an IDS Metadata Broker. The IDS Metadata Broker already knows which connector changes its status by the `ids:affectedConnector`  in the message header and thus the actual `ConnectorUnavailableMessage`. If a `QueryMessage` is sent as a counterexample, the query itself must be present in the `payload` of the multipart message, which makes the payload mandatory for this specific message-type. Following is a listing of all IDS-Messages as sent by the Dataspace Connector, with an example of each. Fields in the actual IDS-Messages in the header, which are mandatory, are additionally listed separately.
+
+More information about Multipart in the IDS context, can be found [here](https://github.com/International-Data-Spaces-Association/IDS-G/tree/main/Communication/protocols/multipart).
+
 ## Examples
 ## Notification Messages
 ### ConnectorUnavailableMessage
