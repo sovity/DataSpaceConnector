@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.model.app;
 
@@ -122,7 +126,7 @@ public class AppDesc extends NamedDescription {
     private URI distributionService;
 
     /**
-     * "Runtime environment of a data app, e.g., software (or hardware) required to run the app.
+     * Runtime environment of a data app, e.g., software (or hardware) required to run the app.
      */
     private String runtimeEnvironment;
 

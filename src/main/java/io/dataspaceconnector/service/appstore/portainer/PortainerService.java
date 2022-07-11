@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.service.appstore.portainer;
 
@@ -607,7 +611,7 @@ public class PortainerService {
     /**
      * Pull image from registry.
      *
-     * @param appStoreTemplate The template provided by the AppStore decribing 1 App.
+     * @param appStoreTemplate The template provided by the AppStore describing 1 App.
      * @return Response of portainer.
      * @throws IOException If an error occurs while connection to portainer.
      */
