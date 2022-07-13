@@ -61,7 +61,8 @@ All notable changes to this project will be documented in this file.
 - Update com.fasterxml.jackson.core:jackson-databind version from 2.13.2.2 to 2.13.3.
 - Update org.codehaus.mojo:versions-maven-plugin version from 2.10.0 to 2.11.0.
 - Removed io.opentracing.contrib:opentracing-spring-jaeger-web-starter
-- Add io.opentelemetry:opentelemetry-api and -sdk and -semconv and -exporter-jaeger version 1.15.0
+- Add io.opentelemetry:opentelemetry-api and -sdk and -exporter-jaeger version 1.16.0
+- Add io.opentelemetry:opentelemetry-semconv version 1.15.0-alpha
 - Add io.jsonwebtoken:jjwt-impl and :jjwt-api version 0.11.5.
 - Add org.bitbucket.b_c:jose4j version 0.7.12.
 - Add h2 versioning and update to version 2.1.212.
