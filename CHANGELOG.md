@@ -51,7 +51,7 @@ All notable changes to this project will be documented in this file.
 - Update org.postgresql:postgresql version from 42.3.3 to 42.4.0.
 - Update springframework version from 5.3.18 to 5.3.21.
 - Update com.h3xstream.findsecbugs:findsecbugs-plugin version from 1.11.0 to 1.12.0.
-- Update org.flywaydb:flyway-core version from 8.5.5 to 8.5.13.
+- Update org.flywaydb:flyway-core version from 8.5.5 to 9.0.0.
 - Update springdoc version from 1.6.6 to 1.6.9.
 - Update de.fhg.aisec.ids:camel-idscp2 version from 0.6.0 to 0.10.3.
 - Update camel version from 3.16.0 to 3.18.0.
