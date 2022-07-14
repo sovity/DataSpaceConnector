@@ -24,6 +24,7 @@ All notable changes to this project will be documented in this file.
 - Accessing the public self-description endpoint is now also possible for logged in admins.
 - The connector public key is now also persisted.
 - Set URI-converter and column-length for location in AppStore-entity. Tested AppStore-App deployment with Portainer 2.14.0
+- Query parameters are ignored if a query parameter with the same key is already defined in the target url
 
 ### Changed
 - Code base refactorings and removing of unused code.

@@ -114,6 +114,7 @@ public class ArtifactController extends BaseResourceNotificationController<Artif
      * Returns data from the local database or a remote data source. In case of a remote data
      * source, all headers and query parameters included in this request will be used for the
      * request to the backend.
+     * A query parameter is ignored if the same key is already defined in the target accessUrl.
      *
      * @param artifactId   Artifact id.
      * @param download     If the data should be forcefully downloaded.
