@@ -10,7 +10,6 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Add `daps.whitelisted.url` to `application.properties.`. Allows configuring whitelisted DAPS URLs already at configuration time.
 - Introduction of the setting `referred.check=true/false` in the application.properties. Enables or disables DAT claim referringConnector vs IDS message issuerConnector validation. Disabled by default.
-- Add support for MSSQL besides H2 and PostgreSQL.
 - Updated Connector container architecture overview in Readme and documentation.
 
 ### Fixed
