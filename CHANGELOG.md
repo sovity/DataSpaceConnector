@@ -58,7 +58,7 @@ All notable changes to this project will be documented in this file.
 - Update camel version from 3.16.0 to 3.18.0.
 - Update jackson version from 2.13.2 to 2.13.3.
 - Update spotbugs version from 4.6.0 to 4.7.1.
-- Update com.github.spotbugs:spotbugs-maven-plugin version from 4.6.0.0 to 4.7.1.0.
+- Update com.github.spotbugs:spotbugs-maven-plugin version from 4.6.0.0 to 4.7.1.1.
 - Update com.fasterxml.jackson.core:jackson-databind version from 2.13.2.2 to 2.13.3.
 - Update org.codehaus.mojo:versions-maven-plugin version from 2.10.0 to 2.11.0.
 - Removed io.opentracing.contrib:opentracing-spring-jaeger-web-starter
