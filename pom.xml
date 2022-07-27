@@ -76,14 +76,14 @@
 		<jackson.version>2.13.3</jackson.version>
 		<jackson-databind.version>2.13.3</jackson-databind.version>
 		<springdoc.version>1.6.9</springdoc.version>
-		<equalsverifier.version>3.10</equalsverifier.version>
+		<equalsverifier.version>3.10.1</equalsverifier.version>
 		<opentelemetry.version>1.16.0</opentelemetry.version>
 		<opentelemetry-semconv.version>1.16.0-alpha</opentelemetry-semconv.version>
 		<jaeger.version>3.3.1</jaeger.version>
 		<freemarker.version>2.3.31</freemarker.version>
 		<camel.version>3.18.0</camel.version>
 		<idscp2.version>0.10.3</idscp2.version>
-		<protobuf.version>3.21.3</protobuf.version>
+		<protobuf.version>3.21.4</protobuf.version>
 		<jsonwebtoken.version>0.11.5</jsonwebtoken.version>
 
 		<!-- Plugins -->
@@ -301,7 +301,7 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-			<version>9.0.1</version>
+			<version>9.0.2</version>
 		</dependency>
 
 		<dependency>
