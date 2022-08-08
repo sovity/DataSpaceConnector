@@ -112,7 +112,7 @@
 
 		<!-- Supported Databases -->
 		<h2.version>2.1.212</h2.version>
-		<postgres.version>42.4.0</postgres.version>
+		<postgres.version>42.4.1</postgres.version>
 
 		<!-- License -->
 		<license_name>Apache License, Version 2.0</license_name>
