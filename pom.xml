@@ -78,7 +78,7 @@
 		<springdoc.version>1.6.9</springdoc.version>
 		<equalsverifier.version>3.10.1</equalsverifier.version>
 		<opentelemetry.version>1.16.0</opentelemetry.version>
-		<opentelemetry-semconv.version>1.16.0-alpha</opentelemetry-semconv.version>
+		<opentelemetry-semconv.version>1.17.0-alpha</opentelemetry-semconv.version>
 		<jaeger.version>3.3.1</jaeger.version>
 		<freemarker.version>2.3.31</freemarker.version>
 		<camel.version>3.18.0</camel.version>
