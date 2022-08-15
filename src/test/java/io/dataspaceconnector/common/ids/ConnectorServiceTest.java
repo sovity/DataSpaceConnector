@@ -44,6 +44,7 @@ import io.dataspaceconnector.model.resource.OfferedResource;
 import io.dataspaceconnector.service.resource.ids.builder.IdsCatalogBuilder;
 import io.dataspaceconnector.service.resource.ids.builder.IdsResourceBuilder;
 import io.dataspaceconnector.service.resource.type.CatalogService;
+import io.dataspaceconnector.service.resource.type.ConfigurationService;
 import io.dataspaceconnector.service.resource.type.OfferedResourceService;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
@@ -66,20 +67,22 @@ import static org.mockito.Mockito.when;
 
 public class ConnectorServiceTest {
 
-    private ConfigContainer configContainer = Mockito.mock(ConfigContainer.class);
-    private CatalogService catalogService = Mockito.mock(CatalogService.class);
-    private IdsCatalogBuilder catalogBuilder = Mockito.mock(IdsCatalogBuilder.class);
+    private final ConfigContainer configContainer = Mockito.mock(ConfigContainer.class);
+    private final CatalogService catalogService = Mockito.mock(CatalogService.class);
+    private final IdsCatalogBuilder catalogBuilder = Mockito.mock(IdsCatalogBuilder.class);
     @SuppressWarnings("unchecked")
-    private IdsResourceBuilder<OfferedResource> resourceBuilder = Mockito.mock(IdsResourceBuilder.class);
-    private OfferedResourceService offeredResourceService = Mockito.mock(OfferedResourceService.class);
+    private final IdsResourceBuilder<OfferedResource> resourceBuilder = Mockito.mock(IdsResourceBuilder.class);
+    private final OfferedResourceService offeredResourceService = Mockito.mock(OfferedResourceService.class);
+    private final ConfigurationService configurationService = Mockito.mock(ConfigurationService.class);
 
-    private ConnectorService connectorService = new ConnectorService(
+    private final ConnectorService connectorService = new ConnectorService(
             configContainer,
             Mockito.mock(DapsTokenProvider.class),
             catalogService,
             catalogBuilder,
             resourceBuilder,
-            offeredResourceService
+            offeredResourceService,
+            configurationService
     );
 
     @Test

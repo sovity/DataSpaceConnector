@@ -36,6 +36,7 @@ import io.dataspaceconnector.model.resource.OfferedResource;
 import io.dataspaceconnector.service.resource.ids.builder.IdsCatalogBuilder;
 import io.dataspaceconnector.service.resource.ids.builder.IdsResourceBuilder;
 import io.dataspaceconnector.service.resource.type.CatalogService;
+import io.dataspaceconnector.service.resource.type.ConfigurationService;
 import io.dataspaceconnector.service.resource.type.OfferedResourceService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -88,6 +89,11 @@ public class ConnectorService {
      * Service for offered resources.
      */
     private final @NonNull OfferedResourceService offeredResourceService;
+
+    /**
+     * Configuration Service, to read the version of the current configuration.
+     */
+    private final @NonNull ConfigurationService configurationService;
 
     /**
      * Get keystore manager from ids messaging services.
@@ -191,6 +197,7 @@ public class ConnectorService {
         // Create a connector with a list of offered resources.
         final var connectorImpl = (BaseConnectorImpl) connector;
         connectorImpl.setResourceCatalog(catalogs);
+        setCurrentValues(connectorImpl);
         return connectorImpl;
     }
 
@@ -206,7 +213,25 @@ public class ConnectorService {
         // Create a connector without any resources.
         final var connectorImpl = (BaseConnectorImpl) connector;
         connectorImpl.setResourceCatalog(null);
+
+        setCurrentValues(connectorImpl);
         return connectorImpl;
+    }
+
+    private void setCurrentValues(final BaseConnectorImpl connectorImpl) {
+
+        if (configurationService.getActiveConfig() == null) {
+            return;
+        }
+
+        //set correct version
+        connectorImpl.setVersion(configurationService.getActiveConfig().getVersion());
+
+        //set correct maintainer
+        connectorImpl.setMaintainer(configurationService.getActiveConfig().getMaintainer());
+
+        //set correct curator
+        connectorImpl.setCurator(configurationService.getActiveConfig().getCurator());
     }
 
     /**
