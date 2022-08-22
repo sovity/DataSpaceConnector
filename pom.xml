@@ -108,7 +108,7 @@
 		<dms.version>2.2.0</dms.version>
 		<taglist.version>3.0.0</taglist.version>
 		<dependency-check.version>7.1.1</dependency-check.version>
-		<jxr.version>3.2.0</jxr.version>
+		<jxr.version>3.3.0</jxr.version>
 
 		<!-- Supported Databases -->
 		<h2.version>2.1.212</h2.version>
