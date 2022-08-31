@@ -12,12 +12,20 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.common.net;
 
+import io.dataspaceconnector.common.exception.UUIDFormatException;
+import io.dataspaceconnector.common.util.UUIDUtils;
 import io.dataspaceconnector.config.BasePath;
 import io.dataspaceconnector.model.artifact.Artifact;
+import io.dataspaceconnector.repository.RouteRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -30,6 +38,7 @@ import java.net.URL;
  */
 @Component
 @RequiredArgsConstructor
+@Log4j2
 public final class ApiReferenceHelper {
 
     /**
@@ -39,16 +48,24 @@ public final class ApiReferenceHelper {
     private String defaultBaseUrl;
 
     /**
-     * Checks whether a URL is a route reference by checking whether the URL starts with the path
-     * to this connector's routes API. The full path to the routes API consists of the application's
-     * base URL and the path segment for the routes API.
+     * Route repository used to check if a given url is a route.
+     */
+    private final RouteRepository routeRepository;
+
+    /**
+     * Checks whether a URL is a route reference by searching for
+     * the uuid of the url in the route repository.
      *
      * @param url The URL to check.
      * @return True, if the URL is a route reference; false otherwise.
      */
     public boolean isRouteReference(final URL url) {
-        final var routesApiUrl = getBaseUrl() + BasePath.ROUTES;
-        return url.toString().startsWith(routesApiUrl);
+        try {
+            final var uuid = UUIDUtils.uuidFromUrl(url);
+            return routeRepository.existsById(uuid);
+        } catch (UUIDFormatException exception) {
+            return false;
+        }
     }
 
     /**

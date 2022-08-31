@@ -35,6 +35,7 @@ import io.dataspaceconnector.model.datasource.DataSource;
 import io.dataspaceconnector.model.endpoint.Endpoint;
 import io.dataspaceconnector.model.endpoint.GenericEndpoint;
 import io.dataspaceconnector.model.route.Route;
+import io.dataspaceconnector.repository.RouteRepository;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -62,6 +63,9 @@ public class IdsAppRouteBuilderTest {
 
     @MockBean
     private SelfLinkHelper selfLinkHelper;
+
+    @MockBean
+    private RouteRepository routeRepository;
 
     private final URI endpointDocumentation = URI.create("https://documentation.com");
 

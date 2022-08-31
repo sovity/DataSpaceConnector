@@ -23,6 +23,8 @@ import io.dataspaceconnector.common.exception.UUIDCreationException;
 import io.dataspaceconnector.common.exception.UUIDFormatException;
 
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -107,6 +109,23 @@ public final class UUIDUtils {
                     + "problem with the uuid pattern.", exception);
         }
     }
+
+    /**
+     * Extracts a UUID from a URL. If more than one UUID is found the last UUID is returned. See
+     * also {@link #uuidFromUri}.
+     *
+     * @param url The URL from which the UUID should be extracted.
+     * @return the extracted UUID.
+     * @throws UUIDFormatException if the URL does not contain a parsable UUID.
+     */
+    public static UUID uuidFromUrl(final URL url) throws UUIDFormatException {
+        try {
+            return uuidFromUri(url.toURI(), -1);
+        } catch (URISyntaxException | IndexOutOfBoundsException exception) {
+            throw new UUIDFormatException("No uuid could be found in the uri.", exception);
+        }
+    }
+
 
     /**
      * Generates a unique UUID, if it does not already exist.
