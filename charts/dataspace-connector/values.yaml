@@ -37,7 +37,7 @@ env:
   flyway:
     SPRING_FLYWAY_ENABLED: "false"
     SPRING_FLYWAY_BASELINE-ON-MIGRATE: "false"
-    SPRING_FLYWAY_BASELINE-VERSION: "8.0.0"
+    SPRING_FLYWAY_BASELINE-VERSION: "8.0.1"
     SPRING_JPA_HIBERNATE_DDL-AUTO: "update"
 
 # -- Persistent database properties

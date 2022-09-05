@@ -2,6 +2,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [8.0.1] - 2022-08-31
+
+### Fixed
+- Fix route reference check. The DSC now uses the UUID to prove if a remote data is a route or not.
+
 ## [8.0.0] - 2022-08-23
 
 
