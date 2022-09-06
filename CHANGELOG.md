@@ -2,6 +2,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [8.0.2] - XXXX-XX-XX
+
+### Dependencies
+- Update maven-checkstyle-plugin version from 3.1.2 to 3.2.0
+- Update checkstyle from 10.3.2 to 10.3.3
+- Update maven-pmd-plugin version from 3.17.0 to 3.18.0
+- Update postgresql version from 42.4.2 to 42.5.0
+- Update camel-idscp2 version from 0.10.3 to 0.11.1
+- Update dependency-check-maven version from 7.1.1 to 7.1.2
+- Update pitest-maven from 1.9.4 to 1.9.5
+- Update flyway-core from 9.1.6 to 9.2.0
+
 ## [8.0.1] - 2022-08-31
 
 ### Fixed
