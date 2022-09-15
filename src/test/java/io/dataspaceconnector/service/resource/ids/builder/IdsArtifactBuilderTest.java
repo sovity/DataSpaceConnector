@@ -21,8 +21,6 @@ import io.dataspaceconnector.model.artifact.Artifact;
 import io.dataspaceconnector.model.artifact.ArtifactDesc;
 import io.dataspaceconnector.model.artifact.ArtifactFactory;
 import io.dataspaceconnector.model.base.Entity;
-import io.dataspaceconnector.repository.DapsRepository;
-import io.dataspaceconnector.repository.RouteRepository;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -12,7 +12,13 @@ All notable changes to this project will be documented in this file.
 - Update camel-idscp2 version from 0.10.3 to 0.11.1
 - Update dependency-check-maven version from 7.1.1 to 7.1.2
 - Update pitest-maven from 1.9.4 to 1.9.5
-- Update flyway-core from 9.1.6 to 9.2.0
+- Update flyway-core from 9.1.6 to 9.2.2
+- Update pmd.version from 6.48.0 to 6.49.0
+- Update jackson.version from 2.13.3 to 2.13.4
+- Update jose4j from 0.7.12 to 0.8.0
+- Bump pitest-maven from 1.9.4 to 1.9.5
+- Bump spotbugs-annotations from 4.7.1 to 4.7.2
+- Bump jackson-databind from 2.13.3 to 2.13.4
 
 ## [8.0.1] - 2022-08-31
 
