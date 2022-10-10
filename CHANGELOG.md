@@ -6,26 +6,33 @@ All notable changes to this project will be documented in this file.
 
 ### Dependencies
 - Bump maven-checkstyle-plugin version from 3.1.2 to 3.2.0
-- Bump checkstyle from 10.3.2 to 10.3.3
+- Bump checkstyle from 10.3.2 to 10.3.4
 - Bump maven-pmd-plugin version from 3.17.0 to 3.19.0
 - Bump postgresql version from 42.4.2 to 42.5.0
 - Bump camel-idscp2 version from 0.10.3 to 0.11.1
-- Bump dependency-check-maven version from 7.1.1 to 7.1.2
-- Bump pitest-maven from 1.9.4 to 1.9.5
+- Bump dependency-check-maven version from 7.1.1 to 7.2.1
+- Bump pitest-maven from 1.9.4 to 1.9.7
 - Bump flyway-core from 9.1.6 to 9.3.0
-- Bump pmd.version from 6.48.0 to 6.49.0
+- Bump pmd.version from 6.48.0 to 6.50.0
 - Bump jackson.version from 2.13.3 to 2.13.4
-- Bump jose4j from 0.7.12 to 0.8.0
-- Bump pitest-maven from 1.9.4 to 1.9.5
+- Bump jose4j from 0.7.12 to 0.9.0
+- Bump pitest-junit5-plugin from 1.0.0 to 1.1.0
 - Bump spotbugs-annotations from 4.7.1 to 4.7.2
 - Bump jackson-databind from 2.13.3 to 2.13.4
 - Bump versions-maven-plugin from 2.11.0 to 2.12.0
-- Bump camel.version from 3.18.1 to 3.18.2
-- Bump opentelemetry-semconv from 1.17.0-alpha to 1.18.0-alpha
-- Bump opentelemetry.version from 1.17.0 to 1.18.0
+- Bump camel.version from 3.18.1 to 3.19.0
+- Bump opentelemetry-semconv from 1.17.0-alpha to 1.19.0-alpha
+- Bump opentelemetry.version from 1.17.0 to 1.19.0
 - Bump springframework.version from 5.3.22 to 5.3.23
-- Bump protobuf-java from 3.21.5 to 3.21.6
+- Bump protobuf-java from 3.21.5 to 3.21.7
 - Bump dependency-check-maven from 7.1.2 to 7.2.0
+- Bump spring-boot-starter-parent from 2.7.3 to 2.7.4
+- Bump commons-text from 1.9 to 1.10.0
+- Bump swagger-annotations from 1.6.6 to 1.6.7
+- Bump tidy-maven-plugin from 1.1.0 to 1.2.0
+- Bump actions/cache from 3.0.8 to 3.0.10
+- Bump spotbugs-maven-plugin from 4.7.1.1 to 4.7.2.1
+- Bump camel-idscp2 from 0.11.1 to 0.12.1
 
 ## [8.0.1] - 2022-08-31
 
