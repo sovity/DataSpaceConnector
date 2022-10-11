@@ -20,11 +20,11 @@ All notable changes to this project will be documented in this file.
 - Bump pitest-maven from 1.9.4 to 1.9.7
 - Bump flyway-core from 9.1.6 to 9.4.0
 - Bump pmd.version from 6.48.0 to 6.50.0
-- Bump jackson.version from 2.13.3 to 2.13.4
+- Bump jackson.version from 2.13.3 to 2.14.0-rc1
 - Bump jose4j from 0.7.12 to 0.9.0
 - Bump pitest-junit5-plugin from 1.0.0 to 1.1.0
 - Bump spotbugs-annotations from 4.7.1 to 4.7.2
-- Bump jackson-databind from 2.13.3 to 2.13.4
+- Bump jackson-databind from 2.13.3 to 2.14.0-rc1
 - Bump versions-maven-plugin from 2.11.0 to 2.12.0
 - Bump camel.version from 3.18.1 to 3.19.0
 - Bump opentelemetry-semconv from 1.17.0-alpha to 1.19.0-alpha
@@ -39,6 +39,7 @@ All notable changes to this project will be documented in this file.
 - Bump actions/cache from 3.0.8 to 3.0.10
 - Bump spotbugs-maven-plugin from 4.7.1.1 to 4.7.2.1
 - Bump camel-idscp2 from 0.11.1 to 0.12.1
+- Bump snakeyaml.version from 1.30 to 1.32
 
 ## [8.0.1] - 2022-08-31
 
