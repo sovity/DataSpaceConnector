@@ -2,7 +2,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [8.0.2] - XXXX-XX-XX
+## [8.0.2] - 2022-10-11
 
 ### Added
 - Migration file for version 8.0.2.
