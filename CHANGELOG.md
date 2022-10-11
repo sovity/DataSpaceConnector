@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [8.0.2] - XXXX-XX-XX
 
+### Added
+- Migration file for version 8.0.2.
+
+### Fixed
+- Fix a mismatch between the database if created with or without flyway.
+
 ### Dependencies
 - Bump maven-checkstyle-plugin version from 3.1.2 to 3.2.0
 - Bump checkstyle from 10.3.2 to 10.3.4
