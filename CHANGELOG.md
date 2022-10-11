@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file.
 - Bump camel-idscp2 version from 0.10.3 to 0.11.1
 - Bump dependency-check-maven version from 7.1.1 to 7.2.1
 - Bump pitest-maven from 1.9.4 to 1.9.7
-- Bump flyway-core from 9.1.6 to 9.3.0
+- Bump flyway-core from 9.1.6 to 9.4.0
 - Bump pmd.version from 6.48.0 to 6.50.0
 - Bump jackson.version from 2.13.3 to 2.13.4
 - Bump jose4j from 0.7.12 to 0.9.0
