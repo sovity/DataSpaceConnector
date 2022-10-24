@@ -2,6 +2,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [X.X.X] - XXXX-XX-XX
+
+### Dependencies
+- Bump actions/cache from 3.0.10 to 3.0.11
+- Bump springdoc.version from 1.6.11 to 1.6.12
+- Bump jackson-databind from 2.14.0-rc1 to 2.14.0-rc2
+- Bump jackson.version from 2.14.0-rc1 to 2.14.0-rc2
+- Bump pitest-maven from 1.9.7 to 1.9.8
+- Bump swagger-annotations from 1.6.7 to 1.6.8
+- Bump jose4j from 0.9.0 to 0.9.1
+- Bump versions-maven-plugin from 2.12.0 to 2.13.0
+- Bump protobuf-java from 3.21.7 to 3.21.8
+- Bump flyway-core from 9.4.0 to 9.5.1
+- Bump spotbugs-annotations from 4.7.2 to 4.7.3
+- Bump spring-boot-starter-parent from 2.7.4 to 2.7.5
+- Bump dependency-check-maven from 7.2.1 to 7.3.0
+
 ## [8.0.2] - 2022-10-11
 
 ### Added
