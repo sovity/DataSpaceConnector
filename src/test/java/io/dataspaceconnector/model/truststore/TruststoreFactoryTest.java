@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.model.truststore;
 
@@ -115,52 +119,5 @@ class TruststoreFactoryTest {
         /* ASSERT */
         assertFalse(result);
         assertEquals(password, truststore.getPassword());
-    }
-
-    @Test
-    void update_differentAlias_willUpdate() {
-        /* ARRANGE */
-        final var truststore = factory.create(new TruststoreDesc());
-        final var desc = new TruststoreDesc();
-        desc.setAlias("alias");
-
-        /* ACT */
-        final var result = factory.update(truststore, desc);
-
-        /* ASSERT */
-        assertTrue(result);
-        assertEquals(desc.getAlias(), truststore.getAlias());
-    }
-
-    @Test
-    void update_sameAlias_willNotUpdate() {
-        /* ARRANGE */
-        final var alias = "alias";
-        final var desc = new TruststoreDesc();
-        desc.setAlias(alias);
-        final var truststore = factory.create(desc);
-
-        /* ACT */
-        final var result = factory.update(truststore, desc);
-
-        /* ASSERT */
-        assertFalse(result);
-        assertEquals(alias, truststore.getAlias());
-    }
-
-    @Test
-    void update_trustStoreAliasNotNullAndAliasNull_willNotUpdate() {
-        /* ARRANGE */
-        final var alias = "alias";
-        final var desc = new TruststoreDesc();
-        desc.setAlias(alias);
-        final var truststore = factory.create(desc);
-
-        /* ACT */
-        final var result = factory.update(truststore, new TruststoreDesc());
-
-        /* ASSERT */
-        assertFalse(result);
-        assertEquals(alias, truststore.getAlias());
     }
 }

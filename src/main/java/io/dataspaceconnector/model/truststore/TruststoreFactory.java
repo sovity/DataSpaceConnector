@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.model.truststore;
 
@@ -35,11 +39,6 @@ public class TruststoreFactory extends AbstractFactory<Truststore, TruststoreDes
     public static final URI DEFAULT_LOCATION = URI.create("file:///conf/truststore.p12");
 
     /**
-     * The default alias.
-     */
-    public static final String DEFAULT_ALIAS = "1";
-
-    /**
      * {@inheritDoc}
      */
     @Override
@@ -54,9 +53,8 @@ public class TruststoreFactory extends AbstractFactory<Truststore, TruststoreDes
     public final boolean updateInternal(final Truststore truststore, final TruststoreDesc desc) {
         final var hasUpdatedLocation = updateLocation(truststore, desc.getLocation());
         final var hasUpdatedPassword = updatePassword(truststore, desc.getPassword());
-        final var hasUpdatedAlias = updateAlias(truststore, desc.getAlias());
 
-        return hasUpdatedLocation || hasUpdatedPassword || hasUpdatedAlias;
+        return hasUpdatedLocation || hasUpdatedPassword;
     }
 
     private boolean updatePassword(final Truststore truststore, final String password) {
@@ -77,17 +75,5 @@ public class TruststoreFactory extends AbstractFactory<Truststore, TruststoreDes
         newLocation.ifPresent(truststore::setLocation);
 
         return newLocation.isPresent();
-    }
-
-    private boolean updateAlias(final Truststore truststore, final String alias) {
-        if (truststore.getAlias() != null && alias == null) {
-            return false;
-        }
-
-        final var newAlias = FactoryUtils.updateString(truststore.getAlias(),
-                alias, DEFAULT_ALIAS);
-        newAlias.ifPresent(truststore::setAlias);
-
-        return newAlias.isPresent();
     }
 }

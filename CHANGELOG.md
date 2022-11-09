@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [X.X.X] - XXXX-XX-XX
 
+### Changed
+- Truststore-alias was removed
+
 ### Dependencies
 - Bump pmd.version from 6.50.0 to 6.51.0
 - Bump springdoc.version from 1.6.11 to 1.6.12

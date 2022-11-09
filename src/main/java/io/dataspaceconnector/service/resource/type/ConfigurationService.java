@@ -12,6 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *  Contributors:
+ *       sovity GmbH
+ *
  */
 package io.dataspaceconnector.service.resource.type;
 
@@ -349,7 +353,6 @@ public class ConfigurationService extends BaseEntityService<Configuration, Confi
 
         if (configuration.getTruststore() != null) {
             final var trustStoreDesc = new TruststoreDesc();
-            trustStoreDesc.setAlias(configuration.getTruststore().getAlias());
             trustStoreDesc.setLocation(configuration.getTruststore().getLocation());
             trustStoreDesc.setPassword(configuration.getTruststore().getPassword());
             desc.setTruststore(trustStoreDesc);
