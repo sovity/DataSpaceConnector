@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 - Truststore-alias was removed
 
 ### Dependencies
+- Bump spring-security-core.version from 5.7.3 to 5.7.5
 - Bump pmd.version from 6.50.0 to 6.51.0
 - Bump springdoc.version from 1.6.11 to 1.6.12
 - Bump jackson-databind from 2.14.0-rc1 to 2.14.0

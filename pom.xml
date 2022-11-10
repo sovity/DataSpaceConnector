@@ -85,6 +85,7 @@
 		<idscp2.version>0.11.1</idscp2.version>
 		<protobuf.version>3.21.9</protobuf.version>
 		<jsonwebtoken.version>0.11.5</jsonwebtoken.version>
+		<spring-security-core.version>5.7.5</spring-security-core.version>
 
 
 		<!-- Plugins -->
@@ -326,6 +327,10 @@
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.security</groupId>
+					<artifactId>spring-security-core</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 
@@ -345,6 +350,12 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.security</groupId>
+					<artifactId>spring-security-core</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -357,6 +368,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring-security-core.version}</version>
+		</dependency>
+
 
 		<!--JSON-->
 		<dependency>
@@ -437,6 +455,12 @@
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-security</artifactId>
 			<version>${springdoc.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.security</groupId>
+					<artifactId>spring-security-core</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-hateoas -->
