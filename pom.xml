@@ -77,12 +77,12 @@
 		<jackson-databind.version>2.14.0</jackson-databind.version>
 		<springdoc.version>1.6.12</springdoc.version>
 		<equalsverifier.version>3.11</equalsverifier.version>
-		<opentelemetry.version>1.19.0</opentelemetry.version>
-		<opentelemetry-semconv.version>1.19.0-alpha</opentelemetry-semconv.version>
+		<opentelemetry.version>1.20.0</opentelemetry.version>
+		<opentelemetry-semconv.version>1.20.0-alpha</opentelemetry-semconv.version>
 		<jaeger.version>3.3.1</jaeger.version>
 		<freemarker.version>2.3.31</freemarker.version>
 		<camel.version>3.19.0</camel.version>
-		<idscp2.version>0.11.1</idscp2.version>
+		<idscp2.version>0.13.0</idscp2.version>
 		<protobuf.version>3.21.9</protobuf.version>
 		<jsonwebtoken.version>0.11.5</jsonwebtoken.version>
 		<spring-security-core.version>5.7.5</spring-security-core.version>
@@ -93,7 +93,7 @@
 		<maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
 		<maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
 		<pitest-junit5-plugin.version>1.1.0</pitest-junit5-plugin.version>
-		<pitest.version>1.9.9</pitest.version>
+		<pitest.version>1.9.10</pitest.version>
 		<tidy.version>1.2.0</tidy.version>
 		<maven-site-plugin.version>3.12.1</maven-site-plugin.version>
 		<maven-project-info-reports-plugin.version>3.4.1</maven-project-info-reports-plugin.version>
@@ -305,7 +305,7 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-			<version>9.7.0</version>
+			<version>9.8.1</version>
 		</dependency>
 
 		<dependency>

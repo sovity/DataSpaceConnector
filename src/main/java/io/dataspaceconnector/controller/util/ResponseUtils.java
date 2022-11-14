@@ -15,7 +15,7 @@
  */
 package io.dataspaceconnector.controller.util;
 
-import de.fhg.aisec.ids.idscp2.idscp_core.error.Idscp2Exception;
+import de.fhg.aisec.ids.idscp2.core.error.Idscp2Exception;
 import io.dataspaceconnector.common.exception.ErrorMessage;
 import io.dataspaceconnector.common.net.JsonResponse;
 import io.dataspaceconnector.service.message.handler.dto.Response;

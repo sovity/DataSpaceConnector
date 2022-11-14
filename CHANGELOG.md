@@ -8,17 +8,20 @@ All notable changes to this project will be documented in this file.
 - Truststore-alias was removed
 
 ### Dependencies
+- Bump opentelemetry.version from 1.19.0 to 1.20.0
+- Bump opentelemetry-semconv.version from 1.19.0-alpha to 1.20.0-alpha
+- Bump idscp2.version from 0.11.1 to 0.13.0
 - Bump spring-security-core.version from 5.7.3 to 5.7.5
 - Bump pmd.version from 6.50.0 to 6.51.0
 - Bump springdoc.version from 1.6.11 to 1.6.12
 - Bump jackson-databind from 2.14.0-rc1 to 2.14.0
 - Bump jackson.version from 2.14.0-rc1 to 2.14.0
-- Bump pitest-maven from 1.9.7 to 1.9.9
+- Bump pitest-maven from 1.9.7 to 1.9.10
 - Bump swagger-annotations from 1.6.7 to 1.6.8
 - Bump jose4j from 0.9.0 to 0.9.2
 - Bump versions-maven-plugin from 2.12.0 to 2.13.0
 - Bump protobuf-java from 3.21.7 to 3.21.9
-- Bump flyway-core from 9.4.0 to 9.7.0
+- Bump flyway-core from 9.4.0 to 9.8.1
 - Bump spotbugs-annotations from 4.7.2 to 4.7.3
 - Bump spring-boot-starter-parent from 2.7.4 to 2.7.5
 - Bump dependency-check-maven from 7.2.1 to 7.3.0
