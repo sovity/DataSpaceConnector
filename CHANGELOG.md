@@ -8,8 +8,8 @@ All notable changes to this project will be documented in this file.
 - Truststore-alias was removed
 
 ### Dependencies
-- Bump opentelemetry.version from 1.19.0 to 1.20.0
-- Bump opentelemetry-semconv.version from 1.19.0-alpha to 1.20.0-alpha
+- Bump opentelemetry.version from 1.19.0 to 1.20.1
+- Bump opentelemetry-semconv.version from 1.19.0-alpha to 1.20.1-alpha
 - Bump idscp2.version from 0.11.1 to 0.13.0
 - Bump spring-security-core.version from 5.7.3 to 5.7.5
 - Bump pmd.version from 6.50.0 to 6.51.0
