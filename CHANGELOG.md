@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 - Bump springdoc.version from 1.6.11 to 1.6.12
 - Bump jackson-databind from 2.14.0-rc1 to 2.14.0
 - Bump jackson.version from 2.14.0-rc1 to 2.14.0
-- Bump pitest-maven from 1.9.7 to 1.9.10
+- Bump pitest-maven from 1.9.7 to 1.9.11
 - Bump swagger-annotations from 1.6.7 to 1.6.9
 - Bump jose4j from 0.9.0 to 0.9.2
 - Bump versions-maven-plugin from 2.12.0 to 2.13.0
