@@ -24,7 +24,7 @@ All notable changes to this project will be documented in this file.
 - Bump flyway-core from 9.4.0 to 9.8.1
 - Bump spotbugs-annotations from 4.7.2 to 4.7.3
 - Bump spring-boot-starter-parent from 2.7.4 to 2.7.5
-- Bump dependency-check-maven from 7.2.1 to 7.3.0
+- Bump dependency-check-maven from 7.2.1 to 7.3.1
 - Bump equalsverifier from 3.10.1 to 3.11
 - Bump checkstyle from 10.3.4 to 10.4
 
