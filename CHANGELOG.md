@@ -14,8 +14,8 @@ All notable changes to this project will be documented in this file.
 - Bump spring-security-core.version from 5.7.3 to 5.7.5
 - Bump pmd.version from 6.50.0 to 6.51.0
 - Bump springdoc.version from 1.6.11 to 1.6.13
-- Bump jackson-databind from 2.14.0-rc1 to 2.14.0
-- Bump jackson.version from 2.14.0-rc1 to 2.14.0
+- Bump jackson-databind from 2.14.0-rc1 to 2.14.1
+- Bump jackson.version from 2.14.0-rc1 to 2.14.1
 - Bump pitest-maven from 1.9.7 to 1.9.11
 - Bump swagger-annotations from 1.6.7 to 1.6.9
 - Bump jose4j from 0.9.0 to 0.9.2
@@ -27,6 +27,7 @@ All notable changes to this project will be documented in this file.
 - Bump dependency-check-maven from 7.2.1 to 7.3.2
 - Bump equalsverifier from 3.10.1 to 3.11.1
 - Bump checkstyle from 10.3.4 to 10.4
+- Bump postgresql version from 42.5.0 to 42.5.1
 
 ## [8.0.2] - 2022-10-11
 

@@ -73,8 +73,8 @@
 		<swagger-annotations.version>1.6.9</swagger-annotations.version>
 		<okhttp.version>4.10.0</okhttp.version>
 		<modelmapper.version>3.1.0</modelmapper.version>
-		<jackson.version>2.14.0</jackson.version>
-		<jackson-databind.version>2.14.0</jackson-databind.version>
+		<jackson-databind.version>2.14.1</jackson-databind.version>
+		<jackson.version>2.14.1</jackson.version>
 		<springdoc.version>1.6.13</springdoc.version>
 		<equalsverifier.version>3.11.1</equalsverifier.version>
 		<opentelemetry-semconv.version>1.20.1-alpha</opentelemetry-semconv.version>
@@ -116,7 +116,7 @@
 
 		<!-- Supported Databases -->
 		<h2.version>2.1.212</h2.version>
-		<postgres.version>42.5.0</postgres.version>
+		<postgres.version>42.5.1</postgres.version>
 
 		<!-- License -->
 		<license_name>Apache License, Version 2.0</license_name>
