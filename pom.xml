@@ -82,7 +82,7 @@
 		<jaeger.version>3.3.1</jaeger.version>
 		<freemarker.version>2.3.31</freemarker.version>
 		<camel.version>3.19.0</camel.version>
-		<idscp2.version>0.13.2</idscp2.version>
+		<idscp2.version>0.13.3</idscp2.version>
 		<protobuf.version>3.21.9</protobuf.version>
 		<jsonwebtoken.version>0.11.5</jsonwebtoken.version>
 		<spring-security-core.version>5.7.5</spring-security-core.version>
@@ -101,9 +101,9 @@
 		<spotbugs.plugin.version>4.7.2.1</spotbugs.plugin.version>
 		<findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
 		<checkstyle-plugin.version>3.2.0</checkstyle-plugin.version>
-		<checkstyle.version>10.4</checkstyle.version>
+		<checkstyle.version>10.5.0</checkstyle.version>
 		<jacoco.version>0.8.8</jacoco.version>
-		<pmd.version>6.51.0</pmd.version>
+		<pmd.version>6.52.0</pmd.version>
 		<pmd-plugin.version>3.19.0</pmd-plugin.version>
 		<versions-maven-plugin.version>2.13.0</versions-maven-plugin.version>
 		<license-plugin.version>4.1</license-plugin.version>
@@ -305,7 +305,7 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-			<version>9.8.2</version>
+			<version>9.8.3</version>
 		</dependency>
 
 		<dependency>

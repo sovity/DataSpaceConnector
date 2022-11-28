@@ -10,9 +10,9 @@ All notable changes to this project will be documented in this file.
 ### Dependencies
 - Bump opentelemetry.version from 1.19.0 to 1.20.1
 - Bump opentelemetry-semconv.version from 1.19.0-alpha to 1.20.1-alpha
-- Bump idscp2.version from 0.11.1 to 0.13.2
+- Bump idscp2.version from 0.11.1 to 0.13.3
 - Bump spring-security-core.version from 5.7.3 to 5.7.5
-- Bump pmd.version from 6.50.0 to 6.51.0
+- Bump pmd.version from 6.50.0 to 6.52.0
 - Bump springdoc.version from 1.6.11 to 1.6.13
 - Bump jackson-databind from 2.14.0-rc1 to 2.14.1
 - Bump jackson.version from 2.14.0-rc1 to 2.14.1
@@ -21,12 +21,12 @@ All notable changes to this project will be documented in this file.
 - Bump jose4j from 0.9.0 to 0.9.2
 - Bump versions-maven-plugin from 2.12.0 to 2.13.0
 - Bump protobuf-java from 3.21.7 to 3.21.9
-- Bump flyway-core from 9.4.0 to 9.8.1
+- Bump flyway-core from 9.4.0 to 9.8.3
 - Bump spotbugs-annotations from 4.7.2 to 4.7.3
 - Bump spring-boot-starter-parent from 2.7.4 to 2.7.5
 - Bump dependency-check-maven from 7.2.1 to 7.3.2
 - Bump equalsverifier from 3.10.1 to 3.11.1
-- Bump checkstyle from 10.3.4 to 10.4
+- Bump checkstyle from 10.3.4 to 10.5.0
 - Bump postgresql version from 42.5.0 to 42.5.1
 
 ## [8.0.2] - 2022-10-11
