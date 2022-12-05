@@ -65,7 +65,7 @@ A mailing list dealing with DAPS certificates and questions regarding the key ma
 The Participant Information System (ParIS) is available at [https://paris.ids.isst.fraunhofer.de](https://paris.ids.isst.fraunhofer.de).
 It expects IDS multipart messages at [https://paris.ids.isst.fraunhofer.de/infrastructure](https://paris.ids.isst.fraunhofer.de/infrastructure).
 The GUI can be accessed at [https://paris.ids.isst.fraunhofer.de/browse](https://paris.ids.isst.fraunhofer.de/browse).
-To get your IP address unblocked, please contact [us](mailto:info@dataspace-connector.de).
+To get your IP address unblocked, please contact [us](mailto:support@sovity.de).
 
 The [repository](https://github.com/International-Data-Spaces-Association/ParIS-open-core) is open
 core and can be accessed at GitHub. Further documentation about the ParIS can be seen

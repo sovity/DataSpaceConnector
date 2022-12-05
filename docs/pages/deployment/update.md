@@ -34,7 +34,7 @@ as the latest release. This will look as follows, e.g.:
   "contact": {
     "organization": "Fraunhofer Institute for Software and Systems Engineering",
     "website": "https://www.dataspace-connector.io/",
-    "email": "info@dataspace-connector.de"
+    "email": "support@sovity.de"
   },
   "license": {
     "name": "Apache License, Version 2.0",

@@ -68,7 +68,7 @@ extensible software that encapsulates the IDS information model from connected s
 |:--------|:--------|:------|:--------|
 | [IDS Information Model Library](https://maven.iais.fraunhofer.de/artifactory/eis-ids-public/de/fraunhofer/iais/eis/ids/infomodel/) | [Apache 2.0](https://github.com/International-Data-Spaces-Association/Java-Representation-of-IDS-Information-Model) | Fraunhofer IAIS | [E-Mail IAIS](mailto:contact@ids.fraunhofer.de) |
 | [IDS Information Model Serializer Library](https://maven.iais.fraunhofer.de/artifactory/eis-ids-public/de/fraunhofer/iais/eis/ids/infomodel-serializer/) | Apache 2.0 | Fraunhofer IAIS | [E-Mail IAIS](mailto:contact@ids.fraunhofer.de) |
-| [IDS Messaging Service](https://github.com/International-Data-Spaces-Association/IDS-Messaging-Services) | [Apache 2.0](https://github.com/International-Data-Spaces-Association/IDS-Messaging-Services) | Fraunhofer ISST & IAIS | [E-Mail ISST](mailto:info@dataspace-connector.de), [E-Mail IAIS](mailto:contact@ids.fraunhofer.de) |
+| [IDS Messaging Service](https://github.com/International-Data-Spaces-Association/IDS-Messaging-Services) | [Apache 2.0](https://github.com/International-Data-Spaces-Association/IDS-Messaging-Services) | sovity | [E-Mail sovity](mailto:support@sovity.de) |
 
 The [ConfigManager](https://github.com/FraunhoferISST/IDS-ConfigurationManager) and its
 [GUI](https://github.com/International-Data-Spaces-Association/IDS-ConfigurationManager-UI) are a

@@ -17,7 +17,9 @@ integrate it in your use cases, or contribute to its development.
 
 ---
 
-The Dataspace Connector is an IDS connector that is being developed at Fraunhofer ISST. With the
+The Dataspace Connector is an IDS connector that is currently being maintained by [sovity](https://sovity.de/).
+The connector was originally developed at the Fraunhofer ISST.
+With the
 help of the Dataspace Connector, existing software can easily be extended by IDS connector
 functionalities in order to integrate them into an IDS data ecosystem. Furthermore, it is possible
 to use the Dataspace Connector as a basis for the development of own software that is to be

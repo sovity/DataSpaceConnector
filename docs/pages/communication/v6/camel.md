@@ -378,8 +378,9 @@ has to be added to the `pom.xml` first!
 Routes can also be used in subscriptions. For this, a route (including the generic endpoint) has
 to be created as described in the chapter
 [Create a route for dispatching data](#create-a-route-for-dispatching-data). Then, when creating a
-new subscription, that route's self-link can be set as the `location` of the subscription. To
-create a subscription using the route, make a request to `POST /api/subscriptions` with the
+new subscription, that route's self-link can be set as the `location` of the subscription.
+The `[subscription-target]` can be the self-link of the artifact.
+To create a subscription using the route, make a request to `POST /api/subscriptions` with the
 following request body:
 
 ```json

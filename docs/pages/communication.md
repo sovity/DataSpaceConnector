@@ -34,17 +34,18 @@ when setting up a data exchange example deployment.
 
 ---
 
-## Test Deployment
+## Deployment
 
-An instance of the Dataspace Connector is currently available in the IDS Lab at
-[https://simpleconnector.ids.isst.fraunhofer.de/](https://simpleconnector.ids.isst.fraunhofer.de/).
-It can only be reached from inside a VPN network. To get your IP address unblocked, please contact
-[us](mailto:info@dataspace-connector.de).
-* The connector self-description is available at [https://simpleconnector.ids.isst.fraunhofer.de/](https://simpleconnector.ids.isst.fraunhofer.de/) (GET).
-* The open endpoint for IDS communication is
-  [https://simpleconnector.ids.isst.fraunhofer.de/api/ids/data](https://simpleconnector.ids.isst.fraunhofer.de/api/ids/data) (POST).
+If you are interested in a test instance of the Dataspace Connector without having to configure and run it locally,
+reach out to sovity at contact@sovity.de.
+
+## General information on Communication
+
+Once you have a connector running it is possible to access the self-description by navigating to the connector's
+address. Assuming you're running the connector locally:
+* The connector self-description is available at https://localhost:8080/ (GET).
+* The open endpoint for IDS communication is https://localhost:8080/api/ids/data (POST).
 * The backend API and its endpoints (`/api/**`) are only accessible to users with admin rights.
-
 When requesting the connector's self-description, the included catalog gives information about
 available resources. The resource id is essential for requesting an artifact or description.
 
