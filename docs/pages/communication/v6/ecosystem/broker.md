@@ -16,11 +16,6 @@ This section provides a detailed guide on communication with the IDS Metadata Br
 
 ---
 
-The IDS Metadata Broker is available at
-[https://broker.ids.isst.fraunhofer.de](https://broker.ids.isst.fraunhofer.de). It expects IDS
-multipart messages at [https://broker.ids.isst.fraunhofer.de/infrastructure](https://broker.ids.isst.fraunhofer.de/infrastructure).
-The GUI can be accessed at [https://broker.ids.isst.fraunhofer.de/browse](https://broker.ids.isst.fraunhofer.de/browse).
-To get your IP address unblocked, please contact [us](mailto:support@sovity.de).
 
 The [repository](https://github.com/International-Data-Spaces-Association/metadata-broker-open-core)
 is open source and can be accessed at GitHub. Further documentation about the IDS Metadata Broker
